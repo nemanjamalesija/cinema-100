@@ -1,4 +1,6 @@
-export const data = [
+import { singleMovie } from './types';
+
+export const data: singleMovie[] = [
   {
     rank: 1,
     title: 'The Shawshank Redemption',

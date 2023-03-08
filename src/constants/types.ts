@@ -9,6 +9,7 @@ export type singleMovie = {
   year: number;
   image: string;
   description: string;
+  director: string[];
   trailer: string;
   genre: string[];
   writers: string[];

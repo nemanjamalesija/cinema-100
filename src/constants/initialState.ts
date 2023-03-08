@@ -11,6 +11,7 @@ export const initialState: appState = {
       year: 0,
       image: '',
       description: '',
+      director: [''],
       trailer: '',
       genre: [''],
       writers: [''],
