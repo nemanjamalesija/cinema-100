@@ -18,6 +18,7 @@ export type singleMovie = {
 
 export type appState = {
   movies: singleMovie[];
+  moviesHome: singleMovie[];
 };
 
 export type ACTIONS = {

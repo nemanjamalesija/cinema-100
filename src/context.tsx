@@ -17,6 +17,8 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: 'SET_MOVIES', payload: data });
   }, []);
 
+  console.log(state.moviesHome);
+
   return (
     <AppContext.Provider
       value={{
