@@ -6,7 +6,7 @@ type movieCardProps = {
   imdbid: string;
   genre: string[];
   year: number;
-  thumbnail: string;
+  image: string;
   rating: string;
 };
 
@@ -15,13 +15,13 @@ const MovieCard = ({
   imdbid,
   genre,
   year,
-  thumbnail,
+  image,
   rating,
 }: movieCardProps) => {
   return (
-    <article className="movie-card__article">
+    <article className="movie-card">
       <header className="movie-card__header">
-        <img src={thumbnail} alt={title} className="movie-card__image" />
+        <img src={image} alt={title} className="movie-card__image" />
       </header>
       <div className="movie-card__info">
         <p className="movie-card__info--p">{year}</p>
@@ -31,10 +31,13 @@ const MovieCard = ({
           </span>
           <span className="movie-card__rating">{rating}</span>
         </div>
-        {genre.map((g) => {
-          return <p className="movie-card__info--p-star">{g}</p>;
-        })}
+        <div className="movie-card__genre-div">
+          {genre.map((g) => {
+            return <p className="movie-card__info--p">{g}</p>;
+          })}
+        </div>
       </div>
+      <h3 className="movie-card__heading">{title}</h3>
     </article>
   );
 };

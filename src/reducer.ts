@@ -5,7 +5,7 @@ const reducer = (state: appState, action: ACTIONS) => {
 
   switch (type) {
     case 'SET_MOVIES':
-      const moviesHome = payload.slice(1, 26);
+      const moviesHome = payload.slice(0, 24);
 
       return { ...state, movies: payload, moviesHome };
 

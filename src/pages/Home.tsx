@@ -8,11 +8,13 @@ const Home = () => {
   } = useAppContext();
 
   return (
-    <div>
-      {moviesHome.map((movie, i) => {
-        return <MovieCard key={movie.imdbid} {...movie} />;
-      })}
-    </div>
+    <section className="section section__home">
+      <div className="container container__home">
+        {moviesHome.map((movie, i) => {
+          return <MovieCard key={movie.imdbid} {...movie} />;
+        })}
+      </div>
+    </section>
   );
 };
 
