@@ -10,9 +10,12 @@ const Home = () => {
   return (
     <section className="section section__home">
       <div className="container container__home">
-        {moviesHome.map((movie, i) => {
-          return <MovieCard key={movie.imdbid} {...movie} />;
-        })}
+        <h2 className="heading--secondary">Recomended for you</h2>
+        <div className="container__movies">
+          {moviesHome.map((movie, i) => {
+            return <MovieCard key={movie.imdbid} {...movie} />;
+          })}
+        </div>
       </div>
     </section>
   );
