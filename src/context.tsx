@@ -1,20 +1,22 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import App from './App';
 import reducer from './reducer';
 import { initialState } from './constants/initialState';
+import { appState, contextValues } from './constants/types';
+import { data } from './constants/data';
 
-const AppContext = React.createContext<any>({
-  state: {},
+const AppContext = React.createContext<contextValues>({
+  state: initialState,
   dispatch: (action: any) => {},
 });
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [stateCart, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <AppContext.Provider
       value={{
-        state: {},
+        state: { ...state },
         dispatch,
       }}
     >

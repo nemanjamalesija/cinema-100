@@ -1,4 +1,6 @@
-const reducer = (state: any, action: any) => {
+import { ACTIONS, appState } from './constants/types';
+
+const reducer = (state: appState, action: ACTIONS) => {
   return { ...state };
 };
 
