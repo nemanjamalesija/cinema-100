@@ -32,12 +32,18 @@ const MovieCard = ({
           <span className="movie-card__rating">{rating}</span>
         </div>
         <div className="movie-card__genre-div">
-          {genre.map((g) => {
-            return <p className="movie-card__info--p">{g}</p>;
+          {genre.map((g, i) => {
+            return (
+              <p className="movie-card__info--p">
+                {i >= genre.length - 1 ? g : g + ','}
+              </p>
+            );
           })}
         </div>
       </div>
-      <h3 className="movie-card__heading">{title}</h3>
+      <h3 className="movie-card__heading">
+        {title.length >= 40 ? title.slice(0, 40) + '...' : title}
+      </h3>
     </article>
   );
 };
