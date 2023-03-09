@@ -31,7 +31,7 @@ const Trending = () => {
         <div
           className="card--wrapper"
           style={{
-            transform: `translateX(${currSetOfSlides * 100}px)`,
+            transform: `translateX(${currSetOfSlides * 320}px)`,
           }}
         >
           {trendingMovies.map((movie, i) => {

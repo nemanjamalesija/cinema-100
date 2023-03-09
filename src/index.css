@@ -33,7 +33,7 @@ body {
 }
 
 .heading-movies {
-  margin-top: 50rem;
+  margin-top: 4.2rem;
 }
 
 /* movie card */
@@ -97,7 +97,6 @@ body {
 
 /* TRENDING*/
 .section__trending {
-  width: 140rem;
   position: relative;
 }
 .section__trending .btn {
@@ -114,10 +113,10 @@ body {
   z-index: 999;
 }
 .section__trending .btn--slide-left {
-  left: -11%;
+  left: 8%;
 }
 .section__trending .btn--slide-right {
-  right: -9%;
+  right: 5%;
 }
 
 .container__trending {
@@ -130,7 +129,7 @@ body {
 .container__trending .card--wrapper {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -30%;
   display: flex;
   transition: all 0.3s ease;
 }
@@ -140,8 +139,7 @@ body {
 }
 .container__trending .cardoni > .movie-card {
   flex: 0 0 auto;
-  width: 24rem;
-  height: 50px;
+  width: 32rem;
   margin-right: 10px;
   align-items: center;
 }
