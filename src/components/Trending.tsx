@@ -22,7 +22,7 @@ const Trending = () => {
 
   return (
     <section className="section__trending">
-      <h2 className="heading--secondary">Trending movies</h2>
+      <h2 className="heading--trending">Trending movies</h2>
 
       <button className="btn btn--slide-left" onClick={sldierHandlerLeft}>
         &#x2190;{' '}

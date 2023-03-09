@@ -112,6 +112,15 @@ body {
 .section__trending {
   position: relative;
 
+  .heading--trending {
+    width: 100rem;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
   .btn {
     position: absolute;
     top: 40%;
