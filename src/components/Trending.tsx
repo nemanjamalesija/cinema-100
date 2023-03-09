@@ -18,27 +18,30 @@ const Trending = () => {
 
   return (
     <section className="section__trending">
+      <h2 className="heading--secondary">Trending movies</h2>
+
+      <button className="btn btn--slide-left" onClick={sldierHandlerLeft}>
+        &#x2190;{' '}
+      </button>
+      <button className="btn btn--slide-right" onClick={sldierHandlerRight}>
+        &#x2192;
+      </button>
+
       <div className="container container__trending">
-        <div className="card--wrapper">
+        <div
+          className="card--wrapper"
+          style={{
+            transform: `translateX(${currSetOfSlides * 100}px)`,
+          }}
+        >
           {trendingMovies.map((movie, i) => {
             return (
-              <div
-                className="cardoni"
-                style={{
-                  transform: `translateX(${currSetOfSlides * (i + 1) * 100}%)`,
-                }}
-              >
+              <div className="cardoni">
                 <MovieCard key={movie.imdbid} {...movie} />
               </div>
             );
           })}
         </div>
-        <button className="btn--slide-left" onClick={sldierHandlerLeft}>
-          &#x2190;{' '}
-        </button>
-        <button className="btn--slide-right" onClick={sldierHandlerRight}>
-          &#x2192;
-        </button>
       </div>
     </section>
   );

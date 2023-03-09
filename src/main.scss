@@ -109,17 +109,46 @@ body {
 
 /* TRENDING*/
 
+.section__trending {
+  width: 140rem;
+  position: relative;
+
+  .btn {
+    position: absolute;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    opacity: 75%;
+    font-size: 1.8rem;
+    background-color: #fff;
+    z-index: 999;
+  }
+
+  .btn--slide-left {
+    left: -11%;
+  }
+
+  .btn--slide-right {
+    right: -9%;
+  }
+}
+
 .container__trending {
   transition: transform 0.5s ease;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
-  height: 5rem;
+  height: 20rem;
+  z-index: 998;
 
   .card--wrapper {
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
+    transition: all 0.3s ease;
   }
 
   .cardoni {
@@ -137,28 +166,5 @@ body {
 
   .transform--right {
     transform: translateX(25%);
-  }
-
-  .btn--slide-left,
-  .btn--slide-right {
-    position: absolute;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    padding: 1rem;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    opacity: 75%;
-    font-size: 1.8rem;
-    background-color: #fff;
-    z-index: 999;
-  }
-
-  .btn--slide-left {
-    left: -3%;
-  }
-
-  .btn--slide-right {
-    right: -7%;
   }
 }

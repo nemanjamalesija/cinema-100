@@ -10,9 +10,8 @@ const Home = () => {
 
   return (
     <section className="section section__home">
+      <Trending />
       <div className="container container__home">
-        <h2 className="heading--secondary">Trending movies</h2>
-        <Trending />
         <h2 className="heading--secondary heading-movies">
           Recomended for you
         </h2>

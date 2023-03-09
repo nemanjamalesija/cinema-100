@@ -96,17 +96,43 @@ body {
 }
 
 /* TRENDING*/
+.section__trending {
+  width: 140rem;
+  position: relative;
+}
+.section__trending .btn {
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  opacity: 75%;
+  font-size: 1.8rem;
+  background-color: #fff;
+  z-index: 999;
+}
+.section__trending .btn--slide-left {
+  left: -11%;
+}
+.section__trending .btn--slide-right {
+  right: -9%;
+}
+
 .container__trending {
   transition: transform 0.5s ease;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
-  height: 5rem;
+  height: 20rem;
+  z-index: 998;
 }
 .container__trending .card--wrapper {
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
+  transition: all 0.3s ease;
 }
 .container__trending .cardoni {
   width: 100%;
@@ -121,26 +147,6 @@ body {
 }
 .container__trending .transform--right {
   transform: translateX(25%);
-}
-.container__trending .btn--slide-left,
-.container__trending .btn--slide-right {
-  position: absolute;
-  top: 40%;
-  transform: translate(-50%, -50%);
-  padding: 1rem;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  opacity: 75%;
-  font-size: 1.8rem;
-  background-color: #fff;
-  z-index: 999;
-}
-.container__trending .btn--slide-left {
-  left: -3%;
-}
-.container__trending .btn--slide-right {
-  right: -7%;
 }
 
 /*# sourceMappingURL=index.css.map */
