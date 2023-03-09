@@ -34,7 +34,7 @@ const MovieCard = ({
         <div className="movie-card__genre-div">
           {genre.map((g, i) => {
             return (
-              <p className="movie-card__info--p">
+              <p key={i} className="movie-card__info--p">
                 {i >= genre.length - 1 ? g : g + ','}
               </p>
             );
