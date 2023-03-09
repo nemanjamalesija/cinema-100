@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useReducer } from 'react';
-import App from './App';
 import reducer from './reducer';
 import { initialState } from './constants/initialState';
-import { ACTIONS, appState, contextValues } from './constants/types';
+import { ACTIONS, contextValues } from './constants/types';
 import { data } from './constants/data';
 
 const AppContext = React.createContext<contextValues>({
@@ -17,7 +16,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: 'SET_MOVIES', payload: data });
   }, []);
 
-  console.log(state.moviesHome);
+  console.log(state);
 
   return (
     <AppContext.Provider

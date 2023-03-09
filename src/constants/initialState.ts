@@ -20,5 +20,6 @@ export const movies = [
 
 export const initialState: appState = {
   movies,
-  moviesHome: movies,
+  moviesHome: [...movies],
+  trendingMovies: [...movies],
 };
