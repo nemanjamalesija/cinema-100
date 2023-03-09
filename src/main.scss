@@ -104,8 +104,34 @@ body {
 }
 
 /* TRENDING*/
+.section__trending {
+  position: relative;
+}
+
 .container__trending {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+
+.btn--slide-left,
+.btn--slide-right {
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  opacity: 75%;
+  font-size: 1.8rem;
+  background-color: #fff;
+}
+
+.btn--slide-left {
+  left: -3%;
+}
+
+.btn--slide-right {
+  right: -7%;
 }

@@ -14,8 +14,8 @@ const Trending = () => {
           return <MovieCard key={movie.imdbid} {...movie} />;
         })}
       </div>
-      <button className="btn-slide-left"></button>
-      <button className="btn-slide-right"></button>
+      <button className="btn--slide-left">&#x2190; </button>
+      <button className="btn--slide-right">&#x2192;</button>
     </section>
   );
 };
