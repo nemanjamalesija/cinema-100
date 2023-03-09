@@ -6,7 +6,7 @@ const Trending = () => {
   const {
     state: { trendingMovies },
   } = useAppContext();
-  const [currSetOfSlides, setCurrSetOfSlides] = useState(1);
+  const [currSetOfSlides, setCurrSetOfSlides] = useState(-5);
 
   const sldierHandlerRight = () => {
     setCurrSetOfSlides((prev) => prev + 1);
@@ -15,6 +15,8 @@ const Trending = () => {
   const sldierHandlerLeft = () => {
     setCurrSetOfSlides((prev) => prev - 1);
   };
+
+  console.log(currSetOfSlides);
 
   return (
     <section className="section__trending">
@@ -31,7 +33,7 @@ const Trending = () => {
         <div
           className="card--wrapper"
           style={{
-            transform: `translateX(${currSetOfSlides * 320}px)`,
+            transform: `translateX(${currSetOfSlides * 243}px)`,
           }}
         >
           {trendingMovies.map((movie, i) => {
