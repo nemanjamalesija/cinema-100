@@ -13,7 +13,7 @@ const reducer = (state: appState, action: ACTIONS) => {
     case 'SET_MOVIES':
       const moviesHome = payload.slice(0, 24);
       const randomIndex = getRandomNumber(payload);
-      const trendingMovies = payload.slice(randomIndex, randomIndex + 4);
+      const trendingMovies = payload.slice(randomIndex, randomIndex + 10);
 
       return {
         ...state,
