@@ -9,11 +9,13 @@ const Trending = () => {
   const [currSetOfSlides, setCurrSetOfSlides] = useState(-5);
 
   const sldierHandlerRight = () => {
-    setCurrSetOfSlides((prev) => prev + 1);
+    if (currSetOfSlides === 2) return;
+    else setCurrSetOfSlides((prev) => prev + 1);
   };
 
   const sldierHandlerLeft = () => {
-    setCurrSetOfSlides((prev) => prev - 1);
+    if (currSetOfSlides === -16) return;
+    else setCurrSetOfSlides((prev) => prev - 1);
   };
 
   console.log(currSetOfSlides);
