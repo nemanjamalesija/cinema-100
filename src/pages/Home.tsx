@@ -13,7 +13,9 @@ const Home = () => {
       <div className="container container__home">
         <h2 className="heading--secondary">Trending movies</h2>
         <Trending />
-        <h2 className="heading--secondary">Recomended for you</h2>
+        <h2 className="heading--secondary heading-movies">
+          Recomended for you
+        </h2>
         <div className="container__movies">
           {moviesHome.map((movie, i) => {
             return <MovieCard key={movie.imdbid} {...movie} />;
