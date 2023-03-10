@@ -18,32 +18,12 @@ const Trending = () => {
     else setCurrSetOfSlides((prev) => prev - 1);
   };
 
-  console.log(currSetOfSlides);
-
   return (
     <section className="section__trending">
-      <h2 className="heading--trending">Trending movies</h2>
-
-      <button className="btn btn--slide-left" onClick={sldierHandlerLeft}>
-        &#x2190;{' '}
-      </button>
-      <button className="btn btn--slide-right" onClick={sldierHandlerRight}>
-        &#x2192;
-      </button>
-
       <div className="container container__trending">
-        <div
-          className="card--wrapper"
-          style={{
-            transform: `translateX(${currSetOfSlides * 243}px)`,
-          }}
-        >
+        <div className="card--wrapper">
           {trendingMovies.map((movie, i) => {
-            return (
-              <div className="cardoni">
-                <MovieCard key={movie.imdbid} {...movie} />
-              </div>
-            );
+            return <img src={movie.image} key={movie.imdbid} />;
           })}
         </div>
       </div>
