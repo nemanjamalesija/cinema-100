@@ -30,8 +30,8 @@ const Trending = () => {
   );
 
   const handleTranslateLeft = () => {
-    if (slideTranslate === -rowsNumber) setSlideTranslate(0);
-    setSlideTranslate((prev) => prev - 1);
+    if (slideTranslate === -rowsNumber + 1) setSlideTranslate(0);
+    else setSlideTranslate((prev) => prev - 1);
   };
 
   const handleTranslateRight = () => {
