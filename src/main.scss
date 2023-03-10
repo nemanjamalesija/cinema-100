@@ -40,20 +40,14 @@ body {
 /* movie card */
 
 .movie-card {
-  width: 100%;
-  height: 0;
-  padding-top: 100%;
-  position: relative;
-  margin-bottom: 5.2rem;
   display: flex;
   flex-direction: column;
+  height: auto;
+  max-height: 60%;
 
   &__header {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+
     border-radius: 1rem;
     overflow: hidden;
   }
@@ -73,7 +67,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 1.8rem;
+    margin-top: 0.8rem;
   }
 
   &__info--p,
@@ -98,7 +92,6 @@ body {
     margin-top: 0.4rem;
     color: #fff;
     width: 100%;
-    height: 10%;
   }
 }
 
@@ -118,7 +111,7 @@ body {
 
   .btn {
     position: absolute;
-    top: 40%;
+    top: 55%;
     transform: translate(-50%, -50%);
     padding: 1rem;
     border-radius: 50%;
@@ -130,11 +123,11 @@ body {
     z-index: 999;
   }
 
-  .btn--slide-left {
+  .btn__slide-left {
     left: 8%;
   }
 
-  .btn--slide-right {
+  .btn__slide-right {
     right: 5%;
   }
 }
@@ -154,5 +147,6 @@ body {
     aspect-ratio: 16 / 9;
     padding: 0.25rem;
     border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
   }
 }

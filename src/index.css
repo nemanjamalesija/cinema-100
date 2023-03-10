@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ html {
 
 body {
   background-color: #10141e;
-  font-family: "Outfit", sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .container {
@@ -22,7 +22,9 @@ body {
 .container__movies {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(0, max-content);
   column-gap: 1rem;
+  row-gap: 3rem;
 }
 
 .heading--secondary {
@@ -38,20 +40,12 @@ body {
 
 /* movie card */
 .movie-card {
-  width: 100%;
-  height: 0;
-  padding-top: 100%;
-  position: relative;
-  margin-bottom: 5.2rem;
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 .movie-card__header {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   border-radius: 1rem;
   overflow: hidden;
 }
@@ -59,6 +53,7 @@ body {
   width: 100%;
   height: 100%;
   object-position: center;
+  aspect-ratio: 16/ 9;
 }
 .movie-card__star {
   height: 1rem;
@@ -68,9 +63,10 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.8rem;
+  margin-top: 0.8rem;
 }
-.movie-card__info--p, .movie-card__rating {
+.movie-card__info--p,
+.movie-card__rating {
   font-size: 1rem;
   color: #fff;
   opacity: 75%;
@@ -88,7 +84,6 @@ body {
   margin-top: 0.4rem;
   color: #fff;
   width: 100%;
-  height: 10%;
 }
 
 /* TRENDING*/
@@ -105,7 +100,7 @@ body {
 }
 .section__trending .btn {
   position: absolute;
-  top: 40%;
+  top: 55%;
   transform: translate(-50%, -50%);
   padding: 1rem;
   border-radius: 50%;
@@ -116,10 +111,10 @@ body {
   background-color: #fff;
   z-index: 999;
 }
-.section__trending .btn--slide-left {
+.section__trending .btn__slide-left {
   left: 8%;
 }
-.section__trending .btn--slide-right {
+.section__trending .btn__slide-right {
   right: 5%;
 }
 
@@ -137,6 +132,7 @@ body {
   aspect-ratio: 16/9;
   padding: 0.25rem;
   border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -17,6 +17,8 @@ const Trending = () => {
           })}
         </div>
       </div>
+      <button className="btn btn__slide-left">&#x2190; </button>
+      <button className="btn btn__slide-right">&#x2192;</button>
     </section>
   );
 };
