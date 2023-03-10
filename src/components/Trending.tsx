@@ -6,6 +6,7 @@ const Trending = () => {
   const {
     state: { trendingMovies },
   } = useAppContext();
+  const [slideIndex, setSlideIntex] = useState(0);
 
   return (
     <section className="section__trending">
