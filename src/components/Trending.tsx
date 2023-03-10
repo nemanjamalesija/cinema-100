@@ -16,6 +16,8 @@ const Trending = () => {
     setSlideTranslate((prev) => prev + 1);
   };
 
+  console.log(slideTranslate);
+
   return (
     <section className="section__trending">
       <h2 className="heading__trending">Trending movies</h2>
@@ -26,16 +28,16 @@ const Trending = () => {
               <img
                 src={movie.image}
                 key={movie.imdbid}
-                style={{ transform: `translateX(${100 * slideTranslate}%)` }}
+                style={{ transform: `translateX(${400 * slideTranslate}%)` }}
               />
             );
           })}
         </div>
       </div>
-      <button className="btn btn__slide-left" onClick={handleTranslateLeft}>
+      <button className="btn btn__slide-left" onClick={handleTranslateRight}>
         &#x2190;
       </button>
-      <button className="btn btn__slide-right" onClick={handleTranslateRight}>
+      <button className="btn btn__slide-right" onClick={handleTranslateLeft}>
         &#x2192;
       </button>
     </section>
