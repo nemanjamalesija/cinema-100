@@ -6,17 +6,6 @@ const Trending = () => {
   const {
     state: { trendingMovies },
   } = useAppContext();
-  const [currSetOfSlides, setCurrSetOfSlides] = useState(-5);
-
-  const sldierHandlerRight = () => {
-    if (currSetOfSlides === 2) return;
-    else setCurrSetOfSlides((prev) => prev + 1);
-  };
-
-  const sldierHandlerLeft = () => {
-    if (currSetOfSlides === -16) return;
-    else setCurrSetOfSlides((prev) => prev - 1);
-  };
 
   return (
     <section className="section__trending">
