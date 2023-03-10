@@ -93,13 +93,33 @@ body {
   position: relative;
 }
 
-.heading__trending {
+.heading-progress__container {
   width: 100rem;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading__trending {
   font-size: 1.8rem;
   color: #fff;
   font-weight: 400;
-  margin-bottom: 1rem;
+}
+
+.progress__bar {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.progress__bar--item {
+  background-color: #fff;
+  padding: 0.3rem 0.75rem;
+  opacity: 75%;
+}
+
+.progress__bar--active {
+  opacity: 100%;
 }
 
 .btn {

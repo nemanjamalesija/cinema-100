@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
-import MovieCard from './MovieCard';
 
 const Trending = () => {
   const {
@@ -37,7 +36,7 @@ const Trending = () => {
 
       <div className="container container__trending">
         <div className="card__wrapper">
-          {trendingMovies.map((movie, i) => {
+          {trendingMovies.map((movie) => {
             return (
               <img
                 className="card__wrapper--image"
