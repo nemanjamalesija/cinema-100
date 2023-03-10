@@ -23,6 +23,9 @@ const MovieCard = ({
       <header className="movie-card__header">
         <img src={image} alt={title} className="movie-card__image" />
       </header>
+      <h3 className="movie-card__heading">
+        {title.length >= 40 ? title.slice(0, 40) + '...' : title}
+      </h3>
       <div className="movie-card__info">
         <p className="movie-card__info--p">{year}</p>
         <div className="movie-card__info--p-star">
@@ -41,9 +44,6 @@ const MovieCard = ({
           })}
         </div>
       </div>
-      <h3 className="movie-card__heading">
-        {title.length >= 40 ? title.slice(0, 40) + '...' : title}
-      </h3>
     </article>
   );
 };
