@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
 import MovieCard from './MovieCard';
 
@@ -7,21 +7,34 @@ const Trending = () => {
     state: { trendingMovies },
   } = useAppContext();
   const [slideTranslate, setSlideTranslate] = useState(0);
-  const [sliderProgressBar, setSliderProgressBar] = useState(1);
+  const [itemsPerScreen, setItemsPerScreen] = useState(0);
+
+  useEffect(() => {
+    const root: Element | null = document.querySelector('.card__wrapper');
+    if (!root) return;
+    const value = getComputedStyle(root).getPropertyValue('--items-per-screen');
+    setItemsPerScreen(parseInt(value));
+  }, []);
+
+  const progressBar = Array.from({ length: itemsPerScreen }).map((_, index) => (
+    <div className="progress__bar--item" key={index}></div>
+  ));
 
   const handleTranslateLeft = () => {
-    if (slideTranslate === 0) setSlideTranslate((prev) => prev - 1);
+    setSlideTranslate((prev) => prev - 1);
   };
 
   const handleTranslateRight = () => {
     setSlideTranslate((prev) => prev + 1);
   };
 
-  console.log(slideTranslate);
-
   return (
     <section className="section__trending">
-      <h2 className="heading__trending">Trending movies</h2>
+      <div className="heading-progress__container">
+        <h2 className="heading__trending">Trending movies</h2>
+        <div className="progress__bar">{progressBar}</div>
+      </div>
+
       <div className="container container__trending">
         <div className="card__wrapper">
           {trendingMovies.map((movie, i) => {
