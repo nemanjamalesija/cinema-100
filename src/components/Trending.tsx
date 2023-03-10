@@ -7,9 +7,10 @@ const Trending = () => {
     state: { trendingMovies },
   } = useAppContext();
   const [slideTranslate, setSlideTranslate] = useState(0);
+  const [sliderProgressBar, setSliderProgressBar] = useState(1);
 
   const handleTranslateLeft = () => {
-    setSlideTranslate((prev) => prev - 1);
+    if (slideTranslate === 0) setSlideTranslate((prev) => prev - 1);
   };
 
   const handleTranslateRight = () => {
@@ -26,6 +27,7 @@ const Trending = () => {
           {trendingMovies.map((movie, i) => {
             return (
               <img
+                className="card__wrapper--image"
                 src={movie.image}
                 key={movie.imdbid}
                 style={{ transform: `translateX(${400 * slideTranslate}%)` }}
