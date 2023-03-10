@@ -118,7 +118,7 @@ body {
   opacity: 75%;
 }
 
-.progress__bar--active {
+.progress__bar--item-active {
   opacity: 100%;
 }
 

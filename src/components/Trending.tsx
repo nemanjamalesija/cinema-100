@@ -6,32 +6,46 @@ const Trending = () => {
     state: { trendingMovies },
   } = useAppContext();
   const [slideTranslate, setSlideTranslate] = useState(0);
-  const [itemsPerScreen, setItemsPerScreen] = useState(0);
+  const [rowsNumber, setRowsNumber] = useState(0);
 
   useEffect(() => {
     const root: Element | null = document.querySelector('.card__wrapper');
     if (!root) return;
     const value = getComputedStyle(root).getPropertyValue('--items-per-screen');
-    setItemsPerScreen(parseInt(value));
+    const rows = Math.ceil(trendingMovies.length / parseInt(value));
+    setRowsNumber(rows);
   }, []);
 
-  const progressBar = Array.from({ length: itemsPerScreen }).map((_, index) => (
-    <div className="progress__bar--item" key={index}></div>
-  ));
+  const progressBarItems = Array.from({ length: rowsNumber }).map(
+    (_, index) => (
+      <div
+        className={`${
+          -index === slideTranslate
+            ? 'progress__bar--item progress__bar--item-active'
+            : 'progress__bar--item'
+        }`}
+        key={index}
+      ></div>
+    )
+  );
 
   const handleTranslateLeft = () => {
+    if (slideTranslate === -rowsNumber) setSlideTranslate(0);
     setSlideTranslate((prev) => prev - 1);
   };
 
   const handleTranslateRight = () => {
-    setSlideTranslate((prev) => prev + 1);
+    if (slideTranslate === 0) setSlideTranslate(-rowsNumber + 1);
+    else setSlideTranslate((prev) => prev + 1);
   };
+
+  console.log(slideTranslate, rowsNumber);
 
   return (
     <section className="section__trending">
       <div className="heading-progress__container">
         <h2 className="heading__trending">Trending movies</h2>
-        <div className="progress__bar">{progressBar}</div>
+        <div className="progress__bar">{progressBarItems}</div>
       </div>
 
       <div className="container container__trending">
