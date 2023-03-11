@@ -1,6 +1,3 @@
-import clapperboard from '../utils/icons/clapperboard.png';
-import bookmark from '../utils/icons/bookmark.png';
-import heart from '../utils/icons/heart.png';
 import './sidebar.css';
 
 const Sidebar = () => {

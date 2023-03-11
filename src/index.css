@@ -34,10 +34,6 @@ body {
   font-weight: 400;
 }
 
-.heading-movies {
-  margin-top: 4.2rem;
-}
-
 .section__pagination {
   display: grid;
   grid-template-columns: 10rem auto;
