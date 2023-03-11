@@ -12,6 +12,7 @@
 .movie-card__image {
   width: 100%;
   aspect-ratio: 12/9;
+  min-height: 21.6rem;
   object-position: center;
 }
 .movie-card__star {

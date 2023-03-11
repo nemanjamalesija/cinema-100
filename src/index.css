@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
 
+:root {
+  --color--shade--primary: hsl(0, 0%, 75%);
+}
+
 * {
   margin: 0;
   padding: 0;

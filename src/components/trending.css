@@ -31,10 +31,12 @@
   background-color: #fff;
   padding: 0.3rem 0.75rem;
   opacity: 75%;
+  background-color: var(--color--shade--primary);
 }
 
 .progress__bar--item-active {
   opacity: 100%;
+  background-color: #fff;
 }
 
 .btn {
@@ -42,9 +44,8 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  opacity: 75%;
+  color: var(--color-shade-primary);
   font-size: 1.8rem;
-  background-color: #fff;
 }
 
 .container__trending {
