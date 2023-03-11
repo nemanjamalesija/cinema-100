@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useAppContext } from '../context';
 import HomeMovies from './HomeMovies';
-import MovieCard from './MovieCard';
 import PagiationButtons from './PagiationButtons';
 
 const Pagination = () => {
@@ -16,6 +15,7 @@ const Pagination = () => {
         <h2 className="heading--secondary heading-movies">
           Recomended for you
         </h2>
+
         <HomeMovies moviesHomeIndex={moviesHomeIndex} />
         <PagiationButtons
           setMoviesHomeIndex={setMoviesHomeIndex}

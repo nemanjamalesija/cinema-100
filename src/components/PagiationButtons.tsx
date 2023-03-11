@@ -38,6 +38,7 @@ const PagiationButtons = ({
             ? 'pagination__btn pagination__btn--active'
             : 'pagination__btn'
         }
+        onClick={() => setMoviesHomeIndex(i)}
       >
         {i + 1}
       </button>
