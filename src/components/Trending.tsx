@@ -7,14 +7,18 @@ const Trending = () => {
   } = useAppContext();
   const [slideTranslate, setSlideTranslate] = useState(0);
   const [rowsNumber, setRowsNumber] = useState(0);
+  const [itemsPerScreen, setItemsPerScreen] = useState(0);
 
   useEffect(() => {
     const root: Element | null = document.querySelector('.card__wrapper');
     if (!root) return;
-    const value = getComputedStyle(root).getPropertyValue('--items-per-screen');
-    const rows = Math.ceil(trendingMovies.length / parseInt(value));
+    const valueCSS =
+      getComputedStyle(root).getPropertyValue('--items-per-screen');
+    const rows = Math.ceil(trendingMovies.length / parseInt(valueCSS));
+
+    setItemsPerScreen(parseInt(valueCSS));
     setRowsNumber(rows);
-  }, [rowsNumber]);
+  }, [rowsNumber, itemsPerScreen]);
 
   const progressBarItems = Array.from({ length: rowsNumber }).map(
     (_, index) => (
@@ -56,7 +60,11 @@ const Trending = () => {
                 className="card__wrapper--image"
                 src={movie.image}
                 key={movie.imdbid}
-                style={{ transform: `translateX(${400 * slideTranslate}%)` }}
+                style={{
+                  transform: `translateX(${
+                    itemsPerScreen * 100 * slideTranslate
+                  }%)`,
+                }}
               />
             );
           })}

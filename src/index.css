@@ -149,7 +149,7 @@ body {
 }
 
 .card__wrapper {
-  --items-per-screen: 4;
+  --items-per-screen: 2;
   display: flex;
 }
 
