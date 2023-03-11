@@ -23,23 +23,23 @@ body {
 .container__movies {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 2.4rem;
+  row-gap: 4.2rem;
   column-gap: 0.5rem;
 }
 
 .heading--secondary {
-  font-size: 1.8rem;
+  font-size: 2.1rem;
   color: #fff;
   margin-bottom: 1.2rem;
   font-weight: 400;
 }
 
 .section__pagination {
-  display: grid;
-  grid-template-columns: 10rem auto;
-  gap: 3.2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .container__pagination {
-  width: 88.4%;
+  width: 110rem;
+  margin: 0 auto;
 }

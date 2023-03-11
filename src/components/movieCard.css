@@ -11,12 +11,12 @@
 }
 .movie-card__image {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 12/9;
   object-position: center;
 }
 .movie-card__star {
-  height: 1rem;
-  width: 1rem;
+  height: 1.4rem;
+  width: 1.4rem;
 }
 .movie-card__info {
   display: flex;
@@ -26,7 +26,7 @@
 }
 .movie-card__info--p,
 .movie-card__rating {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: #fff;
   opacity: 75%;
 }
@@ -43,4 +43,5 @@
   margin-top: 0.4rem;
   color: #fff;
   width: 100%;
+  font-size: 1.4rem;
 }

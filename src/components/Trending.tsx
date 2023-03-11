@@ -50,6 +50,7 @@ const Trending = () => {
         <button className="btn btn__slide-left" onClick={handleTranslateRight}>
           &#x2190;
         </button>
+
         <div className="section-center">
           <div className="heading-progress__container">
             <h2 className="heading__trending">Currently trending</h2>

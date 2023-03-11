@@ -5,20 +5,18 @@
   align-items: center;
   gap: 2rem;
   padding: 3.2rem 0 6.4rem 0;
-  width: 112rem;
+  width: 110rem;
   margin: 0 auto;
 }
 
 .heading-progress__container {
-  width: 100rem;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .heading__trending {
-  font-size: 1.8rem;
+  font-size: 2.1rem;
   color: #fff;
   font-weight: 400;
   margin-bottom: 1.2rem;
@@ -63,8 +61,7 @@
 .card__wrapper img {
   flex: 0 0 calc(100% / var(--items-per-screen));
   max-width: calc(100% / var(--items-per-screen));
-
   padding: 0.25rem;
   border-radius: 1rem;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }

@@ -1,11 +1,15 @@
 .sidebar {
-  margin-left: 2rem;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-  align-items: center;
   background-color: #161d2f;
+  width: 110rem;
+  margin: 0 auto 0.1rem auto;
+  border-radius: 1rem;
+}
+
+.sidebar__personalize {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
 }
 
 .sidebar__icon {
@@ -19,10 +23,4 @@
 
 .sidebar__icon--active {
   color: #fc4747;
-}
-
-.sidebar__personal {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
 }
