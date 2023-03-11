@@ -5,7 +5,7 @@ const Trending = () => {
   const {
     state: { trendingMovies },
   } = useAppContext();
-  const [slideTranslate, setSlideTranslate] = useState(0);
+  const [slideTranslateIndex, setslideTranslateIndex] = useState(0);
   const [rowsNumber, setRowsNumber] = useState(0);
   const [itemsPerScreen, setItemsPerScreen] = useState(0);
 
@@ -24,7 +24,7 @@ const Trending = () => {
     (_, index) => (
       <div
         className={`${
-          -index === slideTranslate
+          -index === slideTranslateIndex
             ? 'progress__bar--item progress__bar--item-active'
             : 'progress__bar--item'
         }`}
@@ -34,16 +34,16 @@ const Trending = () => {
   );
 
   const handleTranslateLeft = () => {
-    if (slideTranslate === -rowsNumber + 1) setSlideTranslate(0);
-    else setSlideTranslate((prev) => prev - 1);
+    if (slideTranslateIndex === -rowsNumber + 1) setslideTranslateIndex(0);
+    else setslideTranslateIndex((prev) => prev - 1);
   };
 
   const handleTranslateRight = () => {
-    if (slideTranslate === 0) setSlideTranslate(-rowsNumber + 1);
-    else setSlideTranslate((prev) => prev + 1);
+    if (slideTranslateIndex === 0) setslideTranslateIndex(-rowsNumber + 1);
+    else setslideTranslateIndex((prev) => prev + 1);
   };
 
-  console.log(slideTranslate, rowsNumber);
+  console.log(slideTranslateIndex, rowsNumber, itemsPerScreen);
 
   return (
     <section className="section__trending">
@@ -62,7 +62,7 @@ const Trending = () => {
                 key={movie.imdbid}
                 style={{
                   transform: `translateX(${
-                    itemsPerScreen * 100 * slideTranslate
+                    itemsPerScreen * 100 * slideTranslateIndex
                   }%)`,
                 }}
               />
