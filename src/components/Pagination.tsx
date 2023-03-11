@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAppContext } from '../context';
+import HomeMovies from './HomeMovies';
 import MovieCard from './MovieCard';
 import PagiationButtons from './PagiationButtons';
 
@@ -15,12 +16,8 @@ const Pagination = () => {
         <h2 className="heading--secondary heading-movies">
           Recomended for you
         </h2>
-        <div className="container__movies">
-          {movies[moviesHomeIndex].map((movie, i) => {
-            return <MovieCard key={movie.imdbid} {...movie} />;
-          })}
-        </div>
-        <PagiationButtons />
+        <HomeMovies moviesHomeIndex={moviesHomeIndex} />
+        <PagiationButtons setMoviesHomeIndex={setMoviesHomeIndex} />
       </div>
     </section>
   );
