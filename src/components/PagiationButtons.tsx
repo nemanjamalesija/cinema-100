@@ -2,31 +2,22 @@ import React from 'react';
 import { useAppContext } from '../context';
 import './paginationControl.css';
 
-type paginationButtonsProps = {
-  setMoviesHomeIndex: React.Dispatch<React.SetStateAction<number>>;
-  moviesHomeIndex: number;
-};
-
-const PagiationButtons = ({
-  setMoviesHomeIndex,
-  moviesHomeIndex,
-}: paginationButtonsProps) => {
+const PagiationButtons = () => {
   const {
-    state: { movies },
+    state: { movies, moviesHomeIndex },
+    dispatch,
   } = useAppContext();
 
-  const incrementPageHandler = () => {
-    setMoviesHomeIndex((prev) => {
-      if (prev === movies.length - 1) return movies.length - 1;
-      else return prev + 1;
-    });
+  const incrementPageIndexHandler = () => {
+    dispatch({ type: 'INCREMENT_PAGE_INDEX' });
   };
 
-  const decrementPageHandler = () => {
-    setMoviesHomeIndex((prev) => {
-      if (prev === 0) return 0;
-      else return prev - 1;
-    });
+  const decrementPageIndexHandler = () => {
+    dispatch({ type: 'DECREMENT_PAGE_INDEX' });
+  };
+
+  const setPageIndexHandler = (index: number) => {
+    dispatch({ type: 'SET_PAGE_INDEX', payload: index });
   };
 
   const paginationButtons = movies.map((_, i) => {
@@ -38,7 +29,7 @@ const PagiationButtons = ({
             ? 'pagination__btn pagination__btn--active'
             : 'pagination__btn'
         }
-        onClick={() => setMoviesHomeIndex(i)}
+        onClick={() => setPageIndexHandler(i)}
       >
         {i + 1}
       </button>
@@ -49,14 +40,14 @@ const PagiationButtons = ({
     <div className="pagination__control--container">
       <button
         className="btn__control btn__control--left"
-        onClick={decrementPageHandler}
+        onClick={decrementPageIndexHandler}
       >
         &#x2190;
       </button>
       <div className="pagination__buttons">{paginationButtons}</div>
       <button
         className="btn__control btn__control--right"
-        onClick={incrementPageHandler}
+        onClick={incrementPageIndexHandler}
       >
         &#x2192;
       </button>

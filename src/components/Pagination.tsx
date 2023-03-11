@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { useAppContext } from '../context';
 import HomeMovies from './HomeMovies';
 import PagiationButtons from './PagiationButtons';
+import Sidebar from './Sidebar';
 
 const Pagination = () => {
-  const {
-    state: { movies },
-  } = useAppContext();
   const [moviesHomeIndex, setMoviesHomeIndex] = useState(0);
 
   return (
@@ -16,11 +13,11 @@ const Pagination = () => {
           Recomended for you
         </h2>
 
-        <HomeMovies moviesHomeIndex={moviesHomeIndex} />
-        <PagiationButtons
-          setMoviesHomeIndex={setMoviesHomeIndex}
-          moviesHomeIndex={moviesHomeIndex}
-        />
+        <main className="pagination__main">
+          <HomeMovies />
+          <PagiationButtons />
+          <Sidebar />
+        </main>
       </div>
     </section>
   );

@@ -30,6 +30,21 @@ const reducer = (state: appState, action: ACTIONS) => {
         trendingMovies,
       };
 
+    case 'INCREMENT_PAGE_INDEX': {
+      if (state.moviesHomeIndex === state.movies.length - 1)
+        return { ...state, moviesHomeIndex: state.movies.length - 1 };
+      else return { ...state, moviesHomeIndex: state.moviesHomeIndex + 1 };
+    }
+
+    case 'DECREMENT_PAGE_INDEX': {
+      if (state.moviesHomeIndex === 0) return { ...state, moviesHomeIndex: 0 };
+      else return { ...state, moviesHomeIndex: state.moviesHomeIndex - 1 };
+    }
+
+    case 'SET_PAGE_INDEX': {
+      return { ...state, moviesHomeIndex: payload };
+    }
+
     default:
       return { ...state };
   }

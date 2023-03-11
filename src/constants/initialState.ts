@@ -21,4 +21,5 @@ export const movies = [[singleMovie]];
 export const initialState: appState = {
   movies,
   trendingMovies: [singleMovie],
+  moviesHomeIndex: 0,
 };

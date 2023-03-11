@@ -2,13 +2,9 @@ import { useState } from 'react';
 import { useAppContext } from '../context';
 import MovieCard from './MovieCard';
 
-type homeMoviesProps = {
-  moviesHomeIndex: number;
-};
-
-const HomeMovies = ({ moviesHomeIndex }: homeMoviesProps) => {
+const HomeMovies = () => {
   const {
-    state: { movies },
+    state: { movies, moviesHomeIndex },
   } = useAppContext();
 
   return (

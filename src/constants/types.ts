@@ -21,10 +21,15 @@ export type movies = singleMovie[][];
 export type appState = {
   movies: movies;
   trendingMovies: singleMovie[];
+  moviesHomeIndex: number;
 };
 
 export type ACTIONS = {
-  type: any;
+  type:
+    | 'SET_MOVIES'
+    | 'INCREMENT_PAGE_INDEX'
+    | 'DECREMENT_PAGE_INDEX'
+    | 'SET_PAGE_INDEX';
   payload?: any;
 };
 
