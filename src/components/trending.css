@@ -1,8 +1,12 @@
 /* TRENDING*/
 
-.section__trending {
-  position: relative;
+.section__container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
   padding: 3.2rem 0 6.4rem 0;
+  width: 112rem;
+  margin: 0 auto;
 }
 
 .heading-progress__container {
@@ -17,6 +21,7 @@
   font-size: 1.8rem;
   color: #fff;
   font-weight: 400;
+  margin-bottom: 1.2rem;
 }
 
 .progress__bar {
@@ -35,9 +40,6 @@
 }
 
 .btn {
-  position: absolute;
-  top: 55%;
-  transform: translate(-50%, -50%);
   padding: 1rem;
   border-radius: 50%;
   border: none;
@@ -45,15 +47,6 @@
   opacity: 75%;
   font-size: 1.8rem;
   background-color: #fff;
-  z-index: 999;
-}
-
-.btn__slide-left {
-  left: 8%;
-}
-
-.btn__slide-right {
-  right: 5%;
 }
 
 .container__trending {

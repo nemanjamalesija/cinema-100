@@ -46,36 +46,39 @@ const Trending = () => {
 
   return (
     <section className="section__trending">
-      <div className="section-wrapper">
-        <div className="heading-progress__container">
-          <h2 className="heading__trending">Currently trending</h2>
-          <div className="progress__bar">{progressBarItems}</div>
-        </div>
-        <main className="container container__trending">
-          <div className="card__wrapper">
-            {trendingMovies.map((movie) => {
-              return (
-                <img
-                  className="card__wrapper--image"
-                  src={movie.image}
-                  key={movie.imdbid}
-                  style={{
-                    transform: `translateX(${
-                      itemsPerScreen * 100 * slideTranslateIndex
-                    }%)`,
-                  }}
-                />
-              );
-            })}
+      <div className="section__container">
+        <button className="btn btn__slide-left" onClick={handleTranslateRight}>
+          &#x2190;
+        </button>
+        <div className="section-center">
+          <div className="heading-progress__container">
+            <h2 className="heading__trending">Currently trending</h2>
+            <div className="progress__bar">{progressBarItems}</div>
           </div>
-        </main>
+          <main className="container container__trending">
+            <div className="card__wrapper">
+              {trendingMovies.map((movie) => {
+                return (
+                  <img
+                    className="card__wrapper--image"
+                    src={movie.image}
+                    key={movie.imdbid}
+                    style={{
+                      transform: `translateX(${
+                        itemsPerScreen * 100 * slideTranslateIndex
+                      }%)`,
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </main>
+        </div>
+
+        <button className="btn btn__slide-right" onClick={handleTranslateLeft}>
+          &#x2192;
+        </button>
       </div>
-      <button className="btn btn__slide-left" onClick={handleTranslateRight}>
-        &#x2190;
-      </button>
-      <button className="btn btn__slide-right" onClick={handleTranslateLeft}>
-        &#x2192;
-      </button>
     </section>
   );
 };
