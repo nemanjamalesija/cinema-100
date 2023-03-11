@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
+import './trending.css';
 
 const Trending = () => {
   const {

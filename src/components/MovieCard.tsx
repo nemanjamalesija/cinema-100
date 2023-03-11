@@ -1,5 +1,6 @@
 import React from 'react';
 import star from '../images/star.png';
+import './movieCard.css';
 
 type movieCardProps = {
   title: string;
