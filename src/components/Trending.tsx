@@ -47,7 +47,7 @@ const Trending = () => {
   return (
     <section className="section__trending">
       <div className="section__container">
-        <button className="btn btn__slide-left" onClick={handleTranslateRight}>
+        <button className="btn__slide" onClick={handleTranslateRight}>
           &#x2190;
         </button>
 
@@ -76,7 +76,7 @@ const Trending = () => {
           </main>
         </div>
 
-        <button className="btn btn__slide-right" onClick={handleTranslateLeft}>
+        <button className="btn__slide" onClick={handleTranslateLeft}>
           &#x2192;
         </button>
       </div>

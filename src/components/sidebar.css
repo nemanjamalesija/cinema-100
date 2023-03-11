@@ -1,6 +1,6 @@
 .sidebar {
   padding: 1rem;
-  background-color: #161d2f;
+  background-color: var(--color--body--text);
   width: 110rem;
   margin: 0 auto 2rem auto;
   border-radius: 1rem;
@@ -21,7 +21,7 @@
 }
 
 .search-div:active {
-  box-shadow: 0px 0px 0px 0.8rem rgba(247, 247, 255, 0.539);
+  box-shadow: 0px 0px 0px 0.8rem rgba(252, 71, 71, 0.835);
 }
 
 .btn-search {
@@ -39,14 +39,14 @@
 .sidebar__input {
   border: none;
   background-color: var(--color--shade--primary);
-  color: #10141e;
+  color: var(--color--body---text);
   padding: 0.4rem 1rem;
   border-radius: 1rem;
   cursor: pointer;
 }
 
 .sidebar__input::placeholder {
-  color: #10141e;
+  color: var(--color--body--text);
   opacity: 75%;
 }
 
@@ -70,5 +70,5 @@
 }
 
 .sidebar__icon--active {
-  color: #fc4747;
+  color: var(--color--accent--primary);
 }

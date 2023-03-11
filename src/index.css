@@ -2,6 +2,8 @@
 
 :root {
   --color--shade--primary: hsl(0, 0%, 75%);
+  --color--accent--primary: #fc4747;
+  --color--body--text: #10141e;
 }
 
 * {
@@ -15,7 +17,7 @@ html {
 }
 
 body {
-  background-color: #10141e;
+  background-color: var(--color--body--text);
   font-family: 'Outfit', sans-serif;
 }
 

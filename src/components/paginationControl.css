@@ -20,11 +20,16 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #10141e;
+  color: var(--color--body---text);
   font-weight: 500;
   border: none;
 }
 
 .pagination__btn--active {
   opacity: 100%;
+  background-color: var(--color--accent--primary);
+}
+
+.btn__control:active {
+  background-color: var(--color--accent--primary);
 }
