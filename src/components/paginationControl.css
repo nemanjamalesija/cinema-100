@@ -1,4 +1,29 @@
 .pagination__control--container {
+  justify-content: center;
   display: flex;
   gap: 0.5rem;
+  margin-top: 3.2rem;
+}
+
+.pagination__buttons {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.pagination__btn,
+.btn__control {
+  opacity: 75%;
+  font-size: 1.6rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+}
+
+.pagination__btn--active {
+  opacity: 100%;
 }

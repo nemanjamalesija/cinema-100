@@ -17,7 +17,10 @@ const Pagination = () => {
           Recomended for you
         </h2>
         <HomeMovies moviesHomeIndex={moviesHomeIndex} />
-        <PagiationButtons setMoviesHomeIndex={setMoviesHomeIndex} />
+        <PagiationButtons
+          setMoviesHomeIndex={setMoviesHomeIndex}
+          moviesHomeIndex={moviesHomeIndex}
+        />
       </div>
     </section>
   );

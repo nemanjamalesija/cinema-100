@@ -4,9 +4,13 @@ import './paginationControl.css';
 
 type paginationButtonsProps = {
   setMoviesHomeIndex: React.Dispatch<React.SetStateAction<number>>;
+  moviesHomeIndex: number;
 };
 
-const PagiationButtons = ({ setMoviesHomeIndex }: paginationButtonsProps) => {
+const PagiationButtons = ({
+  setMoviesHomeIndex,
+  moviesHomeIndex,
+}: paginationButtonsProps) => {
   const {
     state: { movies },
   } = useAppContext();
@@ -27,7 +31,14 @@ const PagiationButtons = ({ setMoviesHomeIndex }: paginationButtonsProps) => {
 
   const paginationButtons = movies.map((_, i) => {
     return (
-      <button key={i} className="pagination__btn">
+      <button
+        key={i}
+        className={
+          i === moviesHomeIndex
+            ? 'pagination__btn pagination__btn--active'
+            : 'pagination__btn'
+        }
+      >
         {i + 1}
       </button>
     );
@@ -35,11 +46,17 @@ const PagiationButtons = ({ setMoviesHomeIndex }: paginationButtonsProps) => {
 
   return (
     <div className="pagination__control--container">
-      <button className="btn__control--left" onClick={decrementPageHandler}>
+      <button
+        className="btn__control btn__control--left"
+        onClick={decrementPageHandler}
+      >
         &#x2190;
       </button>
-      <div className="pagination__buttons">{paginationButtons}</div>;
-      <button className="btn__control--right" onClick={incrementPageHandler}>
+      <div className="pagination__buttons">{paginationButtons}</div>
+      <button
+        className="btn__control btn__control--right"
+        onClick={incrementPageHandler}
+      >
         &#x2192;
       </button>
     </div>
