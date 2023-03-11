@@ -16,9 +16,10 @@ export type singleMovie = {
   imdbid: string;
 };
 
+export type movies = singleMovie[][];
+
 export type appState = {
-  movies: singleMovie[];
-  moviesHome: singleMovie[];
+  movies: movies;
   trendingMovies: singleMovie[];
 };
 

@@ -1,12 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
 import MovieCard from '../components/MovieCard';
 import Trending from '../components/Trending';
 import { useAppContext } from '../context';
 
 const Home = () => {
   const {
-    state: { moviesHome },
+    state: { movies },
   } = useAppContext();
+  const [moviesHomeIndex, setMoviesHomeIndex] = useState(0);
+
+  console.log(movies);
 
   return (
     <section className="section section__home">
@@ -16,7 +19,7 @@ const Home = () => {
           Recomended for you
         </h2>
         <div className="container__movies">
-          {moviesHome.map((movie, i) => {
+          {movies[moviesHomeIndex].map((movie, i) => {
             return <MovieCard key={movie.imdbid} {...movie} />;
           })}
         </div>
