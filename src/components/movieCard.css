@@ -14,6 +14,7 @@
   aspect-ratio: 12/9;
   min-height: 21.6rem;
   object-position: center;
+  cursor: pointer;
 }
 .movie-card__star {
   height: 1.4rem;
