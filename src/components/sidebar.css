@@ -1,0 +1,29 @@
+.sidebar {
+  margin-top: 4.2rem;
+  margin-left: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+  background-color: #161d2f;
+}
+
+.sidebar__icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: inline-block;
+  color: #979797;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar__icon--active {
+  color: #fc4747;
+}
+
+.sidebar__personal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}

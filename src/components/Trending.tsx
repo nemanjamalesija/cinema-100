@@ -44,12 +44,10 @@ const Trending = () => {
     else setslideTranslateIndex((prev) => prev + 1);
   };
 
-  console.log(slideTranslateIndex, rowsNumber, itemsPerScreen);
-
   return (
     <section className="section__trending">
       <div className="heading-progress__container">
-        <h2 className="heading__trending">Trending movies</h2>
+        <h2 className="heading__trending">Currently trending</h2>
         <div className="progress__bar">{progressBarItems}</div>
       </div>
 

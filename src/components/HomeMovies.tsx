@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppContext } from '../context';
 import MovieCard from './MovieCard';
 

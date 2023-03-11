@@ -37,3 +37,13 @@ body {
 .heading-movies {
   margin-top: 4.2rem;
 }
+
+.section__pagination {
+  display: grid;
+  grid-template-columns: 10rem auto;
+  gap: 3.2rem;
+}
+
+.container__pagination {
+  width: 88.4%;
+}
