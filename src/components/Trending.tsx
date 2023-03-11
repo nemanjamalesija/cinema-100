@@ -14,7 +14,7 @@ const Trending = () => {
     const value = getComputedStyle(root).getPropertyValue('--items-per-screen');
     const rows = Math.ceil(trendingMovies.length / parseInt(value));
     setRowsNumber(rows);
-  }, []);
+  }, [rowsNumber]);
 
   const progressBarItems = Array.from({ length: rowsNumber }).map(
     (_, index) => (
