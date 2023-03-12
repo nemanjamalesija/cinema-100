@@ -57,10 +57,12 @@ const Sidebar = () => {
       </div>
 
       <div className='sidebar__personalize'>
-        <select className='sidebar__select' value={genre}>
+        <select name='genre' className='sidebar__select'>
           <option className='sidebar__select--option'>All</option>
           {genres.map((g) => (
-            <option className='sidebar__select--option'>{g}</option>
+            <option className='sidebar__select--option' value={genre}>
+              {g}
+            </option>
           ))}
         </select>
         <div className='sidebar__logo'>
