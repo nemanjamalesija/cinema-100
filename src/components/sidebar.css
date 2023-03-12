@@ -20,7 +20,8 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.search-div:active {
+.search-div:active,
+.sidebar__select:active {
   box-shadow: 0px 0px 0px 0.8rem rgba(252, 71, 71, 0.835);
 }
 
@@ -41,7 +42,7 @@
   background-color: var(--color--shade--primary);
   color: var(--color--body---text);
   padding: 0.4rem 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 
@@ -50,7 +51,8 @@
   opacity: 75%;
 }
 
-.sidebar__input:focus {
+.sidebar__input:focus,
+.sidebar__select:focus {
   outline: none;
 }
 
@@ -58,6 +60,14 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+}
+
+.sidebar__select {
+  background-color: var(--color--shade--primary);
+  color: var(--color--body---text);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  border: none;
 }
 
 .sidebar__icon {
