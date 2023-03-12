@@ -22,6 +22,9 @@ export type appState = {
   movies: movies;
   trendingMovies: singleMovie[];
   moviesHomeIndex: number;
+  filters: {
+    currentMovie: string;
+  };
 };
 
 export type ACTIONS = {
@@ -29,7 +32,8 @@ export type ACTIONS = {
     | 'SET_MOVIES'
     | 'INCREMENT_PAGE_INDEX'
     | 'DECREMENT_PAGE_INDEX'
-    | 'SET_PAGE_INDEX';
+    | 'SET_PAGE_INDEX'
+    | 'FIND_MOVIE';
   payload?: any;
 };
 

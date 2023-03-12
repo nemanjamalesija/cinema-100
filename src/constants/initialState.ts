@@ -22,4 +22,7 @@ export const initialState: appState = {
   movies,
   trendingMovies: [singleMovie],
   moviesHomeIndex: 0,
+  filters: {
+    currentMovie: '',
+  },
 };
