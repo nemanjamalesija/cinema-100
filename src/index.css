@@ -32,6 +32,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   row-gap: 4.2rem;
   column-gap: 0.5rem;
+  min-height: 10rem;
 }
 
 .heading--secondary {
@@ -43,6 +44,7 @@ body {
 
 .heading__no--match--found {
   text-align: center;
+  padding-bottom: 12rem;
 }
 
 .section__pagination {
