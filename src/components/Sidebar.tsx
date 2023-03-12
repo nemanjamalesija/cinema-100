@@ -59,6 +59,9 @@ const Sidebar = () => {
       <div className='sidebar__personalize'>
         <select className='sidebar__select' value={genre}>
           <option className='sidebar__select--option'>All</option>
+          {genres.map((g) => (
+            <option className='sidebar__select--option'>{g}</option>
+          ))}
         </select>
         <div className='sidebar__logo'>
           <svg
