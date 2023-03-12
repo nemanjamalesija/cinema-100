@@ -31,8 +31,8 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       };
 
     case 'INCREMENT_PAGE_INDEX': {
-      if (state.moviesHomeIndex === state.movies.length - 1)
-        return { ...state, moviesHomeIndex: state.movies.length - 1 };
+      if (state.moviesHomeIndex === state.filteredMovies.length - 1)
+        return { ...state, moviesHomeIndex: state.filteredMovies.length - 1 };
       else return { ...state, moviesHomeIndex: state.moviesHomeIndex + 1 };
     }
 
