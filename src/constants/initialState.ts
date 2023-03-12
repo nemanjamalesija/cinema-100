@@ -25,5 +25,6 @@ export const initialState: appState = {
   moviesHomeIndex: 0,
   filters: {
     currentMovie: '',
+    genre: '',
   },
 };

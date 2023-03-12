@@ -25,6 +25,7 @@ export type appState = {
   moviesHomeIndex: number;
   filters: {
     currentMovie: string;
+    genre: string;
   };
 };
 

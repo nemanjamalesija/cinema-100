@@ -5,7 +5,8 @@ const Sidebar = () => {
   const {
     dispatch,
     state: {
-      filters: { currentMovie },
+      movies,
+      filters: { currentMovie, genre },
     },
   } = useAppContext();
 
@@ -14,6 +15,17 @@ const Sidebar = () => {
     const value = e.currentTarget.value;
     dispatch({ type: 'SET_FILTER', payload: { name, value } });
   };
+
+  const genres = [
+    ...new Set(
+      movies
+        .flat()
+        .map((movie) => movie.genre)
+        .flat()
+        .map((genre) => genre)
+    ),
+  ];
+  console.log(genres);
 
   return (
     <aside className='sidebar'>
@@ -43,7 +55,11 @@ const Sidebar = () => {
           </button>
         </div>
       </div>
+
       <div className='sidebar__personalize'>
+        <select className='sidebar__select' value={genre}>
+          <option className='sidebar__select--option'>All</option>
+        </select>
         <div className='sidebar__logo'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
