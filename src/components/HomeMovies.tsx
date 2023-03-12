@@ -8,7 +8,7 @@ const HomeMovies = () => {
 
   return (
     <div className='container__movies'>
-      {filteredMovies[moviesHomeIndex].map((movie, i) => {
+      {filteredMovies[moviesHomeIndex]?.map((movie, i) => {
         return <MovieCard key={movie.imdbid} {...movie} />;
       })}
     </div>
