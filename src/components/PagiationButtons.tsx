@@ -36,6 +36,13 @@ const PagiationButtons = () => {
     );
   });
 
+  if (filteredMovies[moviesHomeIndex].length === 0)
+    return (
+      <h2 className='heading--secondary heading__no--match--found'>
+        No movies found
+      </h2>
+    );
+
   return (
     <div className='pagination__control--container'>
       <button

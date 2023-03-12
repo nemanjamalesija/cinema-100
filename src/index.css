@@ -41,6 +41,10 @@ body {
   font-weight: 400;
 }
 
+.heading__no--match--found {
+  text-align: center;
+}
+
 .section__pagination {
   display: flex;
   flex-direction: column;

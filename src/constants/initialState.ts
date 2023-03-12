@@ -19,8 +19,8 @@ const singleMovie = {
 export const movies = [[singleMovie]];
 
 export const initialState: appState = {
-  movies: [[]],
-  filteredMovies: [[]],
+  movies: movies,
+  filteredMovies: movies,
   trendingMovies: [singleMovie],
   moviesHomeIndex: 0,
   filters: {
