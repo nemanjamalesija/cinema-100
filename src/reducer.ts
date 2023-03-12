@@ -45,6 +45,12 @@ const reducer = (state: appState, action: ACTIONS) => {
       return { ...state, moviesHomeIndex: payload };
     }
 
+    case 'SET_FILTER': {
+      const { name, value } = payload;
+
+      return { ...state, filters: { [name]: value } };
+    }
+
     default:
       return { ...state };
   }

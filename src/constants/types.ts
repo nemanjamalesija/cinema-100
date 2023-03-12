@@ -33,7 +33,7 @@ export type ACTIONS = {
     | 'INCREMENT_PAGE_INDEX'
     | 'DECREMENT_PAGE_INDEX'
     | 'SET_PAGE_INDEX'
-    | 'FIND_MOVIE';
+    | 'SET_FILTER';
   payload?: any;
 };
 

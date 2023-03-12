@@ -10,8 +10,9 @@ const Sidebar = () => {
   } = useAppContext();
 
   const findMovieHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    const movieName = e.currentTarget.value;
-    dispatch({ type: 'FIND_MOVIE', payload: movieName });
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+    dispatch({ type: 'SET_FILTER', payload: { name, value } });
   };
 
   return (
@@ -22,6 +23,7 @@ const Sidebar = () => {
             type='text'
             className='sidebar__input'
             placeholder='Search'
+            name='currentMovie'
             value={currentMovie}
             onChange={findMovieHandler}
           />
