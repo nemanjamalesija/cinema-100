@@ -4,6 +4,7 @@
   --color--shade--primary: hsl(0, 0%, 75%);
   --color--accent--primary: #fc4747;
   --color--body--text: #10141e;
+  --color--body--text--shade: #161d2f;
 }
 
 * {
