@@ -4,7 +4,7 @@ import './paginationControl.css';
 
 const PagiationButtons = () => {
   const {
-    state: { movies, moviesHomeIndex },
+    state: { filteredMovies, moviesHomeIndex },
     dispatch,
   } = useAppContext();
 
@@ -20,7 +20,7 @@ const PagiationButtons = () => {
     dispatch({ type: 'SET_PAGE_INDEX', payload: index });
   };
 
-  const paginationButtons = movies.map((_, i) => {
+  const paginationButtons = filteredMovies.map((_, i) => {
     return (
       <button
         key={i}
@@ -37,16 +37,16 @@ const PagiationButtons = () => {
   });
 
   return (
-    <div className="pagination__control--container">
+    <div className='pagination__control--container'>
       <button
-        className="btn__control btn__control--left"
+        className='btn__control btn__control--left'
         onClick={decrementPageIndexHandler}
       >
         &#x2190;
       </button>
-      <div className="pagination__buttons">{paginationButtons}</div>
+      <div className='pagination__buttons'>{paginationButtons}</div>
       <button
-        className="btn__control btn__control--right"
+        className='btn__control btn__control--right'
         onClick={incrementPageIndexHandler}
       >
         &#x2192;

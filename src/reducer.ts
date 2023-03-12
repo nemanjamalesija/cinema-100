@@ -10,13 +10,13 @@ function chunk(array: singleMovie[], size: number) {
   if (size < 1) throw new Error('Size must be positive');
 
   const result = [];
-  for (let i = 0; i < array.length; i += size) {
+  for (let i = 0; i < array.length; i += size)
     result.push(array.slice(i, i + size));
-  }
+
   return result;
 }
 
-const reducer = (state: appState, action: ACTIONS) => {
+const reducer = (state: appState, action: ACTIONS): appState => {
   const { type, payload } = action;
 
   switch (type) {
@@ -48,7 +48,29 @@ const reducer = (state: appState, action: ACTIONS) => {
     case 'SET_FILTER': {
       const { name, value } = payload;
 
-      return { ...state, filters: { [name]: value } };
+      return { ...state, filters: { ...state.filters, [name]: value } };
+    }
+
+    case 'HANDLE_FILTERING': {
+      const { currentMovie } = state.filters;
+      let moviesTemp = [...state.movies.flat()];
+
+      if (currentMovie) {
+        moviesTemp = moviesTemp.filter((movie) =>
+          movie.title.toLowerCase().includes(currentMovie.toLowerCase())
+        );
+
+        console.log(moviesTemp);
+        console.log(currentMovie);
+      }
+
+      if (!moviesTemp) return { ...state };
+
+      return {
+        ...state,
+        filteredMovies:
+          moviesTemp.length > 12 ? chunk(moviesTemp, 12) : [moviesTemp],
+      };
     }
 
     default:

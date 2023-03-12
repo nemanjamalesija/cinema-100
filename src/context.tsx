@@ -16,7 +16,11 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: 'SET_MOVIES', payload: data });
   }, []);
 
-  console.log(state);
+  useEffect(() => {
+    dispatch({ type: 'HANDLE_FILTERING' });
+  }, [state.filters]);
+
+  console.log(state.filters);
 
   return (
     <AppContext.Provider

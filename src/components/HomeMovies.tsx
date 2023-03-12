@@ -3,12 +3,12 @@ import MovieCard from './MovieCard';
 
 const HomeMovies = () => {
   const {
-    state: { movies, moviesHomeIndex },
+    state: { filteredMovies, moviesHomeIndex },
   } = useAppContext();
 
   return (
-    <div className="container__movies">
-      {movies[moviesHomeIndex].map((movie, i) => {
+    <div className='container__movies'>
+      {filteredMovies[moviesHomeIndex].map((movie, i) => {
         return <MovieCard key={movie.imdbid} {...movie} />;
       })}
     </div>

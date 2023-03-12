@@ -20,6 +20,7 @@ export type movies = singleMovie[][];
 
 export type appState = {
   movies: movies;
+  filteredMovies: movies;
   trendingMovies: singleMovie[];
   moviesHomeIndex: number;
   filters: {
@@ -33,7 +34,8 @@ export type ACTIONS = {
     | 'INCREMENT_PAGE_INDEX'
     | 'DECREMENT_PAGE_INDEX'
     | 'SET_PAGE_INDEX'
-    | 'SET_FILTER';
+    | 'SET_FILTER'
+    | 'HANDLE_FILTERING';
   payload?: any;
 };
 
