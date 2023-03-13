@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import {
   iconBookmarkCard,
   iconLikedCard,
@@ -7,6 +7,7 @@ import star from '../utils/icons/star.png';
 import './movieCard.css';
 
 type movieCardProps = {
+  i: number;
   title: string;
   imdbid: string;
   genre: string[];
@@ -16,6 +17,7 @@ type movieCardProps = {
 };
 
 const MovieCard = ({
+  i,
   title,
   imdbid,
   genre,
@@ -23,14 +25,39 @@ const MovieCard = ({
   image,
   rating,
 }: movieCardProps) => {
+  const [buttonBookmarkIndex, setButtonLikedIndex] = useState(-1);
+  const [buttonLikedIndex, setButtonBookmarkIndex] = useState(-1);
+
   return (
     <article className='movie-card'>
       <header className='movie-card__header'>
         <div className='movie-card__overlay'></div>
-        <button className='btn__icon--container btn__icon--bookmark'>
+        <button
+          className={
+            buttonLikedIndex === i
+              ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
+              : 'btn__icon--container btn__icon--bookmark'
+          }
+          onClick={() =>
+            buttonLikedIndex === i
+              ? setButtonBookmarkIndex(-1)
+              : setButtonBookmarkIndex(i)
+          }
+        >
           {iconBookmarkCard}
         </button>
-        <button className='btn__icon--container btn__icon--liked'>
+        <button
+          className={
+            buttonBookmarkIndex === i
+              ? 'btn__icon--container btn__icon--liked btn__icon--active'
+              : 'btn__icon--container btn__icon--liked'
+          }
+          onClick={() =>
+            buttonBookmarkIndex === i
+              ? setButtonLikedIndex(-1)
+              : setButtonLikedIndex(i)
+          }
+        >
           {iconLikedCard}
         </button>
         <img src={image} alt={title} className='movie-card__image' />
