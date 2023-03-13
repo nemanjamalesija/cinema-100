@@ -10,13 +10,17 @@ const Sidebar = () => {
     },
   } = useAppContext();
 
-  const findMovieHandler = (e: React.FormEvent<HTMLInputElement>) => {
+  const setFilterHandler = (
+    e: React.FormEvent<HTMLInputElement> | React.FormEvent<HTMLSelectElement>
+  ) => {
     const name = e.currentTarget.name;
     const value = e.currentTarget.value;
+    console.log(name, value);
     dispatch({ type: 'SET_FILTER', payload: { name, value } });
   };
 
   const genres = [
+    'All',
     ...new Set(
       movies
         .flat()
@@ -25,7 +29,7 @@ const Sidebar = () => {
         .map((genre) => genre)
     ),
   ];
-  console.log(genres);
+  console.log(genre);
 
   return (
     <aside className='sidebar'>
@@ -37,7 +41,7 @@ const Sidebar = () => {
             placeholder='Search'
             name='currentMovie'
             value={currentMovie}
-            onChange={findMovieHandler}
+            onChange={setFilterHandler}
           />
           <button className='btn-search'>
             <svg
@@ -57,10 +61,14 @@ const Sidebar = () => {
       </div>
 
       <div className='sidebar__personalize'>
-        <select name='genre' className='sidebar__select'>
-          <option className='sidebar__select--option'>All</option>
+        <select
+          name='genre'
+          className='sidebar__select'
+          onChange={setFilterHandler}
+          value={genre}
+        >
           {genres.map((g) => (
-            <option className='sidebar__select--option' value={genre}>
+            <option className='sidebar__select--option' value={g}>
               {g}
             </option>
           ))}
