@@ -5,14 +5,15 @@ import {
   iconLikedCard,
 } from '../utils/icons/inconsMovieCard';
 import './trending.css';
+import TrendingMovieCard from './TrendingMovieCard';
 
 const Trending = () => {
-  const {
-    state: { trendingMovies },
-  } = useAppContext();
   const [slideTranslateIndex, setslideTranslateIndex] = useState(0);
   const [rowsNumber, setRowsNumber] = useState(0);
   const [itemsPerScreen, setItemsPerScreen] = useState(0);
+  const {
+    state: { trendingMovies },
+  } = useAppContext();
 
   useEffect(() => {
     const root: Element | null = document.querySelector('.card__wrapper');
@@ -64,25 +65,11 @@ const Trending = () => {
             <div className='card__wrapper'>
               {trendingMovies.map((movie) => {
                 return (
-                  <div
+                  <TrendingMovieCard
                     key={movie.imdbid}
-                    className='img--wrapper'
-                    style={{
-                      transform: `translateX(${
-                        itemsPerScreen * 100 * slideTranslateIndex
-                      }%)`,
-                    }}
-                  >
-                    <div className='movie-card__overlay'></div>
-                    <button className='btn__icon--container btn__icon--bookmark'>
-                      {iconBookmarkCard}
-                    </button>
-                    <button className='btn__icon--container btn__icon--liked'>
-                      {iconLikedCard}
-                    </button>
-
-                    <img className='card__wrapper--image' src={movie.image} />
-                  </div>
+                    itemsPerScreen={itemsPerScreen}
+                    slideTranslateIndex={slideTranslateIndex}
+                  />
                 );
               })}
             </div>

@@ -67,8 +67,8 @@ const Sidebar = () => {
           onChange={setFilterHandler}
           value={genre}
         >
-          {genres.map((g) => (
-            <option className='sidebar__select--option' value={g}>
+          {genres.map((g, i) => (
+            <option key={i} className='sidebar__select--option' value={g}>
               {g}
             </option>
           ))}

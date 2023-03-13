@@ -89,11 +89,17 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-.btn__icon--container:hover {
+.btn__icon--container:hover,
+.btn__icon--active {
   background-color: #fff;
 }
 
-.btn__icon--container:hover > .movie-card__icon {
+.btn__icon--container:hover > .movie-card__icon,
+.btn__icon--active {
+  color: var(--color--body--text);
+}
+
+.btn__icon--active > .movie-card__icon {
   color: var(--color--body--text);
 }
 
