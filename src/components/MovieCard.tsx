@@ -1,4 +1,5 @@
 import React from 'react';
+import { iconBookmark, iconLiked } from '../utils/icons/inconsMovieCard';
 import star from '../utils/icons/star.png';
 import './movieCard.css';
 
@@ -20,25 +21,28 @@ const MovieCard = ({
   rating,
 }: movieCardProps) => {
   return (
-    <article className="movie-card">
-      <header className="movie-card__header">
-        <img src={image} alt={title} className="movie-card__image" />
+    <article className='movie-card'>
+      <header className='movie-card__header'>
+        <div className='movie-card__overlay'></div>
+        {iconLiked}
+        {iconBookmark}
+        <img src={image} alt={title} className='movie-card__image' />
       </header>
-      <h3 className="movie-card__heading">
+      <h3 className='movie-card__heading'>
         {title.length >= 40 ? title.slice(0, 40) + '...' : title}
       </h3>
-      <div className="movie-card__info">
-        <p className="movie-card__info--p">{year}</p>
-        <div className="movie-card__info--p-star">
+      <div className='movie-card__info'>
+        <p className='movie-card__info--p'>{year}</p>
+        <div className='movie-card__info--p-star'>
           <span>
-            <img className="movie-card__star" alt="rating" src={star} />
+            <img className='movie-card__star' alt='rating' src={star} />
           </span>
-          <span className="movie-card__rating">{rating}</span>
+          <span className='movie-card__rating'>{rating}</span>
         </div>
-        <div className="movie-card__genre-div">
+        <div className='movie-card__genre-div'>
           {genre.map((g, i) => {
             return (
-              <p key={i} className="movie-card__info--p">
+              <p key={i} className='movie-card__info--p'>
                 {i >= genre.length - 1 ? g : g + ','}
               </p>
             );

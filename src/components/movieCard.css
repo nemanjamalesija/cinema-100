@@ -7,7 +7,8 @@
 .movie-card__header {
   width: 100%;
   border-radius: 1rem;
-  overflow: hidden;
+  position: relative;
+  z-index: 998;
 }
 .movie-card__image {
   width: 100%;
@@ -47,4 +48,64 @@
   color: #fff;
   width: 100%;
   font-size: 1.4rem;
+}
+.movie-card__overlay {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  opacity: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.movie-card__header:hover > .movie-card__overlay {
+  visibility: visible;
+  opacity: 50%;
+}
+
+.movie-card__header:hover > .btn__icon--container {
+  visibility: visible;
+  opacity: 75%;
+}
+
+.btn__icon--container {
+  height: 2.8rem;
+  width: 2.8rem;
+  position: absolute;
+  top: 2%;
+  z-index: 9999;
+  background-color: var(--color--body--text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn__icon--container:hover {
+  background-color: #fff;
+}
+
+.btn__icon--container:hover > .movie-card__icon {
+  color: var(--color--body--text);
+}
+
+.btn__icon--liked {
+  right: 15%;
+}
+.btn__icon--bookmark {
+  right: 2%;
+}
+
+.movie-card__icon {
+  width: 60%;
+  color: #fff;
 }
