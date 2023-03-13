@@ -110,17 +110,25 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       };
     }
 
-    case 'HANDLE_LIKED_BUTTON_ACTIVATION':
-      console.log(state.trendingMovies);
-      {
-        const newMovies = state.filteredMovies.flat().map((movie) => {
-          if (movie.imdbid === payload) {
-            return { ...movie, liked: !movie.liked };
-          } else return movie;
-        });
+    case 'UPDATE_LIKED_STATUS': {
+      const newMovies = state.filteredMovies.flat().map((movie) => {
+        if (movie.imdbid === payload) {
+          return { ...movie, liked: !movie.liked };
+        } else return movie;
+      });
 
-        return { ...state, filteredMovies: chunk(newMovies, 12) };
-      }
+      return { ...state, filteredMovies: chunk(newMovies, 12) };
+    }
+
+    case 'UPDATE_BOOKMAKERED_STATUS': {
+      const newMovies = state.filteredMovies.flat().map((movie) => {
+        if (movie.imdbid === payload) {
+          return { ...movie, bookmakered: !movie.bookmakered };
+        } else return movie;
+      });
+
+      return { ...state, filteredMovies: chunk(newMovies, 12) };
+    }
 
     default:
       return { ...state };

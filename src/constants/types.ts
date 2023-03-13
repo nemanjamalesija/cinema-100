@@ -41,7 +41,8 @@ export type ACTIONS = {
     | 'SET_PAGE_INDEX'
     | 'SET_FILTER'
     | 'HANDLE_FILTERING'
-    | 'HANDLE_LIKED_BUTTON_ACTIVATION';
+    | 'UPDATE_LIKED_STATUS'
+    | 'UPDATE_BOOKMAKERED_STATUS';
   payload?: any;
 };
 

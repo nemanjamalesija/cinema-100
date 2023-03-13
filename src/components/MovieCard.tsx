@@ -15,6 +15,7 @@ type movieCardProps = {
   image: string;
   rating: string;
   liked: boolean;
+  bookmakered: boolean;
 };
 
 const MovieCard = ({
@@ -25,16 +26,26 @@ const MovieCard = ({
   image,
   rating,
   liked,
+  bookmakered,
 }: movieCardProps) => {
-  const [buttonBookmarkIndex, setButtonLikedIndex] = useState(-1);
-  const [buttonLikedIndex, setButtonBookmarkIndex] = useState(-1);
   const { dispatch } = useAppContext();
 
   return (
     <article className='movie-card'>
       <header className='movie-card__header'>
         <div className='movie-card__overlay'></div>
-
+        <button
+          className={
+            bookmakered
+              ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
+              : 'btn__icon--container btn__icon--bookmark'
+          }
+          onClick={() =>
+            dispatch({ type: 'UPDATE_BOOKMAKERED_STATUS', payload: imdbid })
+          }
+        >
+          {iconBookmarkCard}
+        </button>
         <button
           className={
             liked
@@ -43,7 +54,7 @@ const MovieCard = ({
           }
           onClick={() =>
             dispatch({
-              type: 'HANDLE_LIKED_BUTTON_ACTIVATION',
+              type: 'UPDATE_LIKED_STATUS',
               payload: imdbid,
             })
           }

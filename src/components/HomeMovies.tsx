@@ -16,6 +16,7 @@ const HomeMovies = () => {
           <MovieCard
             key={movie.imdbid}
             liked={movie.liked || false}
+            bookmakered={movie.bookmakered || false}
             {...movie}
           />
         );
