@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAppContext } from '../context';
 import {
   iconBookmarkCard,
@@ -21,16 +21,6 @@ const TrendingMovieCard = ({
   const [buttonBookmarkIndex, setButtonLikedIndex] = useState(-1);
   const [buttonLikedIndex, setButtonBookmarkIndex] = useState(-1);
 
-  const handleActiveButtonBookmark = (i: number) => {
-    if (buttonLikedIndex === i) setButtonBookmarkIndex(-1);
-    else setButtonBookmarkIndex(i);
-  };
-
-  const handleActiveButtonLiked = (i: number) => {
-    if (buttonBookmarkIndex === i) setButtonLikedIndex(-1);
-    else setButtonLikedIndex(i);
-  };
-
   return (
     <article className='container container__trending'>
       <div className='card__wrapper'>
@@ -52,7 +42,11 @@ const TrendingMovieCard = ({
                     ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
                     : 'btn__icon--container btn__icon--bookmark'
                 }
-                onClick={() => handleActiveButtonBookmark(i)}
+                onClick={() =>
+                  buttonLikedIndex === i
+                    ? setButtonBookmarkIndex(-1)
+                    : setButtonBookmarkIndex(i)
+                }
               >
                 {iconBookmarkCard}
               </button>
@@ -62,7 +56,11 @@ const TrendingMovieCard = ({
                     ? 'btn__icon--container btn__icon--liked btn__icon--active'
                     : 'btn__icon--container btn__icon--liked'
                 }
-                onClick={() => handleActiveButtonLiked(i)}
+                onClick={() =>
+                  buttonBookmarkIndex === i
+                    ? setButtonLikedIndex(-1)
+                    : setButtonLikedIndex(i)
+                }
               >
                 {iconLikedCard}
               </button>
