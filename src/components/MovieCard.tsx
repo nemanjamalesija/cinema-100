@@ -1,5 +1,8 @@
 import React from 'react';
-import { iconBookmark, iconLiked } from '../utils/icons/inconsMovieCard';
+import {
+  iconBookmarkCard,
+  iconLikedCard,
+} from '../utils/icons/inconsMovieCard';
 import star from '../utils/icons/star.png';
 import './movieCard.css';
 
@@ -24,8 +27,12 @@ const MovieCard = ({
     <article className='movie-card'>
       <header className='movie-card__header'>
         <div className='movie-card__overlay'></div>
-        {iconLiked}
-        {iconBookmark}
+        <button className='btn__icon--container btn__icon--bookmark'>
+          {iconBookmarkCard}
+        </button>
+        <button className='btn__icon--container btn__icon--liked'>
+          {iconLikedCard}
+        </button>
         <img src={image} alt={title} className='movie-card__image' />
       </header>
       <h3 className='movie-card__heading'>

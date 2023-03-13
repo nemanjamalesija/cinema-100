@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
-import { iconBookmark, iconLiked } from '../utils/icons/inconsMovieCard';
+import {
+  iconBookmarkCard,
+  iconLikedCard,
+} from '../utils/icons/inconsMovieCard';
 import './trending.css';
 
 const Trending = () => {
@@ -62,6 +65,7 @@ const Trending = () => {
               {trendingMovies.map((movie) => {
                 return (
                   <div
+                    key={movie.imdbid}
                     className='img--wrapper'
                     style={{
                       transform: `translateX(${
@@ -70,13 +74,14 @@ const Trending = () => {
                     }}
                   >
                     <div className='movie-card__overlay'></div>
-                    {iconBookmark}
-                    {iconLiked}
-                    <img
-                      className='card__wrapper--image'
-                      src={movie.image}
-                      key={movie.imdbid}
-                    />
+                    <button className='btn__icon--container btn__icon--bookmark'>
+                      {iconBookmarkCard}
+                    </button>
+                    <button className='btn__icon--container btn__icon--liked'>
+                      {iconLikedCard}
+                    </button>
+
+                    <img className='card__wrapper--image' src={movie.image} />
                   </div>
                 );
               })}
