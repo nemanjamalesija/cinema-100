@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
+import { iconBookmark, iconLiked } from '../utils/icons/inconsMovieCard';
 import './trending.css';
 
 const Trending = () => {
@@ -45,38 +46,45 @@ const Trending = () => {
   };
 
   return (
-    <section className="section__trending">
-      <div className="section__container">
-        <button className="btn__slide" onClick={handleTranslateRight}>
+    <section className='section__trending'>
+      <div className='section__container'>
+        <button className='btn__slide' onClick={handleTranslateRight}>
           &#x2190;
         </button>
 
-        <div className="section-center">
-          <div className="heading-progress__container">
-            <h2 className="heading__trending">Currently trending</h2>
-            <div className="progress__bar">{progressBarItems}</div>
+        <div className='section-center'>
+          <div className='heading-progress__container'>
+            <h2 className='heading__trending'>Currently trending</h2>
+            <div className='progress__bar'>{progressBarItems}</div>
           </div>
-          <main className="container container__trending">
-            <div className="card__wrapper">
+          <main className='container container__trending'>
+            <div className='card__wrapper'>
               {trendingMovies.map((movie) => {
                 return (
-                  <img
-                    className="card__wrapper--image"
-                    src={movie.image}
-                    key={movie.imdbid}
+                  <div
+                    className='img--wrapper'
                     style={{
                       transform: `translateX(${
                         itemsPerScreen * 100 * slideTranslateIndex
                       }%)`,
                     }}
-                  />
+                  >
+                    <div className='movie-card__overlay'></div>
+                    {iconBookmark}
+                    {iconLiked}
+                    <img
+                      className='card__wrapper--image'
+                      src={movie.image}
+                      key={movie.imdbid}
+                    />
+                  </div>
                 );
               })}
             </div>
           </main>
         </div>
 
-        <button className="btn__slide" onClick={handleTranslateLeft}>
+        <button className='btn__slide' onClick={handleTranslateLeft}>
           &#x2192;
         </button>
       </div>
