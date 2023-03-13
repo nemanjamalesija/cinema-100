@@ -19,9 +19,6 @@ const TrendingMovieCard = ({
     state: { trendingMovies },
   } = useAppContext();
 
-  const [buttonBookmarkIndex, setButtonLikedIndex] = useState(-1);
-  const [buttonLikedIndex, setButtonBookmarkIndex] = useState(-1);
-
   return (
     <article className='container container__trending'>
       <div className='card__wrapper'>
@@ -37,36 +34,6 @@ const TrendingMovieCard = ({
               }}
             >
               <div className='movie-card__overlay'></div>
-              <button
-                className={
-                  buttonLikedIndex === i
-                    ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
-                    : 'btn__icon--container btn__icon--bookmark'
-                }
-                onClick={() =>
-                  buttonLikedIndex === i
-                    ? setButtonBookmarkIndex(-1)
-                    : setButtonBookmarkIndex(i)
-                }
-              >
-                {iconBookmarkCard}
-              </button>
-              <button
-                className={
-                  movie.liked
-                    ? 'btn__icon--container btn__icon--liked btn__icon--active'
-                    : 'btn__icon--container btn__icon--liked'
-                }
-                onClick={() =>
-                  dispatch({
-                    type: 'HANDLE_LIKED_BUTTON_ACTIVATION',
-                    payload: movie.imdbid,
-                  })
-                }
-              >
-                {iconLikedCard}
-              </button>
-
               <img className='card__wrapper--image' src={movie.image} />
             </div>
           );

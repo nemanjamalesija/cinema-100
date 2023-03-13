@@ -1,5 +1,6 @@
 import { useAppContext } from '../context';
 import MovieCard from './MovieCard';
+import Trending from './Trending';
 
 const HomeMovies = () => {
   const {
