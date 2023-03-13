@@ -62,6 +62,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       return {
         ...state,
         movies: chunk(newMovies, 12),
+        filteredMovies: chunk(newMovies, 12),
         trendingMovies,
       };
 
@@ -112,15 +113,13 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     case 'HANDLE_LIKED_BUTTON_ACTIVATION':
       console.log(state.trendingMovies);
       {
-        const likedMoviesTrending = state.trendingMovies.map((movie) => {
+        const newMovies = state.filteredMovies.flat().map((movie) => {
           if (movie.imdbid === payload) {
             return { ...movie, liked: !movie.liked };
           } else return movie;
         });
 
-        console.log(likedMoviesTrending);
-
-        return { ...state, trendingMovies: likedMoviesTrending };
+        return { ...state, filteredMovies: chunk(newMovies, 12) };
       }
 
     default:

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useAppContext } from '../context';
 import {
   iconBookmarkCard,
   iconLikedCard,
@@ -7,55 +8,44 @@ import star from '../utils/icons/star.png';
 import './movieCard.css';
 
 type movieCardProps = {
-  i: number;
   title: string;
   imdbid: string;
   genre: string[];
   year: number;
   image: string;
   rating: string;
+  liked: boolean;
 };
 
 const MovieCard = ({
-  i,
   title,
   imdbid,
   genre,
   year,
   image,
   rating,
+  liked,
 }: movieCardProps) => {
   const [buttonBookmarkIndex, setButtonLikedIndex] = useState(-1);
   const [buttonLikedIndex, setButtonBookmarkIndex] = useState(-1);
+  const { dispatch } = useAppContext();
 
   return (
     <article className='movie-card'>
       <header className='movie-card__header'>
         <div className='movie-card__overlay'></div>
+
         <button
           className={
-            buttonLikedIndex === i
-              ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
-              : 'btn__icon--container btn__icon--bookmark'
-          }
-          onClick={() =>
-            buttonLikedIndex === i
-              ? setButtonBookmarkIndex(-1)
-              : setButtonBookmarkIndex(i)
-          }
-        >
-          {iconBookmarkCard}
-        </button>
-        <button
-          className={
-            buttonBookmarkIndex === i
+            liked
               ? 'btn__icon--container btn__icon--liked btn__icon--active'
               : 'btn__icon--container btn__icon--liked'
           }
           onClick={() =>
-            buttonBookmarkIndex === i
-              ? setButtonLikedIndex(-1)
-              : setButtonLikedIndex(i)
+            dispatch({
+              type: 'HANDLE_LIKED_BUTTON_ACTIVATION',
+              payload: imdbid,
+            })
           }
         >
           {iconLikedCard}
