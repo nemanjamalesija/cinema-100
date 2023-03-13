@@ -89,16 +89,29 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
     case 'HANDLE_FILTERING': {
       const { currentMovie, genre } = state.filters;
-      let moviesTemp = [...state.movies.flat()];
+      const moviesTemp = [...state.movies.flat()];
+      const moviesFilteredTemp = [...state.filteredMovies.flat()];
+
+      let resultArrayTemp = moviesTemp.map((item) => {
+        const matchingItem = moviesFilteredTemp.find(
+          (updatedItem) => updatedItem.id === item.id
+        );
+
+        if (matchingItem) {
+          return { ...item, liked: matchingItem.liked };
+        } else {
+          return item;
+        }
+      });
 
       if (currentMovie) {
-        moviesTemp = moviesTemp.filter((movie) =>
+        resultArrayTemp = resultArrayTemp.filter((movie) =>
           movie.title.toLowerCase().includes(currentMovie.toLowerCase())
         );
       }
 
       if (genre && genre !== 'All') {
-        moviesTemp = moviesTemp.filter((movie) =>
+        resultArrayTemp = resultArrayTemp.filter((movie) =>
           movie.genre.join(',').includes(genre)
         );
       }
@@ -106,7 +119,9 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       return {
         ...state,
         filteredMovies:
-          moviesTemp.length > 12 ? chunk(moviesTemp, 12) : [moviesTemp],
+          resultArrayTemp.length > 12
+            ? chunk(resultArrayTemp, 12)
+            : [resultArrayTemp],
       };
     }
 
