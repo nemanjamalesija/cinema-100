@@ -58,14 +58,11 @@
   overflow: hidden;
 }
 
-.card__wrapper {
-  --items-per-screen: 4;
-  display: flex;
-}
-
 .img--wrapper {
-  padding: 0.25rem;
+  --items-per-screen: 4;
   position: relative;
+  display: flex;
+  padding: 0.25rem;
   z-index: 998;
   height: 100%;
   width: 100%;
@@ -73,6 +70,11 @@
   max-width: calc(100% / var(--items-per-screen));
   border-radius: 1rem;
   transition: transform 0.5s ease-in-out;
+}
+
+.card__wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .card__wrapper img {

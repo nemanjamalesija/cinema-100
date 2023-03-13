@@ -8,7 +8,7 @@ import './trending.css';
 import TrendingMovieCard from './TrendingMovieCard';
 
 const Trending = () => {
-  const [slideTranslateIndex, setslideTranslateIndex] = useState(0);
+  const [slideTranslateIndex, setslideTranslateIndex] = useState(2);
   const [rowsNumber, setRowsNumber] = useState(0);
   const [itemsPerScreen, setItemsPerScreen] = useState(0);
   const {
@@ -16,7 +16,7 @@ const Trending = () => {
   } = useAppContext();
 
   useEffect(() => {
-    const root: Element | null = document.querySelector('.card__wrapper');
+    const root: Element | null = document.querySelector('.img--wrapper');
     if (!root) return;
     const valueCSS =
       getComputedStyle(root).getPropertyValue('--items-per-screen');
@@ -30,7 +30,7 @@ const Trending = () => {
     (_, index) => (
       <div
         className={`${
-          -index === slideTranslateIndex
+          -index + 2 === slideTranslateIndex
             ? 'progress__bar--item progress__bar--item-active'
             : 'progress__bar--item'
         }`}
@@ -40,12 +40,15 @@ const Trending = () => {
   );
 
   const handleTranslateLeft = () => {
-    if (slideTranslateIndex === -rowsNumber + 1) setslideTranslateIndex(0);
+    console.log(rowsNumber, slideTranslateIndex);
+    if (slideTranslateIndex === -2) setslideTranslateIndex(2);
     else setslideTranslateIndex((prev) => prev - 1);
   };
 
   const handleTranslateRight = () => {
-    if (slideTranslateIndex === 0) setslideTranslateIndex(-rowsNumber + 1);
+    console.log(rowsNumber, slideTranslateIndex);
+
+    if (slideTranslateIndex === 2) setslideTranslateIndex(-2);
     else setslideTranslateIndex((prev) => prev + 1);
   };
 
@@ -62,17 +65,15 @@ const Trending = () => {
             <div className='progress__bar'>{progressBarItems}</div>
           </div>
           <main className='container container__trending'>
-            <div className='card__wrapper'>
-              {trendingMovies.map((movie) => {
-                return (
-                  <TrendingMovieCard
-                    key={movie.imdbid}
-                    itemsPerScreen={itemsPerScreen}
-                    slideTranslateIndex={slideTranslateIndex}
-                  />
-                );
-              })}
-            </div>
+            {trendingMovies.map((movie) => {
+              return (
+                <TrendingMovieCard
+                  itemsPerScreen={itemsPerScreen}
+                  slideTranslateIndex={slideTranslateIndex}
+                  {...movie}
+                />
+              );
+            })}
           </main>
         </div>
 

@@ -15,7 +15,7 @@ const Sidebar = () => {
   ) => {
     const name = e.currentTarget.name;
     const value = e.currentTarget.value;
-    console.log(name, value);
+
     dispatch({ type: 'SET_FILTER', payload: { name, value } });
   };
 

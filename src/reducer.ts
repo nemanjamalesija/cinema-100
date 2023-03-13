@@ -132,7 +132,10 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         } else return movie;
       });
 
-      return { ...state, filteredMovies: chunk(newMovies, 12) };
+      return {
+        ...state,
+        filteredMovies: chunk(newMovies, 12),
+      };
     }
 
     case 'UPDATE_BOOKMAKERED_STATUS': {
@@ -142,7 +145,10 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         } else return movie;
       });
 
-      return { ...state, filteredMovies: chunk(newMovies, 12) };
+      return {
+        ...state,
+        filteredMovies: chunk(newMovies, 12),
+      };
     }
 
     default:
