@@ -29,7 +29,6 @@ const Sidebar = () => {
         .map((genre) => genre)
     ),
   ];
-  console.log(genre);
 
   return (
     <aside className='sidebar'>

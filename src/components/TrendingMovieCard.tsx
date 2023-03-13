@@ -15,6 +15,7 @@ const TrendingMovieCard = ({
   slideTranslateIndex,
 }: trendingMovieCardProps) => {
   const {
+    dispatch,
     state: { trendingMovies },
   } = useAppContext();
 
@@ -52,14 +53,15 @@ const TrendingMovieCard = ({
               </button>
               <button
                 className={
-                  buttonBookmarkIndex === i
+                  movie.liked
                     ? 'btn__icon--container btn__icon--liked btn__icon--active'
                     : 'btn__icon--container btn__icon--liked'
                 }
                 onClick={() =>
-                  buttonBookmarkIndex === i
-                    ? setButtonLikedIndex(-1)
-                    : setButtonLikedIndex(i)
+                  dispatch({
+                    type: 'HANDLE_LIKED_BUTTON_ACTIVATION',
+                    payload: movie.imdbid,
+                  })
                 }
               >
                 {iconLikedCard}

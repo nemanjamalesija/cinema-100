@@ -21,12 +21,47 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
   switch (type) {
     case 'SET_MOVIES':
+      const newMovies = payload.map((movie: singleMovie) => {
+        const {
+          rank,
+          title,
+          thumbnail,
+          rating,
+          id,
+          year,
+          image,
+          description,
+          director,
+          trailer,
+          genre,
+          writers,
+          imdbid,
+        } = movie;
+        return {
+          rank,
+          title,
+          thumbnail,
+          rating,
+          id,
+          year,
+          image,
+          description,
+          director,
+          trailer,
+          genre,
+          writers,
+          imdbid,
+          liked: false,
+          bookakered: false,
+        };
+      });
+
       const randomIndex = getRandomNumber(payload);
-      const trendingMovies = payload.slice(randomIndex, randomIndex + 20);
+      const trendingMovies = newMovies.slice(randomIndex, randomIndex + 20);
 
       return {
         ...state,
-        movies: chunk(payload, 12),
+        movies: chunk(newMovies, 12),
         trendingMovies,
       };
 
@@ -73,6 +108,20 @@ const reducer = (state: appState, action: ACTIONS): appState => {
           moviesTemp.length > 12 ? chunk(moviesTemp, 12) : [moviesTemp],
       };
     }
+
+    case 'HANDLE_LIKED_BUTTON_ACTIVATION':
+      console.log(state.trendingMovies);
+      {
+        const likedMoviesTrending = state.trendingMovies.map((movie) => {
+          if (movie.imdbid === payload) {
+            return { ...movie, liked: !movie.liked };
+          } else return movie;
+        });
+
+        console.log(likedMoviesTrending);
+
+        return { ...state, trendingMovies: likedMoviesTrending };
+      }
 
     default:
       return { ...state };

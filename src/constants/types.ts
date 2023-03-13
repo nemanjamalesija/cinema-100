@@ -14,6 +14,8 @@ export type singleMovie = {
   genre: string[];
   writers: string[];
   imdbid: string;
+  liked?: boolean;
+  bookmakered?: boolean;
 };
 
 export type movies = singleMovie[][];
@@ -22,6 +24,8 @@ export type appState = {
   movies: movies;
   filteredMovies: movies;
   trendingMovies: singleMovie[];
+  likedMovies: singleMovie[];
+  bookmakeredMovies: singleMovie[];
   moviesHomeIndex: number;
   filters: {
     currentMovie: string;
@@ -36,7 +40,8 @@ export type ACTIONS = {
     | 'DECREMENT_PAGE_INDEX'
     | 'SET_PAGE_INDEX'
     | 'SET_FILTER'
-    | 'HANDLE_FILTERING';
+    | 'HANDLE_FILTERING'
+    | 'HANDLE_LIKED_BUTTON_ACTIVATION';
   payload?: any;
 };
 
