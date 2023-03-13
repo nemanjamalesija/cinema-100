@@ -52,19 +52,20 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     }
 
     case 'HANDLE_FILTERING': {
-      const { currentMovie } = state.filters;
+      const { currentMovie, genre } = state.filters;
       let moviesTemp = [...state.movies.flat()];
 
       if (currentMovie) {
         moviesTemp = moviesTemp.filter((movie) =>
           movie.title.toLowerCase().includes(currentMovie.toLowerCase())
         );
-
-        console.log(moviesTemp);
-        console.log(currentMovie);
       }
 
-      if (!moviesTemp) return { ...state };
+      if (genre && genre !== 'All') {
+        moviesTemp = moviesTemp.filter((movie) =>
+          movie.genre.join(',').includes(genre)
+        );
+      }
 
       return {
         ...state,
