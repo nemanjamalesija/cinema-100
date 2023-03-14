@@ -89,29 +89,16 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
     case 'HANDLE_FILTERING': {
       const { currentMovie, genre } = state.filters;
-      const moviesTemp = [...state.movies.flat()];
-      const moviesFilteredTemp = [...state.filteredMovies.flat()];
-
-      let resultArrayTemp = moviesTemp.map((item) => {
-        const matchingItem = moviesFilteredTemp.find(
-          (updatedItem) => updatedItem.id === item.id
-        );
-
-        if (matchingItem) {
-          return { ...item, liked: matchingItem.liked };
-        } else {
-          return item;
-        }
-      });
+      let filteredMoviesTemp = [...state.movies.flat()];
 
       if (currentMovie) {
-        resultArrayTemp = resultArrayTemp.filter((movie) =>
+        filteredMoviesTemp = filteredMoviesTemp.filter((movie) =>
           movie.title.toLowerCase().includes(currentMovie.toLowerCase())
         );
       }
 
       if (genre && genre !== 'All') {
-        resultArrayTemp = resultArrayTemp.filter((movie) =>
+        filteredMoviesTemp = filteredMoviesTemp.filter((movie) =>
           movie.genre.join(',').includes(genre)
         );
       }
@@ -119,14 +106,14 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       return {
         ...state,
         filteredMovies:
-          resultArrayTemp.length > 12
-            ? chunk(resultArrayTemp, 12)
-            : [resultArrayTemp],
+          filteredMoviesTemp.length > 12
+            ? chunk(filteredMoviesTemp, 12)
+            : [filteredMoviesTemp],
       };
     }
 
     case 'UPDATE_LIKED_STATUS': {
-      const newMovies = state.filteredMovies.flat().map((movie) => {
+      const newMovies = state.movies.flat().map((movie) => {
         if (movie.imdbid === payload) {
           return { ...movie, liked: !movie.liked };
         } else return movie;
@@ -134,12 +121,13 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
       return {
         ...state,
+        movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
       };
     }
 
     case 'UPDATE_BOOKMAKERED_STATUS': {
-      const newMovies = state.filteredMovies.flat().map((movie) => {
+      const newMovies = state.movies.flat().map((movie) => {
         if (movie.imdbid === payload) {
           return { ...movie, bookmakered: !movie.bookmakered };
         } else return movie;
@@ -147,6 +135,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
       return {
         ...state,
+        movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
       };
     }

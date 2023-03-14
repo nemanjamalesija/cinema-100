@@ -58,7 +58,6 @@ const Trending = () => {
         <button className='btn__slide' onClick={handleTranslateRight}>
           &#x2190;
         </button>
-
         <div className='section-center'>
           <div className='heading-progress__container'>
             <h2 className='heading__trending'>Currently trending</h2>
@@ -68,6 +67,7 @@ const Trending = () => {
             {trendingMovies.map((movie) => {
               return (
                 <TrendingMovieCard
+                  key={movie.imdbid}
                   itemsPerScreen={itemsPerScreen}
                   slideTranslateIndex={slideTranslateIndex}
                   {...movie}
@@ -76,7 +76,6 @@ const Trending = () => {
             })}
           </main>
         </div>
-
         <button className='btn__slide' onClick={handleTranslateLeft}>
           &#x2192;
         </button>
