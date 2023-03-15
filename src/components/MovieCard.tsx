@@ -54,7 +54,7 @@ const MovieCard = ({
           }
           onClick={() =>
             dispatch({
-              type: 'UPDATE_LIKED_STATUS',
+              type: "ADD_LIKED_VIDEO",
               payload: imdbid,
             })
           }

@@ -74,7 +74,9 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     }
 
     case 'HANDLE_FILTERING': {
-      const { currentMovie, genre } = state.filters;
+      const { currentMovie, genre, filterLiked, filterBookmakered } =
+        state.filters;
+
       let filteredMoviesTemp = [...state.movies.flat()];
 
       if (currentMovie) {
@@ -98,7 +100,13 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       };
     }
 
-    case 'UPDATE_LIKED_STATUS': {
+    case 'ADD_LIKED_VIDEO': {
+      const currentLikedMovie = state.movies
+        .flat()
+        .find((movie) => movie.imdbid === payload);
+
+      console.log(currentLikedMovie);
+
       const newMovies = state.movies.flat().map((movie) => {
         if (movie.imdbid === payload) {
           return { ...movie, liked: !movie.liked };
@@ -116,6 +124,9 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
         trendingMovies: newTrendingMovies,
+        likedMovies: currentLikedMovie
+          ? [...state.likedMovies, currentLikedMovie]
+          : state.likedMovies,
       };
     }
 
@@ -138,6 +149,10 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         filteredMovies: chunk(newMovies, 12),
         trendingMovies: newTrendingMovies,
       };
+    }
+
+    case 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES': {
+      return { ...state, showFilters: false, showLikedAndBookmakered: true };
     }
 
     default:

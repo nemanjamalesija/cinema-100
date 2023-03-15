@@ -23,12 +23,19 @@ export const movies = [[singleMovie]];
 export const initialState: appState = {
   movies: movies,
   filteredMovies: movies,
-  trendingMovies: [singleMovie],
-  likedMovies: [singleMovie],
-  bookmakeredMovies: [singleMovie],
   moviesHomeIndex: 0,
+  trendingMovies: [singleMovie],
+
+  showLikedAndBookmakered: false,
+
+  bookmakeredMovies: [singleMovie],
+  likedMovies: [],
+
+  showFilters: true,
   filters: {
     currentMovie: '',
     genre: 'All',
+    filterLiked: '',
+    filterBookmakered: '',
   },
 };

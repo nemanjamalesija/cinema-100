@@ -23,13 +23,19 @@ export type movies = singleMovie[][];
 export type appState = {
   movies: movies;
   filteredMovies: movies;
-  trendingMovies: singleMovie[];
-  likedMovies: singleMovie[];
-  bookmakeredMovies: singleMovie[];
   moviesHomeIndex: number;
+  trendingMovies: singleMovie[];
+
+  showLikedAndBookmakered: boolean;
+  likedMovies: [] | singleMovie[];
+  bookmakeredMovies: [] | singleMovie[];
+
+  showFilters: boolean;
   filters: {
     currentMovie: string;
     genre: string;
+    filterLiked: string;
+    filterBookmakered: string;
   };
 };
 
@@ -42,7 +48,10 @@ export type ACTIONS = {
     | 'SET_FILTER'
     | 'HANDLE_FILTERING'
     | 'UPDATE_LIKED_STATUS'
-    | 'UPDATE_BOOKMAKERED_STATUS';
+    | 'UPDATE_BOOKMAKERED_STATUS'
+    | 'ADD_LIKED_VIDEO'
+    | 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES';
+
   payload?: any;
 };
 

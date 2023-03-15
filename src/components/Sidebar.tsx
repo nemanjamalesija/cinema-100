@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useAppContext } from '../context';
 import {
   iconBookmarkSidebar,
@@ -11,6 +12,7 @@ const Sidebar = () => {
     dispatch,
     state: {
       movies,
+      showFilters,
       filters: { currentMovie, genre },
     },
   } = useAppContext();
@@ -52,22 +54,38 @@ const Sidebar = () => {
       </div>
 
       <div className='sidebar__personalize'>
-        <select
-          name='genre'
-          className='sidebar__select'
-          onChange={setFilterHandler}
-          value={genre}
+        {showFilters && (
+          <select
+            name='genre'
+            className='sidebar__select'
+            onChange={setFilterHandler}
+            value={genre}
+          >
+            {genres.map((g, i) => (
+              <option key={i} className='sidebar__select--option' value={g}>
+                {g}
+              </option>
+            ))}
+          </select>
+        )}
+        <button
+          name='filterLiked'
+          data-value='liked'
+          className='btn__sidebar btn__sidebar--liked'
+          onClick={() =>
+            dispatch({ type: 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES' })
+          }
         >
-          {genres.map((g, i) => (
-            <option key={i} className='sidebar__select--option' value={g}>
-              {g}
-            </option>
-          ))}
-        </select>
-        <button className='btn__sidebar btn__sidebar--liked'>
           {iconLikedSidebar}
         </button>
-        <button className='btn__sidebar btn__sidebar--bookmark'>
+        <button
+          name='filterBookmakered'
+          data-value='bookmakered'
+          className='btn__sidebar btn__sidebar--bookmark'
+          onClick={() =>
+            dispatch({ type: 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES' })
+          }
+        >
           {iconBookmarkSidebar}
         </button>
       </div>
