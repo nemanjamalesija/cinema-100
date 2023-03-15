@@ -1,9 +1,5 @@
-import { useState } from 'react';
 import { useAppContext } from '../context';
-import {
-  iconBookmarkCard,
-  iconLikedCard,
-} from '../utils/icons/inconsMovieCard';
+import { iconBookmarkCard } from '../utils/icons/inconsMovieCard';
 
 type trendingMovieCardProps = {
   itemsPerScreen: number;
@@ -19,7 +15,6 @@ const TrendingMovieCard = ({
   slideTranslateIndex,
   image,
   imdbid,
-  liked,
   bookmakered,
 }: trendingMovieCardProps) => {
   const { dispatch } = useAppContext();

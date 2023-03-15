@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAppContext } from '../context';
 import './paginationControl.css';
 
@@ -35,8 +34,6 @@ const PagiationButtons = () => {
       </button>
     );
   });
-
-
 
   return (
     <div className='pagination__control--container'>

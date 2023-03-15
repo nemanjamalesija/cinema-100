@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { useAppContext } from '../context';
 import {
   iconBookmarkSidebar,
-  iconLikedSidebar,
   iconSidebarSearch,
 } from '../utils/icons/iconsSidebar';
 import './sidebar.css';
@@ -12,7 +10,6 @@ const Sidebar = () => {
     dispatch,
     state: {
       movies,
-      showFilters,
       filters: { currentMovie, genre },
     },
   } = useAppContext();
@@ -52,9 +49,7 @@ const Sidebar = () => {
           <button className='btn-search'>{iconSidebarSearch}</button>
         </div>
       </div>
-
       <div className='sidebar__personalize'>
-        (
         <select
           name='genre'
           className='sidebar__select'
@@ -67,7 +62,6 @@ const Sidebar = () => {
             </option>
           ))}
         </select>
-        )
         <button
           name='filterBookmakered'
           data-value='bookmakered'

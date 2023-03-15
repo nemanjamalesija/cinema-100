@@ -20,11 +20,11 @@ const Pagination = () => {
         <h2 className='heading--secondary heading-movies'>
           {showBookmarkeredVideos
             ? genre === 'All'
-              ? 'Your library (bookmakered movies)'
-              : genre + ' (bookmakered movies)'
+              ? 'Your library'
+              : genre + ' (bookmarked movies)'
             : genre === 'All'
             ? 'Top 100'
-            : genre + (showBookmarkeredVideos ? ' (bookmarked movies)' : '')}
+            : genre}
         </h2>
         {showFilters && <HomeMovies />}
         {showBookmarkeredVideos && <BookmarkeredMovies />}

@@ -1,9 +1,5 @@
-import { useState } from 'react';
 import { useAppContext } from '../context';
-import {
-  iconBookmarkCard,
-  iconLikedCard,
-} from '../utils/icons/inconsMovieCard';
+import { iconBookmarkCard } from '../utils/icons/inconsMovieCard';
 import star from '../utils/icons/star.png';
 import './movieCard.css';
 

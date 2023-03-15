@@ -26,7 +26,6 @@ export const initialState: appState = {
   moviesHomeIndex: 0,
   trendingMovies: [singleMovie],
 
-  showLikedMovies: false,
   showBookmarkeredVideos: false,
   bookmarkeredMovies: [],
 

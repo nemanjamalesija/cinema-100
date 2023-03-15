@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
-import {
-  iconBookmarkCard,
-  iconLikedCard,
-} from '../utils/icons/inconsMovieCard';
 import './trending.css';
 import TrendingMovieCard from './TrendingMovieCard';
 

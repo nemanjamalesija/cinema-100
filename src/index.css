@@ -45,7 +45,7 @@ body {
 
 .heading__no--match--found {
   text-align: center;
-  padding-bottom: 12rem;
+  padding: 10.8rem 0 12rem 0;
 }
 
 .section__pagination {
