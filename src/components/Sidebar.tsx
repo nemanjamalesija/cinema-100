@@ -4,7 +4,6 @@ import {
   iconLikedSidebar,
   iconSidebarSearch,
 } from '../utils/icons/iconsSidebar';
-import { iconBookmarkCard } from '../utils/icons/inconsMovieCard';
 import './sidebar.css';
 
 const Sidebar = () => {

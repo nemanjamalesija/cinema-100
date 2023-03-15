@@ -82,3 +82,8 @@
 .sidebar__icon--active {
   color: var(--color--accent--primary);
 }
+
+.btn__sidebar {
+  background-color: transparent;
+  border: none;
+}
