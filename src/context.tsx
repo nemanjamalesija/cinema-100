@@ -20,8 +20,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: 'HANDLE_FILTERING' });
   }, [state.filters]);
 
-  console.log(state.likedMovies);
-
   return (
     <AppContext.Provider
       value={{

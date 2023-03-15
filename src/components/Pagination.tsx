@@ -1,15 +1,14 @@
 import { useAppContext } from '../context';
 import HomeMovies from './HomeMovies';
-import LikedMovies from './LikedMovies';
 import PagiationButtons from './PagiationButtons';
 import Sidebar from './Sidebar';
+import BookmarkeredMovies from './BookmarkeredMovies';
 
 const Pagination = () => {
   const {
     state: {
       showFilters,
-      showLikedMovies,
-      showBookmakeredMovies,
+      showBookmarkeredVideos,
       filters: { genre },
     },
   } = useAppContext();
@@ -24,7 +23,7 @@ const Pagination = () => {
             : genre.slice(0, 1).toUpperCase() + genre.slice(1)}
         </h2>
         {showFilters && <HomeMovies />}
-        {showLikedMovies && <LikedMovies />}
+        {showBookmarkeredVideos && <BookmarkeredMovies />}
         <PagiationButtons />
       </main>
     </section>

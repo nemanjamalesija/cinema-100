@@ -34,22 +34,12 @@ const TrendingMovieCard = ({
       <div className='movie-card__overlay'></div>
       <button
         className={
-          liked
-            ? 'btn__icon--container btn__icon--liked btn__icon--active'
-            : 'btn__icon--container btn__icon--liked'
-        }
-        onClick={() => dispatch({ type: 'ADD_LIKED_VIDEO', payload: imdbid })}
-      >
-        {iconLikedCard}
-      </button>
-      <button
-        className={
           bookmakered
             ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
             : 'btn__icon--container btn__icon--bookmark'
         }
         onClick={() =>
-          dispatch({ type: 'UPDATE_BOOKMAKERED_STATUS', payload: imdbid })
+          dispatch({ type: 'ADD_BOOKMARK_VIDEO', payload: imdbid })
         }
       >
         {iconBookmarkCard}

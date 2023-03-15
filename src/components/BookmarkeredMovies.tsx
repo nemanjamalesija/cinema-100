@@ -2,19 +2,22 @@ import React from 'react';
 import { useAppContext } from '../context';
 import MovieCard from './MovieCard';
 
-const LikedMovies = () => {
+const BookmarkeredMovies = () => {
   const {
-    state: { likedMovies, showFilters, showLikedMovies },
+    state: { bookmarkeredMovies, showFilters, showBookmarkeredVideos },
   } = useAppContext();
 
-  if (likedMovies.length === 0) return <h2 className=''>No liked movies</h2>;
-
-  console.log(likedMovies);
+  if (bookmarkeredMovies.length === 0)
+    return (
+      <h2 className='heading--secondary heading__no--match--found'>
+        No bookmarkered movies
+      </h2>
+    );
 
   return (
     <section className='section__liked-and-bookmakered--movies'>
       <div className='container__movies'>
-        {likedMovies.map((movie) => {
+        {bookmarkeredMovies.map((movie) => {
           return <MovieCard key={movie.imdbid} {...movie} />;
         })}
       </div>
@@ -22,4 +25,4 @@ const LikedMovies = () => {
   );
 };
 
-export default LikedMovies;
+export default BookmarkeredMovies;

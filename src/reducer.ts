@@ -74,8 +74,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     }
 
     case 'HANDLE_FILTERING': {
-      const { currentMovie, genre, filterLiked, filterBookmakered } =
-        state.filters;
+      const { currentMovie, genre } = state.filters;
 
       let filteredMoviesTemp = [...state.movies.flat()];
 
@@ -100,53 +99,31 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       };
     }
 
-    case 'ADD_LIKED_VIDEO': {
-      let likedMoviesArray = [...state.likedMovies];
+    case 'ADD_BOOKMARK_VIDEO': {
+      let newBookmarkeredMovies = [...state.bookmarkeredMovies];
 
-      const isMovieAlreadyLiked = (movie: singleMovie) =>
-        state.likedMovies.some(
-          (likedMovie) => likedMovie.imdbid === movie.imdbid
+      const isMovieAlreadyBookmarkered = (movie: singleMovie) =>
+        state.bookmarkeredMovies.some(
+          (bookMovie) => bookMovie.imdbid === movie.imdbid
         );
 
       const currentMovie = state.movies
         .flat()
         .find((movie) => movie.imdbid === action.payload) as singleMovie;
 
-      if (!isMovieAlreadyLiked(currentMovie)) {
-        likedMoviesArray = [
-          ...state.likedMovies,
-          { ...currentMovie, liked: true },
+      if (!isMovieAlreadyBookmarkered(currentMovie)) {
+        newBookmarkeredMovies = [
+          ...state.bookmarkeredMovies,
+          { ...currentMovie, bookmakered: true },
         ];
       } else {
-        likedMoviesArray = likedMoviesArray.filter(
+        newBookmarkeredMovies = newBookmarkeredMovies.filter(
           (movie) => movie.imdbid !== payload
         );
       }
 
       const newMovies = state.movies.flat().map((movie) => {
         if (movie.imdbid === payload) {
-          return { ...movie, liked: !movie.liked };
-        } else return movie;
-      });
-
-      const newTrendingMovies = state.trendingMovies.map((movie) => {
-        if (movie.imdbid === payload) {
-          return { ...movie, liked: !movie.liked };
-        } else return movie;
-      });
-
-      return {
-        ...state,
-        movies: chunk(newMovies, 12),
-        filteredMovies: chunk(newMovies, 12),
-        trendingMovies: newTrendingMovies,
-        likedMovies: likedMoviesArray,
-      };
-    }
-
-    case 'UPDATE_BOOKMAKERED_STATUS': {
-      const newMovies = state.movies.flat().map((movie) => {
-        if (movie.imdbid === payload) {
           return { ...movie, bookmakered: !movie.bookmakered };
         } else return movie;
       });
@@ -162,11 +139,12 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
         trendingMovies: newTrendingMovies,
+        bookmarkeredMovies: newBookmarkeredMovies,
       };
     }
 
-    case 'SHOW_LIKED_MOVIES': {
-      return { ...state, showFilters: false, showLikedMovies: true };
+    case 'SHOW_BOOKMARKERED_MOVIES': {
+      return { ...state, showFilters: false, showBookmarkeredVideos: true };
     }
 
     default:

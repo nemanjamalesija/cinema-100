@@ -68,23 +68,12 @@ const Sidebar = () => {
             ))}
           </select>
         )}
-        <button
-          name='filterLiked'
-          data-value='liked'
-          className='btn__sidebar btn__sidebar--liked'
-          onClick={() =>
-            dispatch({ type: 'SHOW_LIKED_MOVIES' })
-          }
-        >
-          {iconLikedSidebar}
-        </button>
+
         <button
           name='filterBookmakered'
           data-value='bookmakered'
           className='btn__sidebar btn__sidebar--bookmark'
-          onClick={() =>
-            dispatch({ type: 'SHOW_BOOKMAKERED_MOVIES' })
-          }
+          onClick={() => dispatch({ type: 'SHOW_BOOKMARKERED_MOVIES' })}
         >
           {iconBookmarkSidebar}
         </button>

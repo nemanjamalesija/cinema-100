@@ -27,9 +27,8 @@ export type appState = {
   trendingMovies: singleMovie[];
 
   showLikedMovies: boolean;
-  showBookmakeredMovies: boolean;
-  likedMovies: [] | singleMovie[];
-  bookmakeredMovies: [] | singleMovie[];
+  showBookmarkeredVideos: boolean;
+  bookmarkeredMovies: [] | singleMovie[];
 
   showFilters: boolean;
   filters: {
@@ -48,11 +47,8 @@ export type ACTIONS = {
     | 'SET_PAGE_INDEX'
     | 'SET_FILTER'
     | 'HANDLE_FILTERING'
-    | 'UPDATE_LIKED_STATUS'
-    | 'UPDATE_BOOKMAKERED_STATUS'
-    | 'ADD_LIKED_VIDEO'
-    | 'SHOW_LIKED_MOVIES'
-    | 'SHOW_BOOKMAKERED_MOVIES';
+    | 'ADD_BOOKMARK_VIDEO'
+    | 'SHOW_BOOKMARKERED_MOVIES';
 
   payload?: any;
 };
