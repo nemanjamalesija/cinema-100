@@ -1,20 +1,6 @@
 import { ACTIONS, appState, movies, singleMovie } from './constants/types';
-
-function getRandomNumber(movies: singleMovie[]) {
-  let randomNumber = Math.floor(Math.random() * movies.length);
-  if (randomNumber >= movies.length - 20) randomNumber = movies.length - 21;
-  return randomNumber;
-}
-
-function chunk(array: singleMovie[], size: number) {
-  if (size < 1) throw new Error('Size must be positive');
-
-  const result = [];
-  for (let i = 0; i < array.length; i += size)
-    result.push(array.slice(i, i + size));
-
-  return result;
-}
+import { chunk } from './helpers/chunk';
+import { getRandomIndex } from './helpers/getRandomIndex';
 
 const reducer = (state: appState, action: ACTIONS): appState => {
   const { type, payload } = action;
@@ -56,7 +42,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         };
       });
 
-      const randomIndex = getRandomNumber(payload);
+      const randomIndex = getRandomIndex(payload);
       const trendingMovies = newMovies.slice(randomIndex, randomIndex + 20);
 
       return {
