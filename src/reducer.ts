@@ -119,10 +119,17 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         } else return movie;
       });
 
+      const newTrendingMovies = state.trendingMovies.map((movie) => {
+        if (movie.imdbid === payload) {
+          return { ...movie, liked: !movie.liked };
+        } else return movie;
+      });
+
       return {
         ...state,
         movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
+        trendingMovies: newTrendingMovies,
       };
     }
 
@@ -133,10 +140,17 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         } else return movie;
       });
 
+      const newTrendingMovies = state.trendingMovies.map((movie) => {
+        if (movie.imdbid === payload) {
+          return { ...movie, bookmakered: !movie.bookmakered };
+        } else return movie;
+      });
+
       return {
         ...state,
         movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
+        trendingMovies: newTrendingMovies,
       };
     }
 

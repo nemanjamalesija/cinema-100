@@ -10,6 +10,8 @@ type trendingMovieCardProps = {
   slideTranslateIndex: number;
   image: string;
   imdbid: string;
+  liked: boolean;
+  bookmakered: boolean;
 };
 
 const TrendingMovieCard = ({
@@ -17,7 +19,11 @@ const TrendingMovieCard = ({
   slideTranslateIndex,
   image,
   imdbid,
+  liked,
+  bookmakered,
 }: trendingMovieCardProps) => {
+  const { dispatch } = useAppContext();
+
   return (
     <article
       className='img--wrapper'
@@ -26,6 +32,30 @@ const TrendingMovieCard = ({
       }}
     >
       <div className='movie-card__overlay'></div>
+      <button
+        className={
+          liked
+            ? 'btn__icon--container btn__icon--liked btn__icon--active'
+            : 'btn__icon--container btn__icon--liked'
+        }
+        onClick={() =>
+          dispatch({ type: 'UPDATE_LIKED_STATUS', payload: imdbid })
+        }
+      >
+        {iconLikedCard}
+      </button>
+      <button
+        className={
+          bookmakered
+            ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
+            : 'btn__icon--container btn__icon--bookmark'
+        }
+        onClick={() =>
+          dispatch({ type: 'UPDATE_BOOKMAKERED_STATUS', payload: imdbid })
+        }
+      >
+        {iconBookmarkCard}
+      </button>
 
       <div className='card__wrapper'>
         <img className='card__wrapper--image' src={image} />
