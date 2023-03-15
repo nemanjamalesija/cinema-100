@@ -54,21 +54,20 @@ const Sidebar = () => {
       </div>
 
       <div className='sidebar__personalize'>
-        {showFilters && (
-          <select
-            name='genre'
-            className='sidebar__select'
-            onChange={setFilterHandler}
-            value={genre}
-          >
-            {genres.map((g, i) => (
-              <option key={i} className='sidebar__select--option' value={g}>
-                {g}
-              </option>
-            ))}
-          </select>
-        )}
-
+        (
+        <select
+          name='genre'
+          className='sidebar__select'
+          onChange={setFilterHandler}
+          value={genre}
+        >
+          {genres.map((g, i) => (
+            <option key={i} className='sidebar__select--option' value={g}>
+              {g}
+            </option>
+          ))}
+        </select>
+        )
         <button
           name='filterBookmakered'
           data-value='bookmakered'

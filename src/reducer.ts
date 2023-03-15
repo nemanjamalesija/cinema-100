@@ -77,16 +77,25 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       const { currentMovie, genre } = state.filters;
 
       let filteredMoviesTemp = [...state.movies.flat()];
+      let filteredBookmarksTemp = [
+        ...state.movies.flat().filter((movie) => movie.bookmakered),
+      ];
 
       if (currentMovie) {
         filteredMoviesTemp = filteredMoviesTemp.filter((movie) =>
           movie.title.toLowerCase().includes(currentMovie.toLowerCase())
+        );
+        filteredBookmarksTemp = filteredBookmarksTemp.filter((bookMov) =>
+          bookMov.title.toLocaleLowerCase().includes(currentMovie.toLowerCase())
         );
       }
 
       if (genre && genre !== 'All') {
         filteredMoviesTemp = filteredMoviesTemp.filter((movie) =>
           movie.genre.join(',').includes(genre)
+        );
+        filteredBookmarksTemp = filteredBookmarksTemp.filter((bookMov) =>
+          bookMov.genre.join(',').includes(genre)
         );
       }
 
@@ -96,6 +105,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
           filteredMoviesTemp.length > 12
             ? chunk(filteredMoviesTemp, 12)
             : [filteredMoviesTemp],
+        bookmarkeredMovies: filteredBookmarksTemp,
       };
     }
 
