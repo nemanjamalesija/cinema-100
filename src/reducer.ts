@@ -108,12 +108,15 @@ const reducer = (state: appState, action: ACTIONS): appState => {
           (likedMovie) => likedMovie.imdbid === movie.imdbid
         );
 
-      const currentLikedMovie = state.movies
+      const currentMovie = state.movies
         .flat()
         .find((movie) => movie.imdbid === action.payload) as singleMovie;
 
-      if (!isMovieAlreadyLiked(currentLikedMovie)) {
-        likedMoviesArray = [...state.likedMovies, currentLikedMovie];
+      if (!isMovieAlreadyLiked(currentMovie)) {
+        likedMoviesArray = [
+          ...state.likedMovies,
+          { ...currentMovie, liked: true },
+        ];
       } else {
         likedMoviesArray = likedMoviesArray.filter(
           (movie) => movie.imdbid !== payload

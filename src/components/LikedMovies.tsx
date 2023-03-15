@@ -9,6 +9,8 @@ const LikedMovies = () => {
 
   if (likedMovies.length === 0) return <h2 className=''>No liked movies</h2>;
 
+  console.log(likedMovies);
+
   return (
     <section className='section__liked-and-bookmakered--movies'>
       <div className='container__movies'>
