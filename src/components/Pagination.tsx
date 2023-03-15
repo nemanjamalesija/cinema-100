@@ -18,9 +18,13 @@ const Pagination = () => {
       <Sidebar />
       <main className='container__pagination'>
         <h2 className='heading--secondary heading-movies'>
-          {genre === 'All'
+          {showBookmarkeredVideos
+            ? genre === 'All'
+              ? 'Your library (bookmakered movies)'
+              : genre + ' (bookmakered movies)'
+            : genre === 'All'
             ? 'Top 100'
-            : genre.slice(0, 1).toUpperCase() + genre.slice(1)}
+            : genre + (showBookmarkeredVideos ? ' (bookmarked movies)' : '')}
         </h2>
         {showFilters && <HomeMovies />}
         {showBookmarkeredVideos && <BookmarkeredMovies />}
