@@ -38,9 +38,7 @@ const TrendingMovieCard = ({
             ? 'btn__icon--container btn__icon--liked btn__icon--active'
             : 'btn__icon--container btn__icon--liked'
         }
-        onClick={() =>
-          dispatch({ type: 'UPDATE_LIKED_STATUS', payload: imdbid })
-        }
+        onClick={() => dispatch({ type: 'ADD_LIKED_VIDEO', payload: imdbid })}
       >
         {iconLikedCard}
       </button>

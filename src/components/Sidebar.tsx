@@ -73,7 +73,7 @@ const Sidebar = () => {
           data-value='liked'
           className='btn__sidebar btn__sidebar--liked'
           onClick={() =>
-            dispatch({ type: 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES' })
+            dispatch({ type: 'SHOW_LIKED_MOVIES' })
           }
         >
           {iconLikedSidebar}
@@ -83,7 +83,7 @@ const Sidebar = () => {
           data-value='bookmakered'
           className='btn__sidebar btn__sidebar--bookmark'
           onClick={() =>
-            dispatch({ type: 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES' })
+            dispatch({ type: 'SHOW_BOOKMAKERED_MOVIES' })
           }
         >
           {iconBookmarkSidebar}

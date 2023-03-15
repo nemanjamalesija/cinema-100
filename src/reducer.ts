@@ -101,11 +101,22 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     }
 
     case 'ADD_LIKED_VIDEO': {
+      let likedMoviesArray = [...state.likedMovies];
+
+      const isMovieAlreadyLiked = (movie: singleMovie) =>
+        state.likedMovies.some(
+          (likedMovie) => likedMovie.imdbid === movie.imdbid
+        );
+
       const currentLikedMovie = state.movies
         .flat()
-        .find((movie) => movie.imdbid === payload);
+        .find((movie) => movie.imdbid === action.payload) as singleMovie;
 
-      console.log(currentLikedMovie);
+      if (!isMovieAlreadyLiked(currentLikedMovie)) {
+        likedMoviesArray = [...state.likedMovies, currentLikedMovie];
+      } else {
+        likedMoviesArray;
+      }
 
       const newMovies = state.movies.flat().map((movie) => {
         if (movie.imdbid === payload) {
@@ -124,9 +135,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
         movies: chunk(newMovies, 12),
         filteredMovies: chunk(newMovies, 12),
         trendingMovies: newTrendingMovies,
-        likedMovies: currentLikedMovie
-          ? [...state.likedMovies, currentLikedMovie]
-          : state.likedMovies,
+        likedMovies: likedMoviesArray,
       };
     }
 
@@ -151,8 +160,8 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       };
     }
 
-    case 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES': {
-      return { ...state, showFilters: false, showLikedAndBookmakered: true };
+    case 'SHOW_LIKED_MOVIES': {
+      return { ...state, showFilters: false, showLikedMovies: true };
     }
 
     default:

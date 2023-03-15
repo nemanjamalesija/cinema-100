@@ -26,7 +26,8 @@ export type appState = {
   moviesHomeIndex: number;
   trendingMovies: singleMovie[];
 
-  showLikedAndBookmakered: boolean;
+  showLikedMovies: boolean;
+  showBookmakeredMovies: boolean;
   likedMovies: [] | singleMovie[];
   bookmakeredMovies: [] | singleMovie[];
 
@@ -50,7 +51,8 @@ export type ACTIONS = {
     | 'UPDATE_LIKED_STATUS'
     | 'UPDATE_BOOKMAKERED_STATUS'
     | 'ADD_LIKED_VIDEO'
-    | 'SHOW_LIKED_AND_BOOKMAKERED_MOVIES';
+    | 'SHOW_LIKED_MOVIES'
+    | 'SHOW_BOOKMAKERED_MOVIES';
 
   payload?: any;
 };
