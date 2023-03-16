@@ -1,8 +1,5 @@
 import { useAppContext } from '../context';
-import {
-  iconBookmarkSidebar,
-  iconSidebarSearch,
-} from '../utils/icons/iconsSidebar';
+import { iconSidebarSearch } from '../utils/icons/iconsSidebar';
 import './sidebar.css';
 
 const Sidebar = () => {
@@ -10,6 +7,7 @@ const Sidebar = () => {
     dispatch,
     state: {
       movies,
+      showFilters,
       filters: { currentMovie, genre },
     },
   } = useAppContext();
@@ -68,7 +66,22 @@ const Sidebar = () => {
           className='btn__sidebar btn__sidebar--bookmark'
           onClick={() => dispatch({ type: 'SHOW_BOOKMARKERED_MOVIES' })}
         >
-          {iconBookmarkSidebar}
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+            fill='currentColor'
+            className={
+              showFilters
+                ? 'sidebar__icon sidebar__personal--bookmark'
+                : 'sidebar__icon sidebar__personal--bookmark sidebar__icon--active'
+            }
+          >
+            <path
+              fillRule='evenodd'
+              d='M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z'
+              clipRule='evenodd'
+            />
+          </svg>
         </button>
       </div>
     </aside>
