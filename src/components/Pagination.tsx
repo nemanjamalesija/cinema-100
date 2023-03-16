@@ -8,7 +8,8 @@ const Pagination = () => {
   const {
     state: {
       showFilters,
-      showBookmarkeredVideos,
+      filteredMovies,
+      moviesHomeIndex,
       filters: { genre },
     },
   } = useAppContext();
@@ -18,17 +19,19 @@ const Pagination = () => {
       <Sidebar />
       <main className='container__pagination'>
         <h2 className='heading--secondary heading-movies'>
-          {showBookmarkeredVideos
+          {showFilters
             ? genre === 'All'
-              ? 'Your library'
-              : genre + ' (bookmarked movies)'
+              ? 'Top 100'
+              : genre
             : genre === 'All'
-            ? 'Top 100'
-            : genre}
+            ? 'Your bookmakered movies'
+            : genre + ' (bookmarked movies)'}
         </h2>
         {showFilters && <HomeMovies />}
-        {showBookmarkeredVideos && <BookmarkeredMovies />}
-        {showFilters && <PagiationButtons />}
+        {!showFilters && <BookmarkeredMovies />}
+        {showFilters && filteredMovies[moviesHomeIndex].length !== 0 && (
+          <PagiationButtons />
+        )}
       </main>
     </section>
   );

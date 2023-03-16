@@ -157,7 +157,6 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       return {
         ...state,
         showFilters: !state.showFilters,
-        showBookmarkeredVideos: true,
       };
     }
 

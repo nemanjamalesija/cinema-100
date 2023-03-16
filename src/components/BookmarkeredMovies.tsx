@@ -13,6 +13,8 @@ const BookmarkeredMovies = () => {
       </h2>
     );
 
+  console.log('aa');
+
   return (
     <section className='section__liked-and-bookmakered--movies'>
       <div className='container__movies bookmakered__movies'>
