@@ -36,6 +36,10 @@ body {
   min-height: 10rem;
 }
 
+.bookmakered__movies {
+  padding-bottom: 12rem;
+}
+
 .heading--secondary {
   font-size: 2.1rem;
   color: #fff;

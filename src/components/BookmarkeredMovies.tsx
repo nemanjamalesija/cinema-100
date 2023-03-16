@@ -15,7 +15,7 @@ const BookmarkeredMovies = () => {
 
   return (
     <section className='section__liked-and-bookmakered--movies'>
-      <div className='container__movies'>
+      <div className='container__movies bookmakered__movies'>
         {bookmarkeredMovies.map((movie) => {
           return <MovieCard key={movie.imdbid} {...movie} />;
         })}
