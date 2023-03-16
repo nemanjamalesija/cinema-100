@@ -28,7 +28,7 @@ const Pagination = () => {
         </h2>
         {showFilters && <HomeMovies />}
         {showBookmarkeredVideos && <BookmarkeredMovies />}
-        <PagiationButtons />
+        {showFilters && <PagiationButtons />}
       </main>
     </section>
   );
