@@ -62,6 +62,11 @@
   align-items: center;
 }
 
+.sidebar__icons {
+  display: flex;
+  gap: 0.6rem;
+}
+
 .sidebar__select {
   background-color: var(--color--shade--primary);
   color: var(--color--body---text);
