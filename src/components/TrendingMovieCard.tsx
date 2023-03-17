@@ -1,5 +1,6 @@
 import { useAppContext } from '../context';
 import { iconBookmarkCard, iconSearchMovieCard } from '../utils/icons/icons';
+import { Link } from 'react-router-dom';
 
 type trendingMovieCardProps = {
   itemsPerScreen: number;
@@ -39,10 +40,13 @@ const TrendingMovieCard = ({
       >
         {iconBookmarkCard}
       </button>
-      <button className='btn__icon--container btn__icon--search'>
-        <p className='btn__icon--container-p'>See more</p>
-        {iconSearchMovieCard}
-      </button>
+
+      <Link to={`/${imdbid}`}>
+        <button className='btn__icon--search'>
+          <p className='btn__icon--container-p'>See more</p>
+          {iconSearchMovieCard}
+        </button>
+      </Link>
 
       <div className='card__wrapper'>
         <img className='card__wrapper--image' src={image} />

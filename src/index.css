@@ -75,29 +75,76 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-.btn__icon--container {
-  position: absolute;
-  z-index: 9999;
+/* Button in the corner of the movie card and the link in the middle of the movie card */
+.btn__icon--container,
+a {
   background-color: var(--color--body--text);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn__icon--container {
+  visibility: hidden;
+  opacity: 0;
+}
+
+a {
+  position: absolute;
+  border-radius: 1rem;
+  top: 45%;
+  left: 50%;
+  z-index: 9999;
+  padding: 1rem;
+  transform: translateX(-50%);
+  text-decoration: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show overlay, link and button on hover of the movie card container */
+.img--wrapper:hover > .movie-card__overlay {
+  visibility: visible;
+  opacity: 50%;
+}
+
+.img--wrapper:hover > .btn__icon--container,
+.img--wrapper:hover > a {
+  opacity: 75%;
+  visibility: visible;
+}
+
+/*On hover of the link change bacground color of the link + add class when the movie is added to the bookmarks */
+a:hover,
+.btn__icon--active {
+  background-color: #fff;
+}
+
+a:hover > .btn__icon--search {
+  background-color: #fff;
+  opacity: 75%;
+}
+
+/* on hover of the link in the middle of the movie card change color of the text and the icon */
+a:hover > .btn__icon--search > .btn__icon--container-p,
+a:hover > .btn__icon--search > .movie-card__icon--search {
+  color: var(--color--body--text);
+  opacity: 100%;
+  font-weight: 600;
 }
 
 .btn__icon--container:active {
   background-color: var(--color--accent--primary) !important;
 }
 
-.btn__icon--container:hover,
-.btn__icon--active {
+.btn__icon--container:hover {
   background-color: #fff;
 }
 
+/* on hover of button inside of the movie card change color */
 .btn__icon--container:hover > .movie-card__icon,
 .btn__icon--container:hover > .btn__icon--container-p,
 .btn__icon--container:hover > .movie-card__icon--search,
@@ -110,6 +157,8 @@ body {
 }
 
 .btn__icon--bookmark {
+  position: absolute;
+  z-index: 9999;
   right: 2%;
   top: 2%;
   height: 2.8rem;
@@ -118,12 +167,15 @@ body {
 }
 
 .btn__icon--search {
-  padding: 0.6rem 1.2rem;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 1.2rem;
   gap: 0.6rem;
-  border-radius: 1rem;
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%);
+  color: #fff;
+  background-color: var(--color--body--text);
+  border: none;
 }
 
 .movie-card__icon {
