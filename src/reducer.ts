@@ -106,6 +106,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
             ? chunk(filteredMoviesTemp, 12)
             : [filteredMoviesTemp],
         bookmarkeredMovies: filteredBookmarksTemp,
+        moviesHomeIndex: 0,
       };
     }
 

@@ -60,6 +60,7 @@ body {
 .container__pagination {
   width: 110rem;
   margin: 0 auto;
+  min-height: 40rem;
 }
 
 .movie-card__overlay {
