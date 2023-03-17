@@ -76,13 +76,9 @@ body {
 }
 
 .btn__icon--container {
-  height: 2.8rem;
-  width: 2.8rem;
   position: absolute;
-  top: 2%;
   z-index: 9999;
   background-color: var(--color--body--text);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,6 +99,8 @@ body {
 }
 
 .btn__icon--container:hover > .movie-card__icon,
+.btn__icon--container:hover > .btn__icon--container-p,
+.btn__icon--container:hover > .movie-card__icon--search,
 .btn__icon--active {
   color: var(--color--body--text);
 }
@@ -111,14 +109,39 @@ body {
   color: var(--color--body--text);
 }
 
-.btn__icon--liked {
-  right: 15%;
-}
 .btn__icon--bookmark {
   right: 2%;
+  top: 2%;
+  height: 2.8rem;
+  width: 2.8rem;
+  border-radius: 50%;
+}
+
+.btn__icon--search {
+  padding: 0.6rem 1.2rem;
+  gap: 0.6rem;
+  border-radius: 1rem;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .movie-card__icon {
   width: 60%;
   color: #fff;
+}
+
+.movie-card__icon--search {
+  color: #fff;
+}
+
+.btn__icon--search > .movie-card__icon--search {
+  color: #fff;
+  display: inline-block;
+  width: 1.8rem;
+}
+
+.btn__icon--container-p {
+  color: #fff;
+  opacity: 100%;
 }

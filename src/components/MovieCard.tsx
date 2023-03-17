@@ -1,5 +1,5 @@
 import { useAppContext } from '../context';
-import { iconBookmarkCard } from '../utils/icons/inconsMovieCard';
+import { iconBookmarkCard } from '../utils/icons/icons';
 import star from '../utils/icons/star.png';
 import './movieCard.css';
 

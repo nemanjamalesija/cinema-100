@@ -1,5 +1,5 @@
 import { useAppContext } from '../context';
-import { iconSidebarSearch } from '../utils/icons/iconsSidebar';
+import { iconSearchSidebar } from '../utils/icons/icons';
 import './sidebar.css';
 
 const Sidebar = () => {
@@ -44,7 +44,7 @@ const Sidebar = () => {
             value={currentMovie}
             onChange={setFilterHandler}
           />
-          <button className='btn-search'>{iconSidebarSearch}</button>
+          <button className='btn-search'>{iconSearchSidebar}</button>
         </div>
       </div>
       <div className='sidebar__personalize'>

@@ -1,5 +1,5 @@
 import { useAppContext } from '../context';
-import { iconBookmarkCard } from '../utils/icons/inconsMovieCard';
+import { iconBookmarkCard, iconSearchMovieCard } from '../utils/icons/icons';
 
 type trendingMovieCardProps = {
   itemsPerScreen: number;
@@ -38,6 +38,10 @@ const TrendingMovieCard = ({
         }
       >
         {iconBookmarkCard}
+      </button>
+      <button className='btn__icon--container btn__icon--search'>
+        <p className='btn__icon--container-p'>See more</p>
+        {iconSearchMovieCard}
       </button>
 
       <div className='card__wrapper'>
