@@ -1,6 +1,7 @@
 import { useAppContext } from '../context';
 import { iconBookmarkCard, iconSearchMovieCard } from '../utils/icons/icons';
 import star from '../utils/icons/star.png';
+import { Link } from 'react-router-dom';
 import './movieCard.css';
 
 type movieCardProps = {
@@ -42,10 +43,12 @@ const MovieCard = ({
         >
           {iconBookmarkCard}
         </button>
-        <button className='btn__icon--container btn__icon--search'>
-          <p className='btn__icon--container-p'>See more</p>
-          {iconSearchMovieCard}
-        </button>
+        <Link to={`/${imdbid}`}>
+          <button className='btn__icon--container btn__icon--search'>
+            <p className='btn__icon--container-p'>See more</p>
+            {iconSearchMovieCard}
+          </button>
+        </Link>
         <img src={image} alt={title} className='movie-card__image' />
       </header>
       <h3 className='movie-card__heading'>

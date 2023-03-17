@@ -55,7 +55,17 @@
   opacity: 50%;
 }
 
+.movie-card__header:hover > a,
 .movie-card__header:hover > .btn__icon--container {
   visibility: visible;
   opacity: 75%;
+}
+
+.movie-card__header:hover > .btn__icon--container {
+  opacity: 75%;
+  visibility: visible;
+}
+
+a:hover > .btn__icon--container > .btn__icon--container-p {
+  color: #000 !important;
 }
