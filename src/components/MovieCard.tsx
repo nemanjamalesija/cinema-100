@@ -1,5 +1,5 @@
 import { useAppContext } from '../context';
-import { iconBookmarkCard } from '../utils/icons/icons';
+import { iconBookmarkCard, iconSearchMovieCard } from '../utils/icons/icons';
 import star from '../utils/icons/star.png';
 import './movieCard.css';
 
@@ -41,6 +41,10 @@ const MovieCard = ({
           }
         >
           {iconBookmarkCard}
+        </button>
+        <button className='btn__icon--container btn__icon--search'>
+          <p className='btn__icon--container-p'>See more</p>
+          {iconSearchMovieCard}
         </button>
         <img src={image} alt={title} className='movie-card__image' />
       </header>
