@@ -67,5 +67,5 @@
 }
 
 a:hover > .btn__icon--container > .btn__icon--container-p {
-  color: #000 !important;
+  color: var(--color--body---text);
 }

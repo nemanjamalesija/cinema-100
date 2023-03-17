@@ -88,6 +88,11 @@ a {
   transition: opacity 0.3s ease-in-out;
 }
 
+.btn__icon--bookmark {
+  visibility: hidden;
+  opacity: 0;
+}
+
 a {
   position: absolute;
   border-radius: 1rem;
