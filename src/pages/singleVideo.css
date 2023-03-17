@@ -1,4 +1,58 @@
+.single__video--container {
+  width: 100rem;
+  margin: 10rem auto;
+}
+
+.single__video--textual--left {
+  gap: 1rem;
+}
+
+.heading--secondary-single-movie {
+  font-size: 3.2rem !important;
+}
+
+.single__video--textual-year {
+  font-size: 2rem;
+  color: #fff;
+  opacity: 75%;
+}
+
+.single__video--textual--right {
+  width: 20%;
+  margin-right: 0.5rem;
+}
+
+.heading--tertiary {
+  font-size: 2rem;
+  color: #fff;
+  opacity: 75%;
+}
+
+.single__video--imdb-info,
+.single__video--imdb-subinfo {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.single__movie--star {
+  margin-right: 0.5rem;
+}
+
+.single__video--imdb-subinfo {
+  opacity: 75%;
+}
+
+.sinlge__video--trailer--image {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.single__video--image {
+  max-height: 42rem;
+}
+
 .embeded-video {
-  height: 36rem;
-  width: 64rem;
+  min-height: 42rem;
+  min-width: 70rem;
 }

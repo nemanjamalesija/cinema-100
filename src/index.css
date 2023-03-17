@@ -198,3 +198,13 @@ a:hover > .btn__icon--search > .movie-card__icon--search {
   color: #fff;
   opacity: 100%;
 }
+
+.u--align--center {
+  display: flex;
+  align-items: center;
+}
+
+.u--justify--space--between {
+  display: flex;
+  justify-content: space-between;
+}
