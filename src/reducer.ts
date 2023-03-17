@@ -156,7 +156,14 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     case 'SHOW_BOOKMARKERED_MOVIES': {
       return {
         ...state,
-        showFilters: !state.showFilters,
+        showHome: false,
+      };
+    }
+
+    case 'SHOW_HOME_MOVIES': {
+      return {
+        ...state,
+        showHome: true,
       };
     }
 

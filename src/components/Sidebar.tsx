@@ -7,7 +7,7 @@ const Sidebar = () => {
     dispatch,
     state: {
       movies,
-      showFilters,
+      showHome,
       filters: { currentMovie, genre },
     },
   } = useAppContext();
@@ -72,7 +72,7 @@ const Sidebar = () => {
               viewBox='0 0 24 24'
               fill='currentColor'
               className={
-                showFilters
+                showHome
                   ? 'sidebar__icon'
                   : 'sidebar__icon sidebar__icon--active'
               }
@@ -84,13 +84,16 @@ const Sidebar = () => {
               />
             </svg>
           </button>
-          <button className='btn__sidebar btn__sidebar--bookmark'>
+          <button
+            className='btn__sidebar btn__sidebar--bookmark'
+            onClick={() => dispatch({ type: 'SHOW_HOME_MOVIES' })}
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 24 24'
               fill='currentColor'
               className={
-                showFilters
+                showHome
                   ? 'sidebar__icon sidebar__icon--active'
                   : 'sidebar__icon '
               }

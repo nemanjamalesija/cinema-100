@@ -29,7 +29,7 @@ export const initialState: appState = {
   showBookmarkeredVideos: false,
   bookmarkeredMovies: [],
 
-  showFilters: true,
+  showHome: true,
   filters: {
     currentMovie: '',
     genre: 'All',

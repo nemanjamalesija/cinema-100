@@ -29,7 +29,7 @@ export type appState = {
   showBookmarkeredVideos: boolean;
   bookmarkeredMovies: [] | singleMovie[];
 
-  showFilters: boolean;
+  showHome: boolean;
   filters: {
     currentMovie: string;
     genre: string;
@@ -47,7 +47,8 @@ export type ACTIONS = {
     | 'SET_FILTER'
     | 'HANDLE_FILTERING'
     | 'ADD_BOOKMARK_VIDEO'
-    | 'SHOW_BOOKMARKERED_MOVIES';
+    | 'SHOW_BOOKMARKERED_MOVIES'
+    | 'SHOW_HOME_MOVIES';
 
   payload?: any;
 };

@@ -3,7 +3,7 @@ import MovieCard from './MovieCard';
 
 const BookmarkeredMovies = () => {
   const {
-    state: { bookmarkeredMovies, showFilters, showBookmarkeredVideos },
+    state: { bookmarkeredMovies, showHome, showBookmarkeredVideos },
   } = useAppContext();
 
   if (bookmarkeredMovies.length === 0)

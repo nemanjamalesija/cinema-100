@@ -7,7 +7,7 @@ import BookmarkeredMovies from './BookmarkeredMovies';
 const Pagination = () => {
   const {
     state: {
-      showFilters,
+      showHome,
       filteredMovies,
       moviesHomeIndex,
       filters: { genre },
@@ -19,7 +19,7 @@ const Pagination = () => {
       <Sidebar />
       <main className='container__pagination'>
         <h2 className='heading--secondary heading-movies'>
-          {showFilters
+          {showHome
             ? genre === 'All'
               ? 'Top 100'
               : genre
@@ -27,9 +27,9 @@ const Pagination = () => {
             ? 'Your bookmakered movies'
             : genre + ' (bookmarked movies)'}
         </h2>
-        {showFilters && <HomeMovies />}
-        {!showFilters && <BookmarkeredMovies />}
-        {showFilters && filteredMovies[moviesHomeIndex].length !== 0 && (
+        {showHome && <HomeMovies />}
+        {!showHome && <BookmarkeredMovies />}
+        {showHome && filteredMovies[moviesHomeIndex].length !== 0 && (
           <PagiationButtons />
         )}
       </main>
