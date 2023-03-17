@@ -38,7 +38,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
           writers,
           imdbid,
           liked: false,
-          bookakered: false,
+          bookmakered: false,
         };
       });
 
