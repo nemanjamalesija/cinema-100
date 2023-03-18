@@ -14,7 +14,6 @@ const singleMovie = {
   genre: [''],
   writers: [''],
   imdbid: '',
-  liked: false,
   bookmakered: false,
 };
 

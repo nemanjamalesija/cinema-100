@@ -14,8 +14,7 @@ export type singleMovie = {
   genre: string[];
   writers: string[];
   imdbid: string;
-  liked: boolean;
-  bookmakered: boolean;
+  bookmakered?: boolean;
 };
 
 export type movies = singleMovie[][];
