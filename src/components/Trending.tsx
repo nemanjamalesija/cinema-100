@@ -66,6 +66,7 @@ const Trending = () => {
                   key={movie.imdbid}
                   itemsPerScreen={itemsPerScreen}
                   slideTranslateIndex={slideTranslateIndex}
+                  bookmakered={movie.bookmakered ?? false}
                   {...movie}
                 />
               );

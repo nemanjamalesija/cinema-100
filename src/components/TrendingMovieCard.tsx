@@ -7,7 +7,6 @@ type trendingMovieCardProps = {
   slideTranslateIndex: number;
   image: string;
   imdbid: string;
-  liked: boolean;
   bookmakered: boolean;
 };
 

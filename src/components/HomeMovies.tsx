@@ -6,8 +6,6 @@ const HomeMovies = () => {
     state: { filteredMovies, moviesHomeIndex },
   } = useAppContext();
 
-  console.log(filteredMovies);
-
   if (filteredMovies[moviesHomeIndex].length === 0)
     return (
       <h2 className='heading--secondary heading__no--match--found'>
