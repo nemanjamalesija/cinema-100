@@ -1,0 +1,28 @@
+.nav {
+  height: 7rem;
+  padding: 0 8rem;
+  background-color: var(--color--body--text--shade);
+}
+
+.nav--logo {
+  height: 4rem;
+  width: 4rem;
+  display: inline-block;
+}
+
+.nav__logo--div {
+  gap: 0.5rem;
+}
+
+.nav__logo-p {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.link--nav.reset {
+  all: revert !important;
+}
+
+.link--nav.new {
+  text-decoration: none !important;
+}

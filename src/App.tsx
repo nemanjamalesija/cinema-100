@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import BookmakeredMovies from './pages/BookmakeredMovies';
 import SingleMovie from './pages/SingleMovie';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
