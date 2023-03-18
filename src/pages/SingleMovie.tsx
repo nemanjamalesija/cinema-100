@@ -1,11 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useAppContext } from '../context';
 import star from '../utils//icons/star.png';
+import { iconBookmarkCard } from '../utils/icons/icons';
 import './singleVideo.css';
+import '../components/movieCard.css';
 
 const SingleMovie = () => {
   const { id } = useParams();
   const {
+    dispatch,
     state: { movies },
   } = useAppContext();
 
@@ -26,6 +29,7 @@ const SingleMovie = () => {
     trailer,
     writers,
     year,
+    bookmakered,
   } = singleMovie;
 
   return (
@@ -57,7 +61,23 @@ const SingleMovie = () => {
       </div>
       <div className='sinlge__video--trailer--image'>
         <div className='single__video--photo--container'>
-          <img src={image} alt={title} className='single__video--image' />
+          <header className='movie-card__header'>
+            <div className='movie-card__overlay'></div>
+            <button
+              className={
+                bookmakered
+                  ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
+                  : 'btn__icon--container btn__icon--bookmark'
+              }
+              onClick={() =>
+                dispatch({ type: 'ADD_BOOKMARK_VIDEO', payload: imdbid })
+              }
+            >
+              {iconBookmarkCard}
+            </button>
+
+            <img src={image} alt={title} className='single__video--image' />
+          </header>
         </div>
         <div className='react__player--div'>
           <iframe
