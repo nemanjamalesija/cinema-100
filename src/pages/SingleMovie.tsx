@@ -70,6 +70,26 @@ const SingleMovie = () => {
           />
         </div>
       </div>
+      <div className='textual__info--bottom'>
+        <div className='textual__info--bottom--genres'>
+          {genre.map((g, i) => (
+            <span key={i} className='textual__info--bottom--genre'>
+              {g}
+            </span>
+          ))}
+          <p className='textual__info--bottom--description'>{description}</p>
+          <div className='textual__info--bottom--director--container'>
+            <h4 className='heading-fouth'>Director</h4>
+            <span>{director}</span>
+          </div>
+          <div className='textual__info--bottom--writers--container'>
+            <h4 className='heading-fouth'>Writers</h4>
+            {writers.map((w, i) => (
+              <span className='textual__info--bottom--writers'>{w}</span>
+            ))}
+          </div>
+        </div>
+      </div>
     </article>
   );
 };
