@@ -82,7 +82,7 @@ const SingleMovie = () => {
         <div className='react__player--div'>
           <iframe
             className='embeded-video'
-            src={trailer}
+            src={`${trailer}?autoplay=1`}
             frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
