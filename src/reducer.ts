@@ -37,7 +37,6 @@ const reducer = (state: appState, action: ACTIONS): appState => {
           genre,
           writers,
           imdbid,
-          liked: false,
           bookmakered: false,
         };
       });

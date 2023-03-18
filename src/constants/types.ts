@@ -24,8 +24,6 @@ export type appState = {
   filteredMovies: movies;
   moviesHomeIndex: number;
   trendingMovies: singleMovie[];
-
-  showBookmarkeredVideos: boolean;
   bookmarkeredMovies: [] | singleMovie[];
 
   showHome: boolean;
