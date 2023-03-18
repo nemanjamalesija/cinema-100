@@ -62,3 +62,54 @@
   min-height: 42rem;
   min-width: 70rem;
 }
+
+.sinlge__video--trailer--image {
+  margin-bottom: 1rem;
+}
+
+/*BOTTOM */
+
+.textual__info--bottom {
+  max-width: 70%;
+  margin-left: 0.5rem;
+}
+
+.textual__info--bottom--genres {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.textual__info--bottom--description,
+.textual__info--bottom--subheading {
+  color: #fff;
+  font-size: 1.6rem;
+  opacity: 75%;
+  padding-bottom: 1rem;
+}
+
+.heading-fourth,
+.textual__info--bottom--genre {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.textual__info--bottom--description {
+  line-height: 1.6;
+  opacity: 75%;
+}
+
+.textual__info--bottom--writters--wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.textual__info--bottom--director--container,
+.textual__info--bottom--writers--container,
+.textual__info--bottom--description {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  padding-bottom: 1rem;
+}

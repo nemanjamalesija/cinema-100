@@ -74,18 +74,22 @@ const SingleMovie = () => {
         <div className='textual__info--bottom--genres'>
           {genre.map((g, i) => (
             <span key={i} className='textual__info--bottom--genre'>
-              {g}
+              {i >= genre.length - 1 ? g : g + ','}
             </span>
           ))}
-          <p className='textual__info--bottom--description'>{description}</p>
-          <div className='textual__info--bottom--director--container'>
-            <h4 className='heading-fouth'>Director</h4>
-            <span>{director}</span>
-          </div>
-          <div className='textual__info--bottom--writers--container'>
-            <h4 className='heading-fouth'>Writers</h4>
+        </div>
+        <p className='textual__info--bottom--description'>{description}</p>
+        <div className='textual__info--bottom--director--container'>
+          <h4 className='heading-fourth'>Director</h4>
+          <span className='textual__info--bottom--subheading'>{director}</span>
+        </div>
+        <div className='textual__info--bottom--writers--container'>
+          <h4 className='heading-fourth'>Writers</h4>
+          <div className='textual__info--bottom--writters--wrapper'>
             {writers.map((w, i) => (
-              <span className='textual__info--bottom--writers'>{w}</span>
+              <span className='textual__info--bottom--subheading'>
+                {i >= genre.length - 1 ? w + '.' : w + ','}
+              </span>
             ))}
           </div>
         </div>
