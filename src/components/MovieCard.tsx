@@ -44,7 +44,7 @@ const MovieCard = ({
           {iconBookmarkCard}
         </button>
         <Link className='link__movie--card' to={`/${imdbid}`}>
-          <button className='btn__icon--container btn__icon--search'>
+          <button className='btn__icon--search'>
             <p className='btn__icon--container-p'>See more</p>
             {iconSearchMovieCard}
           </button>

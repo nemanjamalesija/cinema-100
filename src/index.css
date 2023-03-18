@@ -137,7 +137,9 @@ a:hover > .btn__icon--search > .movie-card__icon--search {
   font-weight: 600;
 }
 
-.btn__icon--container:active {
+.btn__icon--container:active,
+a:active,
+a:active > .btn__icon--search {
   background-color: var(--color--accent--primary) !important;
 }
 
