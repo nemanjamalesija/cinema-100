@@ -31,10 +31,8 @@ const SingleMovie = () => {
   return (
     <article className='single__video--container'>
       <div className='single__video--textual-info  u--justify--space--between'>
-        <div className='single__video--textual--left u--align--center'>
-          <h2 className='heading--secondary heading--secondary-single-movie'>
-            {title}
-          </h2>
+        <div className='single__video--textual--left'>
+          <h2 className='heading--secondary-single-movie'>{title}</h2>
           <span className='single__video--textual-year'>({year})</span>
         </div>
         <div className='single__video--textual--right u--justify--space--between'>

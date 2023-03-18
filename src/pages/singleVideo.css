@@ -1,18 +1,24 @@
 .single__video--container {
   width: 100rem;
-  margin: 10rem auto;
+  margin: 7.2rem auto;
+}
+
+.single__video--textual-info {
+  margin-bottom: 1rem;
 }
 
 .single__video--textual--left {
   gap: 1rem;
+  margin-left: 0.5rem;
 }
 
 .heading--secondary-single-movie {
-  font-size: 3.2rem !important;
+  color: #fff;
+  font-size: 2rem;
 }
 
 .single__video--textual-year {
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
   opacity: 75%;
 }
