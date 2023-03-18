@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import BookmakeredMovies from './pages/BookmakeredMovies';
 import SingleMovie from './pages/SingleMovie';
+import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 
 function App() {
@@ -9,11 +10,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path=":id" element={<SingleMovie />} />
-          <Route path="bookmarks" element={<BookmakeredMovies />} />
-          <Route path="bookmarks/:id" element={<SingleMovie />} />
-          <Route path="*" element={<Error />} />
+          <Route path='/' element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path=':id' element={<SingleMovie />} />
+          </Route>
+          <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>
