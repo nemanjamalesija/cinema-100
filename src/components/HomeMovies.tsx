@@ -18,7 +18,13 @@ const HomeMovies = () => {
   return (
     <div className='container__movies'>
       {filteredMovies[moviesHomeIndex].map((movie, i) => {
-        return <MovieCard key={movie.imdbid} {...movie} />;
+        return (
+          <MovieCard
+            key={movie.imdbid}
+            bookmakered={movie.bookmakered ?? false}
+            {...movie}
+          />
+        );
       })}
     </div>
   );

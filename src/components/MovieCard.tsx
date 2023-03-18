@@ -11,7 +11,6 @@ type movieCardProps = {
   year: number;
   image: string;
   rating: string;
-  liked: boolean;
   bookmakered: boolean;
 };
 
@@ -22,7 +21,6 @@ const MovieCard = ({
   year,
   image,
   rating,
-  liked,
   bookmakered,
 }: movieCardProps) => {
   const { dispatch } = useAppContext();

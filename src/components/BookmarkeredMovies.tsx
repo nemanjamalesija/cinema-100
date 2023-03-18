@@ -3,7 +3,7 @@ import MovieCard from './MovieCard';
 
 const BookmarkeredMovies = () => {
   const {
-    state: { bookmarkeredMovies, showHome, showBookmarkeredVideos },
+    state: { bookmarkeredMovies },
   } = useAppContext();
 
   if (bookmarkeredMovies.length === 0)
@@ -19,7 +19,13 @@ const BookmarkeredMovies = () => {
     <section className='section__liked-and-bookmakered--movies'>
       <div className='container__movies bookmakered__movies'>
         {bookmarkeredMovies.map((movie) => {
-          return <MovieCard key={movie.imdbid} {...movie} />;
+          return (
+            <MovieCard
+              key={movie.imdbid}
+              bookmakered={movie.bookmakered ?? false}
+              {...movie}
+            />
+          );
         })}
       </div>
     </section>
