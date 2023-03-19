@@ -1,4 +1,4 @@
-import logo from './logo.png';
+import logo from '../utils/images/logo.png';
 
 const LogInPage = () => {
   return (
