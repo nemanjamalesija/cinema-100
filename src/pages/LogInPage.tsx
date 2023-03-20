@@ -2,7 +2,7 @@ import logo from '../utils/images/logo.png';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-import { Auth } from 'firebase/auth';
+import { auth } from '../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,9 +12,14 @@ const LogInPage = () => {
 
   const navigate = useNavigate();
 
-  const signIn = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const signIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    navigate('/home');
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/home');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
