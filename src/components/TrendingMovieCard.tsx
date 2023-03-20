@@ -40,7 +40,7 @@ const TrendingMovieCard = ({
         {iconBookmarkCard}
       </button>
 
-      <Link to={`/${imdbid}`}>
+      <Link to={`/home/${imdbid}`}>
         <button className='btn__icon--search'>
           <p className='btn__icon--container-p'>See more</p>
           {iconSearchMovieCard}

@@ -6,7 +6,7 @@ import './nav.css';
 const Navigation = () => {
   return (
     <nav className='nav u--align--center u--justify--space--between'>
-      <Link className='link--nav reset new' to='/'>
+      <Link className='link--nav reset new' to='/home'>
         <div className='nav__logo--div u--align--center'>
           <img src={logo} className='nav--logo' alt='logo' />
 
