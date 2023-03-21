@@ -33,7 +33,7 @@ export type appState = {
     filterLiked: string;
     filterBookmakered: string;
   };
-  currentUser: { email: string; bookmakeredMovies: any[] };
+  currentUser: { email: string; bookmarkeredMovies: any[] };
 };
 
 export type ACTIONS = {
@@ -47,7 +47,8 @@ export type ACTIONS = {
     | 'ADD_BOOKMARK_VIDEO'
     | 'SHOW_BOOKMARKERED_MOVIES'
     | 'SHOW_HOME_MOVIES'
-    | 'SET_CURRENT_USER';
+    | 'SET_CURRENT_USER'
+    | 'SET_MOVIES_CURRENT_USER';
 
   payload?: any;
 };

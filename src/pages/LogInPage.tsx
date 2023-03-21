@@ -50,8 +50,6 @@ const LogInPage = () => {
         dispatch({ type: 'SET_CURRENT_USER', payload: user });
         navigate('/home');
       } else throw new Error("You don't have an account");
-
-      console.log(currentUser);
     } catch (error) {
       console.error(error);
     }

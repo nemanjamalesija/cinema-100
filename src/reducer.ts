@@ -178,6 +178,13 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       return { ...state, currentUser: payload };
     }
 
+    case 'SET_MOVIES_CURRENT_USER': {
+      return {
+        ...state,
+        bookmarkeredMovies: [...state.bookmarkeredMovies, ...payload],
+      };
+    }
+
     default:
       return { ...state };
   }
