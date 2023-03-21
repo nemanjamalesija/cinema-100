@@ -156,8 +156,6 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       const trendingMoviesTemp = [...state.trendingMovies];
       const currentUserBookmarkeredMovies = [...payload];
 
-      console.log(state.currentUser.bookmarkeredMovies);
-
       const newMovies = moviesTemp.map((movie1) => {
         const movie2 = currentUserBookmarkeredMovies.find(
           (movie2) => movie2.imdbid === movie1.imdbid
