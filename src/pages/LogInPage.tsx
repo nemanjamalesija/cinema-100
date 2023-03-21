@@ -1,9 +1,7 @@
 import logo from '../utils/images/logo.png';
-import { json, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { initialize } from '../config/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import {
   addDoc,
@@ -12,25 +10,22 @@ import {
   setDoc,
   doc,
   getDoc,
+  getDocs,
 } from 'firebase/firestore';
 import { useAppContext } from '../context';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [currentUser, setCurrentUSer] = useState<any>({});
   const navigate = useNavigate();
   const { firebaseApp, db, auth } = initialize();
   const {
     state: { bookmarkeredMovies },
   } = useAppContext();
-
-  const getUser = async (user: any) => {
-    const mySnapshot = await getDoc(user);
-    console.log(mySnapshot.data());
-    console.log(mySnapshot.exists());
-    return mySnapshot.exists();
-  };
+  const {
+    dispatch,
+    state: { currentUser },
+  } = useAppContext();
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -41,11 +36,22 @@ const LogInPage = () => {
     };
 
     try {
-      if (await getUser(user)) getUser(user);
-      else await setDoc(user, docData, { merge: true });
+      const usersCollection = collection(db, 'users');
+      const response = await getDocs(usersCollection);
+      const user = response.docs
+        .map((u) => ({
+          data: u.data(),
+          id: u.id,
+        }))
+        .map((u) => u.data)
+        .find((u) => u.email === email);
+      if (user) {
+        console.log(user);
+        dispatch({ type: 'SET_CURRENT_USER', payload: user });
+        navigate('/home');
+      } else throw new Error("You don't have an account");
 
-      navigate('/home');
-      console.log(user);
+      console.log(currentUser);
     } catch (error) {
       console.error(error);
     }
