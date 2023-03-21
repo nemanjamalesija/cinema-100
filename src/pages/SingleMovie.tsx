@@ -29,7 +29,7 @@ const SingleMovie = () => {
     trailer,
     writers,
     year,
-    bookmakered,
+    bookmarkered,
   } = singleMovie;
 
   return (
@@ -65,7 +65,7 @@ const SingleMovie = () => {
             <div className='movie-card__overlay'></div>
             <button
               className={
-                bookmakered
+                bookmarkered
                   ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
                   : 'btn__icon--container btn__icon--bookmark'
               }
