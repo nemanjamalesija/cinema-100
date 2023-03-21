@@ -151,7 +151,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       return { ...state, currentUser: payload };
     }
 
-    case 'SET_MOVIES_CURRENT_USER': {
+    case 'ADD_MOVIES_FROM_DATABASE': {
       const moviesTemp = [...state.movies.flat()];
       const trendingMoviesTemp = [...state.trendingMovies];
       const currentUserBookmarkeredMovies = [...payload];

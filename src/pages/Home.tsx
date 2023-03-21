@@ -15,13 +15,11 @@ const Home = () => {
   } = useAppContext();
   const { db } = initialize();
 
-  console.log(state.currentUser);
-
   const getCurrentUserCol = async () => {
     const currentUserRef = doc(db, `users/${state.currentUser.email}`);
     const currentUserCol = await getDoc(currentUserRef);
     const { bookmarkeredMovies } = currentUserCol.data() ?? [];
-    dispatch({ type: 'SET_MOVIES_CURRENT_USER', payload: bookmarkeredMovies });
+    dispatch({ type: 'ADD_MOVIES_FROM_DATABASE', payload: bookmarkeredMovies });
   };
 
   useEffect(() => {

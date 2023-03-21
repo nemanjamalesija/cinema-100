@@ -48,7 +48,7 @@ export type ACTIONS = {
     | 'SHOW_BOOKMARKERED_MOVIES'
     | 'SHOW_HOME_MOVIES'
     | 'SET_CURRENT_USER'
-    | 'SET_MOVIES_CURRENT_USER';
+    | 'ADD_MOVIES_FROM_DATABASE';
 
   payload?: any;
 };
