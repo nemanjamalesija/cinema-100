@@ -1,39 +1,21 @@
 import logo from '../utils/images/logo.png';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { initialize } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
-import {
-  addDoc,
-  collection,
-  Firestore,
-  setDoc,
-  doc,
-  getDoc,
-  getDocs,
-} from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { useAppContext } from '../context';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { firebaseApp, db, auth } = initialize();
-  const {
-    state: { bookmarkeredMovies },
-  } = useAppContext();
-  const {
-    dispatch,
-    state: { currentUser },
-  } = useAppContext();
+  const { db } = initialize();
+
+  const { dispatch } = useAppContext();
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    const user = doc(db, `users/${email}`);
-    const docData = {
-      email,
-      bookmarkeredMovies,
-    };
 
     try {
       const usersCollection = collection(db, 'users');

@@ -1,9 +1,9 @@
 import { ACTIONS, appState, movies, singleMovie } from './constants/types';
 import { chunk } from './helpers/chunk';
 import { getRandomIndex } from './helpers/getRandomIndex';
-import { collection, addDoc, setDoc, doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 import { initialize } from './config/firebase';
-const { firebaseApp, db, auth } = initialize();
+const { db } = initialize();
 
 const reducer = (state: appState, action: ACTIONS): appState => {
   const { type, payload } = action;

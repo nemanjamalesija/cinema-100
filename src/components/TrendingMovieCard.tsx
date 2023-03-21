@@ -1,7 +1,6 @@
 import { useAppContext } from '../context';
 import { iconBookmarkCard, iconSearchMovieCard } from '../utils/icons/icons';
 import { Link } from 'react-router-dom';
-import { initialize } from '../config/firebase';
 
 type trendingMovieCardProps = {
   itemsPerScreen: number;
