@@ -11,35 +11,8 @@ const reducer = (state: appState, action: ACTIONS): appState => {
   switch (type) {
     case 'SET_MOVIES':
       const newMovies = payload.map((movie: singleMovie) => {
-        const {
-          rank,
-          title,
-          thumbnail,
-          rating,
-          id,
-          year,
-          image,
-          description,
-          director,
-          trailer,
-          genre,
-          writers,
-          imdbid,
-        } = movie;
         return {
-          rank,
-          title,
-          thumbnail,
-          rating,
-          id,
-          year,
-          image,
-          description,
-          director,
-          trailer,
-          genre,
-          writers,
-          imdbid,
+          ...movie,
           bookmakered: false,
         };
       });
