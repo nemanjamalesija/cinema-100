@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import Pagination from '../components/Pagination';
 import Trending from '../components/Trending';
 import { useAppContext } from '../context';
+import { doc, getDoc } from 'firebase/firestore';
+import { initialize } from '../config/firebase';
 
 const Home = () => {
   const {
@@ -11,12 +13,20 @@ const Home = () => {
       currentUser: { bookmarkeredMovies },
     },
   } = useAppContext();
+  const { db } = initialize();
 
   console.log(state.currentUser);
 
-  useEffect(() => {
+  const getCurrentUserCol = async () => {
+    const currentUserRef = doc(db, `users/${state.currentUser.email}`);
+    const currentUserCol = await getDoc(currentUserRef);
+    const { bookmarkeredMovies } = currentUserCol.data() ?? [];
     dispatch({ type: 'SET_MOVIES_CURRENT_USER', payload: bookmarkeredMovies });
-  }, []);
+  };
+
+  useEffect(() => {
+    getCurrentUserCol();
+  }, [bookmarkeredMovies]);
 
   useEffect(() => {
     console.log(state.bookmarkeredMovies);

@@ -8,7 +8,7 @@ type trendingMovieCardProps = {
   slideTranslateIndex: number;
   image: string;
   imdbid: string;
-  bookmakered: boolean;
+  bookmarkered: boolean;
 };
 
 const TrendingMovieCard = ({
@@ -16,7 +16,7 @@ const TrendingMovieCard = ({
   slideTranslateIndex,
   image,
   imdbid,
-  bookmakered,
+  bookmarkered,
 }: trendingMovieCardProps) => {
   const { dispatch } = useAppContext();
 
@@ -30,7 +30,7 @@ const TrendingMovieCard = ({
       <div className='movie-card__overlay'></div>
       <button
         className={
-          bookmakered
+          bookmarkered
             ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
             : 'btn__icon--container btn__icon--bookmark'
         }

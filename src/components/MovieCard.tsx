@@ -11,7 +11,7 @@ type movieCardProps = {
   year: number;
   image: string;
   rating: string;
-  bookmakered: boolean;
+  bookmarkered: boolean;
 };
 
 const MovieCard = ({
@@ -21,7 +21,7 @@ const MovieCard = ({
   year,
   image,
   rating,
-  bookmakered,
+  bookmarkered,
 }: movieCardProps) => {
   const { dispatch } = useAppContext();
 
@@ -31,7 +31,7 @@ const MovieCard = ({
         <div className='movie-card__overlay'></div>
         <button
           className={
-            bookmakered
+            bookmarkered
               ? 'btn__icon--container btn__icon--bookmark btn__icon--active'
               : 'btn__icon--container btn__icon--bookmark'
           }

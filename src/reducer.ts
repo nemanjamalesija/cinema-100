@@ -13,7 +13,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       const newMovies = payload.map((movie: singleMovie) => {
         return {
           ...movie,
-          bookmakered: false,
+          bookmarkered: false,
         };
       });
 
@@ -53,7 +53,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
       let filteredMoviesTemp = [...state.movies.flat()];
       let filteredBookmarksTemp = [
-        ...state.movies.flat().filter((movie) => movie.bookmakered),
+        ...state.movies.flat().filter((movie) => movie.bookmarkered),
       ];
 
       if (currentMovie) {
@@ -100,7 +100,7 @@ const reducer = (state: appState, action: ACTIONS): appState => {
       if (!isMovieAlreadyBookmarkered(currentMovie)) {
         newBookmarkeredMovies = [
           ...state.bookmarkeredMovies,
-          { ...currentMovie, bookmakered: true },
+          { ...currentMovie, bookmarkered: true },
         ];
       } else {
         newBookmarkeredMovies = newBookmarkeredMovies.filter(
@@ -114,13 +114,13 @@ const reducer = (state: appState, action: ACTIONS): appState => {
 
       const newMovies = state.movies.flat().map((movie) => {
         if (movie.imdbid === payload) {
-          return { ...movie, bookmakered: !movie.bookmakered };
+          return { ...movie, bookmarkered: !movie.bookmarkered };
         } else return movie;
       });
 
       const newTrendingMovies = state.trendingMovies.map((movie) => {
         if (movie.imdbid === payload) {
-          return { ...movie, bookmakered: !movie.bookmakered };
+          return { ...movie, bookmarkered: !movie.bookmarkered };
         } else return movie;
       });
 
@@ -152,9 +152,41 @@ const reducer = (state: appState, action: ACTIONS): appState => {
     }
 
     case 'SET_MOVIES_CURRENT_USER': {
+      const moviesTemp = [...state.movies.flat()];
+      const trendingMoviesTemp = [...state.trendingMovies];
+      const currentUserBookmarkeredMovies = [...payload];
+
+      console.log(state.currentUser.bookmarkeredMovies);
+
+      const newMovies = moviesTemp.map((movie1) => {
+        const movie2 = currentUserBookmarkeredMovies.find(
+          (movie2) => movie2.imdbid === movie1.imdbid
+        );
+        if (movie2) {
+          return { ...movie1, bookmarkered: movie2.bookmarkered };
+        } else {
+          return { ...movie1, bookmarkered: false };
+        }
+      });
+
+      const newTrendingMovies = trendingMoviesTemp.map((movie1) => {
+        const movie2 = currentUserBookmarkeredMovies.find(
+          (movie2) => movie2.imdbid === movie1.imdbid
+        );
+
+        if (movie2) {
+          return { ...movie1, bookmarkered: movie2.bookmarkered };
+        } else {
+          return { ...movie1, bookmarkered: false };
+        }
+      });
+
       return {
         ...state,
-        bookmarkeredMovies: [...state.bookmarkeredMovies, ...payload],
+        bookmarkeredMovies: [...payload],
+        movies: chunk(newMovies, 12),
+        filteredMovies: chunk(newMovies, 12),
+        trendingMovies: newTrendingMovies,
       };
     }
 

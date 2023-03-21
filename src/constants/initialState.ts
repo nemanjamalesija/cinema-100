@@ -14,7 +14,7 @@ const singleMovie = {
   genre: [''],
   writers: [''],
   imdbid: '',
-  bookmakered: false,
+  bookmarkered: false,
 };
 
 export const movies = [[singleMovie]];

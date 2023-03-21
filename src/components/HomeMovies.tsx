@@ -19,7 +19,7 @@ const HomeMovies = () => {
         return (
           <MovieCard
             key={movie.imdbid}
-            bookmakered={movie.bookmakered ?? false}
+            bookmarkered={movie.bookmarkered ?? false}
             {...movie}
           />
         );
