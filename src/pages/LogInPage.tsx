@@ -88,7 +88,7 @@ const LogInPage = () => {
 
   return (
     <section className='section__log-in'>
-      <div className='container__forms'>
+      <div className='container__forms u--justify--center'>
         <form
           className={
             formToDispay === 'login' ? 'login--form' : 'login--form hidden'
@@ -125,51 +125,53 @@ const LogInPage = () => {
             formToDispay === 'signup' ? 'signup--form' : 'signup--form hidden'
           }
         >
-          <div className='form--control'>
-            <label className='form--control-label'>Name</label>
-            <input
-              type='text'
-              value={currentUSerName}
-              onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
-            />
+          <h2 className='heading--secondary--form'>Sign Up</h2>
+          <div className='inputs--div'>
+            <div className='form--control'>
+              <input
+                type='text'
+                placeholder='Name'
+                value={currentUSerName}
+                onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
+              />
+            </div>
+            <div className='form--control'>
+              <input
+                type='text'
+                placeholder='Last Name'
+                value={currentUserLastName}
+                onChange={(e) => setCurrentUserLastName(e.currentTarget.value)}
+              />
+            </div>
+            <div className='form--control'>
+              <input
+                type='email'
+                placeholder='Email'
+                value={emailSignUp}
+                onChange={(e) => setEmailSignUp(e.currentTarget.value)}
+              />
+            </div>
+            <div className='form--control'>
+              <input
+                type='password'
+                placeholder='Password'
+                value={passwordSignUp}
+                onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
+              />
+            </div>
           </div>
-          <div className='form--control'>
-            <label className='form--control-label'>Last Name</label>
-            <input
-              type='text'
-              value={currentUserLastName}
-              onChange={(e) => setCurrentUserLastName(e.currentTarget.value)}
-            />
-          </div>
-          <div className='form--control'>
-            <label className='form--control-label'>Email</label>
-            <input
-              type='email'
-              value={emailSignUp}
-              onChange={(e) => setEmailSignUp(e.currentTarget.value)}
-            />
-          </div>
-          <div className='form--control'>
-            <label className='form--control-label'>Password</label>
-            <input
-              type='password'
-              value={passwordSignUp}
-              onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
-            />
-          </div>
-          <button type='submit' className='signUp' onClick={signUpUser}>
+          <button
+            type='submit'
+            className='btn--form-submit'
+            onClick={signUpUser}
+          >
             Sign Up
           </button>
-          <div className='login--redirect'>
-            <p className='login--redirect-p'>
-              Already have an account?
-              <button
-                className='btn--redirect-signup'
-                onClick={redirectHandler}
-              >
-                Log in
-              </button>
-            </p>
+          <div className='login--redirect u--justify--center'>
+            <p className='login--redirect-p'>Already have an account?</p>
+            <button className='btn--redirect' onClick={redirectHandler}>
+              Log in
+            </button>
           </div>
         </form>
         <h2 className='heading--secondary'>{logInError}</h2>

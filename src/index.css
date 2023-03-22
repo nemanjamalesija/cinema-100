@@ -211,6 +211,11 @@ a:active > .btn__icon--search {
   justify-content: space-between;
 }
 
+.u--justify--center {
+  display: flex;
+  justify-content: center;
+}
+
 .hidden {
   display: none;
 }
