@@ -24,7 +24,9 @@ const LogInPage = () => {
 
   const { dispatch } = useAppContext();
 
-  const signIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const signInHandler = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
 
     try {
@@ -57,7 +59,7 @@ const LogInPage = () => {
     }
   };
 
-  const signUpUser = async (
+  const signUpHandler = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
@@ -91,38 +93,50 @@ const LogInPage = () => {
       <div className='container__forms u--justify--center'>
         <form
           className={
-            formToDispay === 'login' ? 'login--form' : 'login--form hidden'
+            formToDispay === 'login'
+              ? 'form-credentials'
+              : 'form-credentials hidden'
           }
         >
-          <input
-            type='email'
-            value={emailLogIn}
-            onChange={(e) => setEmailLogIn(e.currentTarget.value)}
-          />
-          <input
-            type='password'
-            value={passwordLogIn}
-            onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
-          />
-          <button type='submit' onClick={signIn}>
+          <h2 className='heading--secondary--form'>Log In</h2>
+          <div className='inputs--div'>
+            <div className='form--control'>
+              <input
+                type='email'
+                placeholder='Email'
+                value={emailLogIn}
+                onChange={(e) => setEmailLogIn(e.currentTarget.value)}
+              />
+            </div>
+            <div className='form--control'>
+              <input
+                type='password'
+                placeholder='Password'
+                value={passwordLogIn}
+                onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
+              />
+            </div>
+          </div>
+          <button
+            type='submit'
+            className='btn--form-submit'
+            onClick={signInHandler}
+          >
             Log in
           </button>
-          <div className='login--redirect'>
-            <p className='login--redirect-p'>
-              Don't have an account ?
-              <button
-                className='btn--redirect-signup'
-                onClick={redirectHandler}
-              >
-                Sign up
-              </button>
-            </p>
+          <div className='login--redirect u--justify--center'>
+            <p className='login--redirect-p'> Don't have an account ?</p>
+            <button className='btn--redirect' onClick={redirectHandler}>
+              Sign up
+            </button>
           </div>
         </form>
 
         <form
           className={
-            formToDispay === 'signup' ? 'signup--form' : 'signup--form hidden'
+            formToDispay === 'signup'
+              ? 'form-credentials'
+              : 'form-credentials hidden'
           }
         >
           <h2 className='heading--secondary--form'>Sign Up</h2>
@@ -163,7 +177,7 @@ const LogInPage = () => {
           <button
             type='submit'
             className='btn--form-submit'
-            onClick={signUpUser}
+            onClick={signUpHandler}
           >
             Sign Up
           </button>
