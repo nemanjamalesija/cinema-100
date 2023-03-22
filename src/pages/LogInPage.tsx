@@ -9,6 +9,8 @@ import { useAppContext } from '../context';
 const LogInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailSignUp, setEmailSignUp] = useState('');
+  const [passwordSignUp, setPasswordSignUp] = useState('');
   const navigate = useNavigate();
   const { db } = initialize();
 
@@ -53,6 +55,11 @@ const LogInPage = () => {
         <button type='submit' onClick={signIn}>
           Log in
         </button>
+      </form>
+      <form className='signUp__form'>
+        <input type='text' value={emailSignUp} />
+        <input type='password' value={passwordSignUp} />
+        <button type='submit' className='signUp'></button>
       </form>
     </div>
   );
