@@ -111,6 +111,7 @@ const LogInPage = () => {
                 placeholder='Email'
                 value={emailLogIn}
                 onChange={(e) => setEmailLogIn(e.currentTarget.value)}
+                required
               />
             </div>
             <div className='form--control'>
@@ -119,6 +120,7 @@ const LogInPage = () => {
                 placeholder='Password'
                 value={passwordLogIn}
                 onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
+                required
               />
             </div>
           </div>
@@ -152,6 +154,7 @@ const LogInPage = () => {
                 placeholder='Name'
                 value={currentUSerName}
                 onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
+                required
               />
             </div>
             <div className='form--control'>
@@ -160,6 +163,7 @@ const LogInPage = () => {
                 placeholder='Last Name'
                 value={currentUserLastName}
                 onChange={(e) => setCurrentUserLastName(e.currentTarget.value)}
+                required
               />
             </div>
             <div className='form--control'>
@@ -168,6 +172,7 @@ const LogInPage = () => {
                 placeholder='Email'
                 value={emailSignUp}
                 onChange={(e) => setEmailSignUp(e.currentTarget.value)}
+                required
               />
             </div>
             <div className='form--control'>
@@ -176,6 +181,7 @@ const LogInPage = () => {
                 placeholder='Password'
                 value={passwordSignUp}
                 onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
+                required
               />
             </div>
           </div>
