@@ -20,7 +20,7 @@ const Navigation = () => {
         </div>
       </Link>
       <div className='greeting--message'>
-        <h3 className='welcome--back'>
+        <h3 className='welcome--back-heading'>
           Welcome back, <span>{name}</span>
         </h3>
       </div>

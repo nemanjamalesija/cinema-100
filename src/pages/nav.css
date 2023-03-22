@@ -26,3 +26,9 @@
 .link--nav.new {
   text-decoration: none !important;
 }
+
+.welcome--back-heading {
+  font-size: 1.6rem;
+  letter-spacing: 0.6px;
+  color: #fff;
+}
