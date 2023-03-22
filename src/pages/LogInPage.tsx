@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
+import './login.css';
 
 const LogInPage = () => {
   const [emailLogIn, setEmailLogIn] = useState('');
@@ -15,7 +16,9 @@ const LogInPage = () => {
   const [emailSignUp, setEmailSignUp] = useState('');
   const [passwordSignUp, setPasswordSignUp] = useState('');
   const [currentUSerName, setCurrentUSerName] = useState('');
+  const [currentUserLastName, setCurrentUserLastName] = useState('');
   const [logInError, setLogInError] = useState('');
+  const [formToDispay, setFormToDisplay] = useState('login');
   const navigate = useNavigate();
   const { db, auth } = initialize();
 
@@ -25,11 +28,7 @@ const LogInPage = () => {
     e.preventDefault();
 
     try {
-      const userCredentials = await signInWithEmailAndPassword(
-        auth,
-        emailLogIn,
-        passwordLogIn
-      );
+      await signInWithEmailAndPassword(auth, emailLogIn, passwordLogIn);
 
       const usersCollection = collection(db, 'users');
       const response = await getDocs(usersCollection);
@@ -77,45 +76,105 @@ const LogInPage = () => {
     }
   };
 
+  const redirectHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setFormToDisplay((prev) => {
+      const displayForm = prev === 'login' ? 'signup' : 'login';
+      return displayForm;
+    });
+  };
+
   return (
-    <div className='container__form'>
-      <form className='log--in--form'>
-        <input
-          type='email'
-          value={emailLogIn}
-          onChange={(e) => setEmailLogIn(e.currentTarget.value)}
-        />
-        <input
-          type='password'
-          value={passwordLogIn}
-          onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
-        />
-        <button type='submit' onClick={signIn}>
-          Log in
-        </button>
-      </form>
-      <form className='signUp__form'>
-        <input
-          type='email'
-          value={emailSignUp}
-          onChange={(e) => setEmailSignUp(e.currentTarget.value)}
-        />
-        <input
-          type='password'
-          value={passwordSignUp}
-          onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
-        />
-        <input
-          type='text'
-          value={currentUSerName}
-          onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
-        />
-        <button type='submit' className='signUp' onClick={signUpUser}>
-          Sign Up
-        </button>
-      </form>
-      <h2 className='heading--secondary'>{logInError}</h2>
-    </div>
+    <section className='section__log-in'>
+      <div className='container__forms'>
+        <form
+          className={
+            formToDispay === 'login' ? 'login--form' : 'login--form hidden'
+          }
+        >
+          <input
+            type='email'
+            value={emailLogIn}
+            onChange={(e) => setEmailLogIn(e.currentTarget.value)}
+          />
+          <input
+            type='password'
+            value={passwordLogIn}
+            onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
+          />
+          <button type='submit' onClick={signIn}>
+            Log in
+          </button>
+          <div className='login--redirect'>
+            <p className='login--redirect-p'>
+              Don't have an account ?
+              <button
+                className='btn--redirect-signup'
+                onClick={redirectHandler}
+              >
+                Sign up
+              </button>
+            </p>
+          </div>
+        </form>
+
+        <form
+          className={
+            formToDispay === 'signup' ? 'signup--form' : 'signup--form hidden'
+          }
+        >
+          <div className='form--control'>
+            <label className='form--control-label'>Name</label>
+            <input
+              type='text'
+              value={currentUSerName}
+              onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
+            />
+          </div>
+          <div className='form--control'>
+            <label className='form--control-label'>Last Name</label>
+            <input
+              type='text'
+              value={currentUserLastName}
+              onChange={(e) => setCurrentUserLastName(e.currentTarget.value)}
+            />
+          </div>
+          <div className='form--control'>
+            <label className='form--control-label'>Email</label>
+            <input
+              type='email'
+              value={emailSignUp}
+              onChange={(e) => setEmailSignUp(e.currentTarget.value)}
+            />
+          </div>
+          <div className='form--control'>
+            <label className='form--control-label'>Password</label>
+            <input
+              type='password'
+              value={passwordSignUp}
+              onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
+            />
+          </div>
+          <button type='submit' className='signUp' onClick={signUpUser}>
+            Sign Up
+          </button>
+          <div className='login--redirect'>
+            <p className='login--redirect-p'>
+              Already have an account?
+              <button
+                className='btn--redirect-signup'
+                onClick={redirectHandler}
+              >
+                Log in
+              </button>
+            </p>
+          </div>
+        </form>
+        <h2 className='heading--secondary'>{logInError}</h2>
+      </div>
+    </section>
   );
 };
 

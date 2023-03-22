@@ -210,3 +210,7 @@ a:active > .btn__icon--search {
   display: flex;
   justify-content: space-between;
 }
+
+.hidden {
+  display: none;
+}

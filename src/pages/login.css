@@ -1,3 +1,8 @@
 link--nav.reset {
   all: revert !important;
 }
+
+.container__forms {
+  width: 60rem;
+  margin: 0 auto;
+}
