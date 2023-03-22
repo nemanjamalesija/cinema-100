@@ -4,7 +4,10 @@ import { initialize } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { useAppContext } from '../context';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +15,6 @@ const LogInPage = () => {
   const [emailSignUp, setEmailSignUp] = useState('');
   const [passwordSignUp, setPasswordSignUp] = useState('');
   const [currentUSerName, setCurrentUSerName] = useState('');
-  const { state } = useAppContext();
   const navigate = useNavigate();
   const { db, auth } = initialize();
 
@@ -31,6 +33,8 @@ const LogInPage = () => {
         }))
         .map((u) => u.data)
         .find((u) => u.email === email);
+
+      await signInWithEmailAndPassword(auth, email, password);
 
       if (user) {
         console.log(user);
@@ -98,7 +102,7 @@ const LogInPage = () => {
         <input
           type='text'
           value={currentUSerName}
-          onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
+          onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
         />
         <button type='submit' className='signUp' onClick={signUpUser}>
           Sign Up
