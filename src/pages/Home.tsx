@@ -8,15 +8,15 @@ import { initialize } from '../config/firebase';
 const Home = () => {
   const {
     dispatch,
-    state,
+
     state: {
-      currentUser: { bookmarkeredMovies },
+      currentUser: { bookmarkeredMovies, email },
     },
   } = useAppContext();
   const { db } = initialize();
 
   const getCurrentUserCol = async () => {
-    const currentUserRef = doc(db, `users/${state.currentUser.email}`);
+    const currentUserRef = doc(db, `users/${email}`);
     const currentUserCol = await getDoc(currentUserRef);
     const { bookmarkeredMovies } = currentUserCol.data() ?? [];
     dispatch({ type: 'ADD_MOVIES_FROM_DATABASE', payload: bookmarkeredMovies });
@@ -25,10 +25,6 @@ const Home = () => {
   useEffect(() => {
     getCurrentUserCol();
   }, [bookmarkeredMovies]);
-
-  useEffect(() => {
-    console.log(state.bookmarkeredMovies);
-  }, [state.bookmarkeredMovies]);
 
   return (
     <section className='section section__home'>

@@ -13,8 +13,6 @@ const BookmarkeredMovies = () => {
       </h2>
     );
 
-  console.log('aa');
-
   return (
     <section className='section__liked-and-bookmakered--movies'>
       <div className='container__movies bookmakered__movies'>
@@ -22,7 +20,7 @@ const BookmarkeredMovies = () => {
           return (
             <MovieCard
               key={movie.imdbid}
-              bookmakered={movie.bookmakered ?? false}
+              bookmarkered={movie.bookmarkered ?? false}
               {...movie}
             />
           );
