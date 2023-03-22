@@ -2,8 +2,14 @@ import React from 'react';
 import logo from '../utils/images/logo.png';
 import { Link } from 'react-router-dom';
 import './nav.css';
+import { useAppContext } from '../context';
 
 const Navigation = () => {
+  const {
+    state: {
+      currentUser: { name },
+    },
+  } = useAppContext();
   return (
     <nav className='nav u--align--center u--justify--space--between'>
       <Link className='link--nav reset new' to='/home'>
@@ -13,6 +19,11 @@ const Navigation = () => {
           <p className='nav__logo-p'>cinema 100</p>
         </div>
       </Link>
+      <div className='greeting--message'>
+        <h3 className='welcome--back'>
+          Welcome back, <span>{name}</span>
+        </h3>
+      </div>
     </nav>
   );
 };

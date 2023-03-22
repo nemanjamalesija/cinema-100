@@ -33,7 +33,7 @@ export type appState = {
     filterLiked: string;
     filterBookmakered: string;
   };
-  currentUser: { email: string; bookmarkeredMovies: any[] };
+  currentUser: { name: string; email: string; bookmarkeredMovies: any[] };
 };
 
 export type ACTIONS = {
