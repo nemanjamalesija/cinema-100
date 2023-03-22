@@ -73,6 +73,11 @@ const LogInPage = () => {
         name: currentUSerName,
         bookmarkeredMovies: [],
       });
+      setCurrentUSerName('');
+      setCurrentUserLastName('');
+      setEmailSignUp('');
+      setPasswordSignUp('');
+      alert('Account succesfully created!');
     } catch (error) {
       console.error(error);
     }
