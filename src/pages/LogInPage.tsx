@@ -1,5 +1,5 @@
 import logo from '../utils/images/logo.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { initialize } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
@@ -15,6 +15,7 @@ const LogInPage = () => {
   const [emailSignUp, setEmailSignUp] = useState('');
   const [passwordSignUp, setPasswordSignUp] = useState('');
   const [currentUSerName, setCurrentUSerName] = useState('');
+  const [logInError, setLogInError] = useState('');
   const navigate = useNavigate();
   const { db, auth } = initialize();
 
@@ -24,8 +25,16 @@ const LogInPage = () => {
     e.preventDefault();
 
     try {
+      const userCredentials = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      console.log(userCredentials);
       const usersCollection = collection(db, 'users');
       const response = await getDocs(usersCollection);
+
       const user = response.docs
         .map((u) => ({
           data: u.data(),
@@ -34,15 +43,20 @@ const LogInPage = () => {
         .map((u) => u.data)
         .find((u) => u.email === email);
 
-      await signInWithEmailAndPassword(auth, email, password);
-
       if (user) {
         console.log(user);
         dispatch({ type: 'SET_CURRENT_USER', payload: user });
         navigate('/home');
       } else throw new Error("You don't have an account");
     } catch (error) {
-      console.error(error);
+      if (error instanceof Error) {
+        if (error.message === 'Firebase: Error (auth/invalid-email).')
+          setLogInError('This email adress is not found');
+
+        if (error.message === 'Firebase: Error (auth/wrong-password).') {
+          setLogInError('Incorrect password');
+        }
+      } else console.error(error);
     }
   };
 
@@ -108,6 +122,7 @@ const LogInPage = () => {
           Sign Up
         </button>
       </form>
+      <h2 className='heading--secondary'>{logInError}</h2>
     </div>
   );
 };
