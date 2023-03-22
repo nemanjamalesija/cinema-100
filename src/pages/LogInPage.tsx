@@ -1,5 +1,5 @@
 import logo from '../utils/images/logo.png';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { initialize } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
@@ -10,8 +10,8 @@ import {
 } from 'firebase/auth';
 
 const LogInPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [emailLogIn, setEmailLogIn] = useState('');
+  const [passwordLogIn, setPasswordLogIn] = useState('');
   const [emailSignUp, setEmailSignUp] = useState('');
   const [passwordSignUp, setPasswordSignUp] = useState('');
   const [currentUSerName, setCurrentUSerName] = useState('');
@@ -27,11 +27,10 @@ const LogInPage = () => {
     try {
       const userCredentials = await signInWithEmailAndPassword(
         auth,
-        email,
-        password
+        emailLogIn,
+        passwordLogIn
       );
 
-      console.log(userCredentials);
       const usersCollection = collection(db, 'users');
       const response = await getDocs(usersCollection);
 
@@ -41,10 +40,9 @@ const LogInPage = () => {
           id: u.id,
         }))
         .map((u) => u.data)
-        .find((u) => u.email === email);
+        .find((u) => u.email === emailLogIn);
 
       if (user) {
-        console.log(user);
         dispatch({ type: 'SET_CURRENT_USER', payload: user });
         navigate('/home');
       } else throw new Error("You don't have an account");
@@ -66,11 +64,7 @@ const LogInPage = () => {
     e.preventDefault();
 
     try {
-      const newUser = await createUserWithEmailAndPassword(
-        auth,
-        emailSignUp,
-        passwordSignUp
-      );
+      await createUserWithEmailAndPassword(auth, emailSignUp, passwordSignUp);
 
       const currentUserRef = doc(db, `users/${emailSignUp}`);
       await setDoc(currentUserRef, {
@@ -78,8 +72,6 @@ const LogInPage = () => {
         name: currentUSerName,
         bookmarkeredMovies: [],
       });
-
-      console.log(newUser);
     } catch (error) {
       console.error(error);
     }
@@ -90,13 +82,13 @@ const LogInPage = () => {
       <form className='log--in--form'>
         <input
           type='email'
-          value={email}
-          onChange={(e) => setEmail(e.currentTarget.value)}
+          value={emailLogIn}
+          onChange={(e) => setEmailLogIn(e.currentTarget.value)}
         />
         <input
           type='password'
-          value={password}
-          onChange={(e) => setPassword(e.currentTarget.value)}
+          value={passwordLogIn}
+          onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
         />
         <button type='submit' onClick={signIn}>
           Log in
