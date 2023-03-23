@@ -34,4 +34,5 @@ export const initialState: appState = {
     filterBookmakered: '',
   },
   currentUser: { name: '', email: '', bookmarkeredMovies: [] },
+  userLoggedIn: false,
 };

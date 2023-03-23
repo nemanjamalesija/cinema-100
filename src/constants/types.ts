@@ -34,6 +34,7 @@ export type appState = {
     filterBookmakered: string;
   };
   currentUser: { name: string; email: string; bookmarkeredMovies: any[] };
+  userLoggedIn: boolean;
 };
 
 export type ACTIONS = {

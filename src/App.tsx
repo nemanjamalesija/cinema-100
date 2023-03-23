@@ -4,6 +4,7 @@ import SingleMovie from './pages/SingleMovie';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 import LogInPage from './pages/LogInPage';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 function App() {
   return (
@@ -11,11 +12,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LogInPage />} />
-          <Route path='/home' element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path='/home:id' element={<SingleMovie />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path='/home' element={<SharedLayout />}>
+              <Route index element={<Home />} />
+              <Route path='/home:id' element={<SingleMovie />} />
+            </Route>
+            <Route path='*' element={<Error />} />
           </Route>
-          <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>
