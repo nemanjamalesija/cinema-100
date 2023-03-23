@@ -10,7 +10,7 @@ const Home = () => {
     dispatch,
 
     state: {
-      currentUser: { bookmarkeredMovies, email },
+      currentUser: { email },
     },
   } = useAppContext();
   const { db } = initialize();
@@ -19,12 +19,13 @@ const Home = () => {
     const currentUserRef = doc(db, `users/${email}`);
     const currentUserCol = await getDoc(currentUserRef);
     const { bookmarkeredMovies } = currentUserCol.data() ?? [];
+    console.log(bookmarkeredMovies);
     dispatch({ type: 'ADD_MOVIES_FROM_DATABASE', payload: bookmarkeredMovies });
   };
 
   useEffect(() => {
     getCurrentUserCol();
-  }, [bookmarkeredMovies]);
+  }, []);
 
   return (
     <section className='section section__home'>

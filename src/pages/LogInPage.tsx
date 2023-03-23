@@ -2,13 +2,15 @@ import logo from '../utils/images/logo.png';
 import { useState } from 'react';
 import { initialize } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
-import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, addDoc } from 'firebase/firestore';
 import { useAppContext } from '../context';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInAnonymously,
 } from 'firebase/auth';
 import './login.css';
+import BookmarkeredMovies from '../components/BookmarkeredMovies';
 
 const LogInPage = () => {
   const [emailLogIn, setEmailLogIn] = useState('');
@@ -93,6 +95,31 @@ const LogInPage = () => {
     });
   };
 
+  const signInAnonymouslyHandler = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    try {
+      await signInAnonymously(auth);
+      const randomEmail = `anonymousGuest@${crypto.randomUUID()}.com`;
+      const currentUserRef = doc(db, `users/${randomEmail}`);
+
+      await setDoc(currentUserRef, {
+        name: 'Guest',
+        email: randomEmail,
+        bookmarkeredMovies: [],
+      });
+
+      dispatch({
+        type: 'SET_CURRENT_USER',
+        payload: { name: 'Guest', email: randomEmail, bookmarkeredMovies: [] },
+      });
+      navigate('/home');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className='section__log-in'>
       <div className='container__forms u--justify--center u--align--center'>
@@ -116,7 +143,6 @@ const LogInPage = () => {
                 placeholder='Email'
                 value={emailLogIn}
                 onChange={(e) => setEmailLogIn(e.currentTarget.value)}
-                required
               />
             </div>
             <div className='form--control'>
@@ -125,7 +151,6 @@ const LogInPage = () => {
                 placeholder='Password'
                 value={passwordLogIn}
                 onChange={(e) => setPasswordLogIn(e.currentTarget.value)}
-                required
               />
             </div>
           </div>
@@ -140,6 +165,15 @@ const LogInPage = () => {
             <p className='login--redirect-p'> Don't have an account ?</p>
             <button className='btn--redirect' onClick={redirectHandler}>
               Sign up
+            </button>
+          </div>
+          <div className='login--redirect u--justify--center'>
+            <p className='login--redirect-p'> Or</p>
+            <button
+              className='btn--redirect'
+              onClick={signInAnonymouslyHandler}
+            >
+              Log in as guest
             </button>
           </div>
         </form>
@@ -159,7 +193,6 @@ const LogInPage = () => {
                 placeholder='Name'
                 value={currentUSerName}
                 onChange={(e) => setCurrentUSerName(e.currentTarget.value)}
-                required
               />
             </div>
             <div className='form--control'>
@@ -168,7 +201,6 @@ const LogInPage = () => {
                 placeholder='Last Name'
                 value={currentUserLastName}
                 onChange={(e) => setCurrentUserLastName(e.currentTarget.value)}
-                required
               />
             </div>
             <div className='form--control'>
@@ -177,7 +209,6 @@ const LogInPage = () => {
                 placeholder='Email'
                 value={emailSignUp}
                 onChange={(e) => setEmailSignUp(e.currentTarget.value)}
-                required
               />
             </div>
             <div className='form--control'>
@@ -186,7 +217,6 @@ const LogInPage = () => {
                 placeholder='Password'
                 value={passwordSignUp}
                 onChange={(e) => setPasswordSignUp(e.currentTarget.value)}
-                required
               />
             </div>
           </div>
