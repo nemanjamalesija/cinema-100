@@ -21,12 +21,12 @@ const Navigation = () => {
       </Link>
       <div className='nav__right--side'>
         <div className='greeting--message'>
-          <h3 className='welcome--back-heading'>
+          <h3 className='heading--tertiary-nav'>
             Welcome back, <span>{name}</span>
           </h3>
         </div>
         <div className='nav__logout'>
-          <h3 className='welcome--back-heading'>Log out</h3>
+          <h3 className='heading--tertiary-nav'>Log out</h3>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
