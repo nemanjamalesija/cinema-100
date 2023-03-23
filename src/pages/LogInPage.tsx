@@ -96,6 +96,11 @@ const LogInPage = () => {
   return (
     <section className='section__log-in'>
       <div className='container__forms u--justify--center'>
+        <div className='nav__logo--div   u--align--center'>
+          <img src={logo} className='login-logo' alt='logo' />
+
+          <p className='login-logo-p'>cinema 100</p>
+        </div>
         <form
           className={
             formToDispay === 'login'
