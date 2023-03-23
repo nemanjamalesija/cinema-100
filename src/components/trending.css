@@ -38,7 +38,8 @@
   background-color: var(--color--accent--primary);
 }
 
-.btn__slide {
+.btn__slide,
+.btn__slide:active {
   padding: 1rem;
   border-radius: 50%;
   border: none;
@@ -48,8 +49,12 @@
   font-size: 1.8rem;
 }
 
-.btn__slide:active {
+.btn__slide:hover {
   background-color: var(--color--accent--primary);
+}
+
+.btn__slide:active {
+  background-color: var(--color--shade--primary);
 }
 
 .container__trending {
