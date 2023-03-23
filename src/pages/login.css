@@ -4,10 +4,8 @@ link--nav.reset {
 
 .container__forms {
   width: 70rem;
-  margin: 10rem auto;
-  display: flex;
+  margin: 8rem auto;
   flex-direction: column;
-  align-items: center;
   gap: 3.2rem;
 }
 

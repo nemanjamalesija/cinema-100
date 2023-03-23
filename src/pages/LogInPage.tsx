@@ -95,7 +95,7 @@ const LogInPage = () => {
 
   return (
     <section className='section__log-in'>
-      <div className='container__forms u--justify--center'>
+      <div className='container__forms u--justify--center u--align--center'>
         <div className='nav__logo--div   u--align--center'>
           <img src={logo} className='login-logo' alt='logo' />
 
