@@ -87,6 +87,7 @@ link--nav.reset {
   margin-top: 1.6rem;
   cursor: pointer;
   color: #fff;
+  font-size: 1.6rem;
 }
 
 .btn--redirect {
@@ -98,4 +99,13 @@ link--nav.reset {
   font-family: inherit;
   font-weight: 400;
   transition: all 0.3s;
+  font-size: inherit;
+}
+
+.btn--redirect:hover {
+  color: var(--color--accent--shade);
+}
+
+.btn--form-submit:hover {
+  background-color: var(--color--accent--shade);
 }
