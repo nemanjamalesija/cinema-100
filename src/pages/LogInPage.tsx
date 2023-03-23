@@ -167,8 +167,8 @@ const LogInPage = () => {
               Sign up
             </button>
           </div>
-          <div className='login--redirect u--justify--center'>
-            <p className='login--redirect-p'> Or</p>
+          <div className='login--redirect login--redirect-guest u--justify--center'>
+            <p className='login--redirect-p'> Or,</p>
             <button
               className='btn--redirect'
               onClick={signInAnonymouslyHandler}
