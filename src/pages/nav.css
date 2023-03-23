@@ -27,8 +27,25 @@
   text-decoration: none !important;
 }
 
+.nav__right--side {
+  display: flex;
+  gap: 3.2rem;
+}
+
 .welcome--back-heading {
   font-size: 1.6rem;
   letter-spacing: 0.6px;
   color: #fff;
+}
+
+.nav__logout {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.nav--icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: var(--color--shade--primary);
+  cursor: pointer;
 }
