@@ -2,7 +2,7 @@ import logo from '../utils/images/logo.png';
 import { useState } from 'react';
 import { initialize } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
-import { collection, getDocs, doc, setDoc, addDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { useAppContext } from '../context';
 import {
   createUserWithEmailAndPassword,
@@ -10,7 +10,6 @@ import {
   signInAnonymously,
 } from 'firebase/auth';
 import './login.css';
-import BookmarkeredMovies from '../components/BookmarkeredMovies';
 
 const LogInPage = () => {
   const [emailLogIn, setEmailLogIn] = useState('');
