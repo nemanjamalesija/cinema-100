@@ -3,8 +3,12 @@ import logo from '../utils/images/logo.png';
 import { Link } from 'react-router-dom';
 import './nav.css';
 import { useAppContext } from '../context';
+import { signOut } from 'firebase/auth';
+import { initialize } from '../config/firebase';
 
 const Navigation = () => {
+  const { auth } = initialize();
+
   const {
     state: {
       currentUser: { name },
