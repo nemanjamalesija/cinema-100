@@ -29,7 +29,6 @@ const LogInPage = () => {
         <SignInForm
           formToDispay={formToDispay}
           redirectHandler={redirectHandler}
-          logInError={logInError}
           setLogInError={setLogInError}
         />
         <SignUpForm

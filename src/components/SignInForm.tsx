@@ -8,14 +8,12 @@ import { useAppContext } from '../context';
 type signInFormProps = {
   redirectHandler: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   formToDispay: string;
-  logInError: string;
   setLogInError: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const SignInForm = ({
   redirectHandler,
   formToDispay,
-  logInError,
   setLogInError,
 }: signInFormProps) => {
   const { dispatch } = useAppContext();
