@@ -5,15 +5,27 @@ import './nav.css';
 import { useAppContext } from '../context';
 import { signOut } from 'firebase/auth';
 import { initialize } from '../config/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
-  const { auth } = initialize();
-
   const {
     state: {
       currentUser: { name },
     },
   } = useAppContext();
+  const { auth } = initialize();
+  const navigate = useNavigate();
+
+  const signOutHandler = async () => {
+    try {
+      await signOut(auth);
+      alert('Signed out. See you soon!');
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <nav className='nav u--align--center u--justify--space--between'>
       <Link className='link--nav reset new' to='/home'>
@@ -31,7 +43,7 @@ const Navigation = () => {
         </div>
         <div className='nav__logout'>
           <h3 className='heading--tertiary-nav'>Log out</h3>
-          <button className='btn--logout'>
+          <button className='btn--logout' onClick={signOutHandler}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
