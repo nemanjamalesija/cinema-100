@@ -1,4 +1,4 @@
-import { ACTIONS, appState, movies, singleMovie } from './constants/types';
+import { ACTIONS, appState, singleMovie } from './constants/types';
 import { chunk } from './helpers/chunk';
 import { getRandomIndex } from './helpers/getRandomIndex';
 import { doc, updateDoc } from 'firebase/firestore';
