@@ -5,8 +5,21 @@ import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 import LogInPage from './pages/LogInPage';
 import ProtectedRoutes from './components/ProtectedRoutes';
+import { useEffect } from 'react';
+import { useAppContext } from './context';
+import { data } from './constants/data';
 
 function App() {
+  const { dispatch, state } = useAppContext();
+
+  useEffect(() => {
+    dispatch({ type: 'SET_MOVIES', payload: data });
+  }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'HANDLE_FILTERING' });
+  }, [state.filters]);
+
   return (
     <div>
       <BrowserRouter>
