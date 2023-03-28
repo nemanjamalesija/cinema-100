@@ -1,5 +1,5 @@
-An application that lets users browse through the selection of top 100 movies of all time. Features netflix inspired slider, embeds trailers for the movies from youtube, and lets users have their own private movie library by letting add movies to bookmarks.
+An application that lets users browse through the selection of top 100 movies of all time. Features Netflix inspired slider, lets users watch trailers which are embeded from youtube, and lets users have their own private movie library by letting them add movies to their list of bookmakered movies.
 
-Currently working on adding user sign up and log in.
+Application lets users make register and have their own account, as well to log in as guest.
 
 Built with React, Typescript, React Router DOM, Firebase.
