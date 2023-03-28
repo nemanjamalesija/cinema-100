@@ -13,7 +13,7 @@
 .movie-card__image {
   width: 100%;
   aspect-ratio: 12/9;
-  min-height: 21.6rem;
+  min-height: 30rem;
   object-position: center;
   cursor: pointer;
 }
