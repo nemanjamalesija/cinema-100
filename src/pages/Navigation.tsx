@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const {
+    dispatch,
     state: {
       currentUser: { name },
     },
@@ -27,7 +28,11 @@ const Navigation = () => {
 
   return (
     <nav className='nav u--align--center u--justify--space--between'>
-      <Link className='link--nav reset new' to='/home'>
+      <Link
+        className='link--nav reset new'
+        to='/home'
+        onClick={() => dispatch({ type: 'SHOW_HOME_MOVIES' })}
+      >
         <div className='nav__logo--div u--align--center'>
           <img src={logo} className='nav--logo' alt='logo' />
 
