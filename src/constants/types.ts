@@ -1,5 +1,3 @@
-import { initialState } from './initialState';
-
 export type singleMovie = {
   rank: number;
   title: string;
