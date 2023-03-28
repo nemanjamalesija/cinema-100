@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useReducer } from 'react';
-import reducer from './reducer';
+import React, { useContext, useReducer } from 'react';
 import { initialState } from './constants/initialState';
 import { ACTIONS, contextValues } from './constants/types';
+import reducer from './reducer';
 
 const AppContext = React.createContext<contextValues>({
   state: initialState,

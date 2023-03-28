@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../context';
-import './trending.css';
 import TrendingMovieCard from './TrendingMovieCard';
+import './trending.css';
 
 const Trending = () => {
   const [slideTranslateIndex, setslideTranslateIndex] = useState(2);
