@@ -18,8 +18,13 @@ const Home = () => {
   const getCurrentUserCol = async () => {
     const currentUserRef = doc(db, `users/${email}`);
     const currentUserCol = await getDoc(currentUserRef);
-    const { bookmarkeredMovies } = currentUserCol.data() ?? [];
-    console.log(bookmarkeredMovies);
+    const currentUserData = currentUserCol.data() ?? {
+      name: 'Guest',
+      email: 'guest123@gmail.com',
+      bookmarkeredMovies: [],
+    };
+    const bookmarkeredMovies = currentUserData.bookmarkeredMovies;
+
     dispatch({ type: 'ADD_MOVIES_FROM_DATABASE', payload: bookmarkeredMovies });
   };
 
